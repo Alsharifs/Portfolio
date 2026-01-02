@@ -1,6 +1,15 @@
 import streamlit as st
 from PIL import Image
 
+# كود لإخفاء الفوتر (Footer) والقائمة العلوية (اختياري)
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # --- إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
@@ -180,4 +189,5 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
+
 
