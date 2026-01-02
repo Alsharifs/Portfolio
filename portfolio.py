@@ -40,7 +40,7 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
 
 # --- الواجهة الرئيسية ---
-st.title("🚀 Professional Portfolio")
+st.title("Welcome to my portfolio")
 st.markdown("""
 > **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
 > Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
