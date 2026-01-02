@@ -41,7 +41,7 @@ with st.sidebar:
     st.download_button(label="📄 Download Resume", data=PDFbyte, file_name="Sayed_Resume.pdf", mime='application/octet-stream')
 
 # --- الواجهة الرئيسية ---
-st.title("🚀 Professional Portfolio")
+st.title("")
 st.markdown("""
 > **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
 > Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
@@ -70,9 +70,9 @@ with tabs[0]:
     col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2, 1])
     with col_hero_2:
         try:
-            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.jpg", caption="Strategic Data Presentation", use_column_width=True)
+            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Presentation", use_column_width=True)
         except:
-            st.error("Missing Image: Gemini_Generated_Image_tbczcetbczcetbcz.jpg")
+            st.error("me.jpg")
     
     st.divider()
 
@@ -175,4 +175,3 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
-
