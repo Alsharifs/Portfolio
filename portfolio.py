@@ -4,19 +4,52 @@ from PIL import Image
 # --- إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- تنسيق CSS مخصص ---
+# --- تنسيق CSS مخصص (تم التحديث لتحسين التبويبات) ---
 st.markdown("""
 <style>
+    /* 1. تنسيق البطاقات */
     .metric-card { background-color: #f0f2f6; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
     .project-title { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 10px; }
-    /* تحسين شكل الصور لتظهر بحواف دائرية قليلاً */
     img { border-radius: 10px; }
+
+    /* 2. تنسيق التبويبات (Tabs) بشكل جذاب */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px; /* مسافة بين التبويبات */
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        white-space: pre-wrap;
+        background-color: #f9f9f9;
+        border-radius: 10px 10px 0px 0px;
+        gap: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        font-size: 18px; /* تكبير الخط */
+        font-weight: 600; /* جعل الخط سميك */
+        color: #555; /* لون الخط غير النشط */
+    }
+
+    .stTabs [aria-selected="true"] {
+        background-color: #ffffff !important;
+        border-top: 4px solid #007bff !important; /* خط أزرق علوي للتبويب النشط */
+        color: #007bff !important; /* لون الخط للتبويب النشط */
+        font-weight: bold;
+    }
+    
+    /* تأثير عند مرور الماوس */
+    .stTabs [data-baseweb="tab"]:hover {
+        color: #007bff;
+        background-color: #eef4ff;
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
 # --- القائمة الجانبية (Sidebar) ---
 with st.sidebar:
-    # 1. إعادة صورة البروفايل (الجلوس) هنا
     try:
         st.image("me.jpg", caption="Sayed Moustafa", use_column_width=True)
     except:
@@ -41,7 +74,6 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
     
     st.divider()
-    # زر تحميل السيرة الذاتية
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
             PDFbyte = pdf_file.read()
@@ -50,9 +82,9 @@ with st.sidebar:
         pass
 
 # --- الواجهة الرئيسية ---
-st.title("") # ترك العنوان فارغًا للمسافة
+st.title("") 
 
-# === تم تحديث هذا الجزء بالنص الجديد ===
+# --- النص التعريفي ---
 st.markdown("""
 Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
 analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
@@ -62,10 +94,9 @@ reporting workflows, and applying statistical models to identify trends and info
 Specialized in **workforce analytics and operational efficiency**, with strong communication skills to
 effectively convey insights to both technical and non-technical stakeholders.
 """)
-# =======================================
 
 # --- قسم الإحصائيات (Metrics) ---
-st.write("") # مسافة إضافية
+st.write("") 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Experience", "10+ Years", "Telecom & CX")
 col2.metric("Automation Impact", "98% Faster", "10m to 8s")
@@ -74,13 +105,12 @@ col4.metric("Reporting Speed", "+70%", "Scalable DWH")
 
 st.divider()
 
-# --- التبويبات الرئيسية ---
-tabs = st.tabs(["🏆 Featured Projects & Gallery", "💼 Work History", "🎓 Education"])
+# --- التبويبات الرئيسية (تم تكبير الخطوط عبر الـ CSS أعلاه) ---
+tabs = st.tabs(["🏆 Featured Projects", "💼 Work History", "🎓 Education"])
 
 # === التبويب الأول: المشاريع والمعرض ===
 with tabs[0]:
-    
-    # --- 2. الصورة الافتتاحية في المنتصف (صورة الوقوف) ---
+    st.write("") # مسافة جمالية
     st.subheader("📸 Strategic Data Storytelling")
     st.write("Delivering actionable insights through advanced data visualization.")
     
@@ -95,7 +125,7 @@ with tabs[0]:
 
     st.header("Projects & Case Studies")
 
-    # --- المشروع 1: الأتمتة ---
+    # --- المشروع 1 ---
     with st.container():
         c1, c2 = st.columns([1, 1.5])
         with c1:
@@ -114,7 +144,7 @@ with tabs[0]:
     
     st.markdown("---")
 
-    # --- المشروع 2: داشبورد المراقبة ---
+    # --- المشروع 2 ---
     with st.container():
         c1, c2 = st.columns([1.5, 1])
         with c1:
@@ -133,7 +163,7 @@ with tabs[0]:
 
     st.markdown("---")
 
-    # --- المشروع 3: الخريطة ---
+    # --- المشروع 3 ---
     with st.container():
         c1, c2 = st.columns([1, 1.5])
         with c1:
@@ -152,7 +182,7 @@ with tabs[0]:
 
     st.markdown("---")
 
-    # --- المشروع 4: التنبيهات ---
+    # --- المشروع 4 ---
     with st.container():
         c1, c2 = st.columns([1.5, 1])
         with c1:
@@ -170,6 +200,7 @@ with tabs[0]:
 
 # === التبويب الثاني: الخبرة العملية ===
 with tabs[1]:
+    st.write("")
     st.header("Professional Journey")
     st.subheader("🏢 e& UAE (Etisalat)")
     st.markdown("**Workforce Data Analyst** | *06/2021 - Present*")
@@ -185,6 +216,7 @@ with tabs[1]:
 
 # === التبويب الثالث: التعليم ===
 with tabs[2]:
+    st.write("")
     st.header("Education")
     st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt | Graduated: 2012")
     st.write("🟢 **Arabic:** Native | 🔵 **English:** Proficient")
