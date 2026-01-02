@@ -4,7 +4,7 @@ from PIL import Image
 # --- إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- تنسيق CSS مخصص (تم التحديث لتحسين التبويبات) ---
+# --- تنسيق CSS مخصص ---
 st.markdown("""
 <style>
     /* 1. تنسيق البطاقات */
@@ -73,16 +73,32 @@ with st.sidebar:
     st.info("SQL & Data Warehousing")
     st.info("ETL & Automation (VBA)")
     
+    # مسافة فارغة لدفع الزر للأسفل إذا كانت القائمة قصيرة
+    st.write("") 
+    st.write("") 
+    
     st.divider()
+    
+    # === نقل زر التحميل هنا (في نهاية القائمة الجانبية) ===
+    st.markdown("### 📄 Resume")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
             PDFbyte = pdf_file.read()
-        st.download_button(label="📄 Download Resume", data=PDFbyte, file_name="Sayed_Resume.pdf", mime='application/octet-stream')
+        st.download_button(
+            label="Download CV", 
+            data=PDFbyte, 
+            file_name="Sayed Moustafa_Data Analyst & Data Engineer.pdf", 
+            mime='application/octet-stream',
+            use_container_width=True # جعل الزر بعرض القائمة بالكامل
+        )
     except:
-        pass
+        st.error("CV file not found")
 
 # --- الواجهة الرئيسية ---
-st.title("") 
+
+# === 1. إضافة العنوان في المنتصف ===
+st.markdown("<h1 style='text-align: center; color: #333;'>Welcome to my Portfolio</h1>", unsafe_allow_html=True)
+st.write("") # مسافة صغيرة
 
 # --- النص التعريفي ---
 st.markdown("""
@@ -105,12 +121,12 @@ col4.metric("Reporting Speed", "+70%", "Scalable DWH")
 
 st.divider()
 
-# --- التبويبات الرئيسية (تم تكبير الخطوط عبر الـ CSS أعلاه) ---
+# --- التبويبات الرئيسية ---
 tabs = st.tabs(["🏆 Featured Projects", "💼 Work History", "🎓 Education"])
 
 # === التبويب الأول: المشاريع والمعرض ===
 with tabs[0]:
-    st.write("") # مسافة جمالية
+    st.write("") 
     st.subheader("📸 Strategic Data Storytelling")
     st.write("Delivering actionable insights through advanced data visualization.")
     
