@@ -35,10 +35,13 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
     
     st.divider()
-    # زر تحميل السيرة الذاتية (اختياري)
-    with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    st.download_button(label="📄 Download Resume", data=PDFbyte, file_name="Sayed_Resume.pdf", mime='application/octet-stream')
+    # زر تحميل السيرة الذاتية (تأكد من وجود ملف PDF بنفس الاسم)
+    try:
+        with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
+        st.download_button(label="📄 Download Resume", data=PDFbyte, file_name="Sayed_Resume.pdf", mime='application/octet-stream')
+    except:
+        st.warning("Resume file not found")
 
 # --- الواجهة الرئيسية ---
 st.title("")
@@ -62,17 +65,17 @@ tabs = st.tabs(["🏆 Featured Projects & Gallery", "💼 Work History", "🎓 E
 # === التبويب الأول: المشاريع والمعرض ===
 with tabs[0]:
     
-    # --- 1. الصورة الرئيسية (Hero Section) ---
+    # --- 1. الصورة الرئيسية (Hero Section - صورة الوقوف فقط) ---
     st.subheader("📸 Strategic Data Storytelling")
     st.write("Delivering actionable insights through advanced data visualization.")
     
-    # عرض صورة الوقوف فقط في المنتصف أو بعرض مناسب
+    # عرض الصورة في المنتصف
     col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2, 1])
     with col_hero_2:
         try:
-            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Presentation", use_column_width=True)
+            st.image("me.jpg", caption="Strategic Data Presentation", use_column_width=True)
         except:
-            st.error("me.jpg")
+            st.error("Image not found: Gemini_Generated_Image_tbczcetbczcetbcz.png")
     
     st.divider()
 
