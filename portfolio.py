@@ -129,16 +129,16 @@ with tabs[0]:
     with pm1:
         # الصورة الجديدة: العرض التقديمي (واقف)
         try:
-            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.jpg", caption="Strategic Data Storytelling & Presentation", use_column_width=True)
+            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Storytelling & Presentation", use_column_width=True)
         except:
-            st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.jpg")
+            st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.png")
             
     with pm2:
         # الصورة الجديدة: التحليل (جالس)
         try:
-            st.image("Gemini_Generated_Image_t16h26t16h26t16h.jpg", caption="High-Performance Analytics Workstation", use_column_width=True)
+            st.image("Gemini_Generated_Image_t16h26t16h26t16h.png", caption="High-Performance Analytics Workstation", use_column_width=True)
         except:
-            st.error("Missing: Gemini_Generated_Image_t16h26t16h26t16h.jpg")
+            st.error("Missing: Gemini_Generated_Image_t16h26t16h26t16h.png")
 
 # === التبويب الثاني: الخبرة العملية ===
 with tabs[1]:
@@ -164,3 +164,4 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
+
