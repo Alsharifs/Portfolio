@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+from PIL import Image
 
 # --- Page Config ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
@@ -9,12 +9,27 @@ st.markdown("""
 <style>
     .big-font { font-size:20px !important; }
     .metric-card { background-color: #f0f2f6; border-radius: 10px; padding: 20px; text-align: center; }
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        white-space: pre-wrap;
+        background-color: #f0f2f6;
+        border-radius: 5px 5px 0px 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #e6f0ff;
+        border-bottom: 3px solid #007bff;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # --- Sidebar ---
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150) # استبدلها بصورتك
+    st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=150)
     st.title("Sayed Moustafa")
     st.subheader("Data Analyst & Data Engineer")
     st.write("📍 Dubai, UAE")
@@ -48,7 +63,7 @@ col4.metric("Reporting Speed", "+70%", "Scalable DWH")
 st.divider()
 
 # --- Projects Section (Tabs) ---
-tab1, tab2, tab3 = st.tabs(["🏆 Key Projects", "💼 Work History", "🎓 Education"])
+tab1, tab2, tab3, tab4 = st.tabs(["🏆 Key Projects", "📸 Project Gallery", "💼 Work History", "🎓 Education"])
 
 with tab1:
     st.header("Featured Projects")
@@ -79,6 +94,29 @@ with tab1:
         """)
 
 with tab2:
+    st.header("Project Gallery & Dashboards")
+    st.write("A visual showcase of my work in data visualization, dashboarding, and automation.")
+
+    # الصف الأول من الصور
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("image_3.png", caption="Real-time Global Analytics Dashboard", use_column_width=True)
+        st.image("image_0.png", caption="Customizable Agent Performance Alerts", use_column_width=True)
+    with col2:
+        st.image("image_4.png", caption="Live Operations & Incident Map (Dubai)", use_column_width=True)
+        st.image("image_5.png", caption="Live Call Center Metrics & Trends", use_column_width=True)
+
+    st.divider()
+
+    # الصف الثاني من الصور
+    col3, col4 = st.columns(2)
+    with col3:
+        st.image("image_6.png", caption="Multi-Screen Data Engineering Setup", use_column_width=True)
+        st.image("image_2.png", caption="Campaign & Queue Status Reporting", use_column_width=True)
+    with col4:
+        st.image("image_1.png", caption="Automated Queue Status Email System", use_column_width=True)
+
+with tab3:
     st.header("Work Experience")
     st.markdown("### **e& UAE** | Workforce Data Analyst")
     st.caption("Dubai | 06/2021 - Present")
@@ -96,11 +134,11 @@ with tab2:
     st.markdown("### **Orange Egypt** | Data Analyst")
     st.caption("UAE/Egypt | 07/2015 - 02/2019")
 
-with tab3:
+with tab4:
     st.header("Education")
     st.write("**Bachelor's Degree in Languages and Simultaneous Translation**")
     st.write("Egypt | 2012")
 
 # --- Footer ---
 st.markdown("---")
-st.center = st.write("© 2026 Sayed Moustafa | Built with Python & Streamlit", unsafe_allow_html=True)
+st.write("© 2026 Sayed Moustafa | Built with Python & Streamlit")
