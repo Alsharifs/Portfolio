@@ -40,7 +40,7 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
 
 # --- الواجهة الرئيسية ---
-st.title("🚀 Professional Portfolio")
+st.title("")
 st.markdown("""
 > **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
 > Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
@@ -62,7 +62,26 @@ tabs = st.tabs(["🏆 Featured Projects & Gallery", "💼 Work History", "🎓 E
 with tabs[0]:
     st.header("Projects & Case Studies")
 
-    # --- المشروع الأول: الأتمتة ---
+    # --- 1. قسم الصور (تم نقله للأعلى) ---
+    st.subheader("📸 Professional Moments")
+    st.write("A glimpse into my daily workflow: From deep-dive analysis to strategic presentations.")
+    
+    pm1 = st.columns(1)
+    
+    with pm1:
+        # الصورة: العرض التقديمي (واقف)
+        try:
+            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Storytelling & Presentation", use_column_width=True)
+        except:
+            st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.png")
+            
+    
+
+    st.divider()
+    
+    # --- 2. بقية المشاريع (الترتيب القديم) ---
+
+    # --- مشروع الأتمتة ---
     with st.container():
         c1, c2 = st.columns([1, 1.5])
         with c1:
@@ -81,7 +100,7 @@ with tabs[0]:
     
     st.divider()
 
-    # --- المشروع الثاني: داشبورد المراقبة الحية ---
+    # --- مشروع الداشبورد ---
     with st.container():
         c1, c2 = st.columns([1.5, 1])
         with c1:
@@ -100,7 +119,7 @@ with tabs[0]:
 
     st.divider()
 
-    # --- المشروع الثالث والرابع (صف واحد) ---
+    # --- مشاريع إضافية ---
     col3, col4 = st.columns(2)
     with col3:
         st.markdown('<p class="project-title">3. Geographic Operations Map</p>', unsafe_allow_html=True)
@@ -117,28 +136,6 @@ with tabs[0]:
         except:
             st.error("Missing: original-ab8eb52a...")
         st.write("Detailed view of agent performance metrics including Service Levels and Call Rates.")
-
-    st.divider()
-
-    # --- قسم الصور الجديدة (Professional Moments) ---
-    st.subheader("📸 Professional Moments")
-    st.write("A glimpse into my daily workflow: From deep-dive analysis to strategic presentations.")
-    
-    pm1, pm2 = st.columns(2)
-    
-    with pm1:
-        # الصورة الجديدة: العرض التقديمي (واقف)
-        try:
-            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Storytelling & Presentation", use_column_width=True)
-        except:
-            st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.png")
-            
-    with pm2:
-        # الصورة الجديدة: التحليل (جالس)
-        try:
-            st.image("Gemini_Generated_Image_t16h26t16h26t16h.png", caption="High-Performance Analytics Workstation", use_column_width=True)
-        except:
-            st.error("Missing: Gemini_Generated_Image_t16h26t16h26t16h.png")
 
 # === التبويب الثاني: الخبرة العملية ===
 with tabs[1]:
@@ -164,4 +161,3 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
-
