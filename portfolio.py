@@ -13,16 +13,48 @@ st.markdown("""
     .metric-label { font-size: 14px; color: #444; margin-top: 10px; font-weight: 600; }
     .project-title { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 10px; }
     .job-header { color: #007bff; font-size: 22px; font-weight: bold; margin-top: 15px; }
-    .project-card-simple { background-color: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 5px solid #007bff; margin-bottom: 10px; height: 100%; }
+    .project-card-simple { background-color: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 5px solid #007bff; margin-bottom: 10px; }
     img { border-radius: 15px; }
 </style>
 """, unsafe_allow_html=True)
 
-# --- 1. الاسم والمهنة ---
+# --- 1. الشريط الجانبي (Sidebar) - تمت إعادته بالكامل ---
+with st.sidebar:
+    try:
+        st.image("me.jpg", caption="Sayed Moustafa", use_container_width=True)
+    except:
+        st.info("👤 Sayed Moustafa")
+    
+    st.title("Sayed Moustafa")
+    st.markdown("**Senior Data Analyst & Data Engineer**")
+    st.write("📍 Dubai, UAE")
+    st.write("📧 alsharif.me@gmail.com")
+    st.write("📱 +971505634778")
+    
+    st.divider()
+    st.subheader("🌐 LANGUAGES")
+    st.write("• **English:** Proficient")
+    st.write("• **Arabic:** Native")
+    
+    st.divider()
+    st.subheader("📄 Resume")
+    try:
+        with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
+            st.download_button(
+                label="Download CV", 
+                data=pdf_file.read(), 
+                file_name="Sayed_Moustafa_CV.pdf", 
+                mime='application/pdf',
+                use_container_width=True
+            )
+    except:
+        st.error("CV File not found")
+
+# --- 2. الاسم والمهنة في الأعلى (المنتصف) ---
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
 st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
 
-# --- 2. الصورة الرئيسية (صورة الشرح) ---
+# --- 3. الصورة الرئيسية (صورة الشرح) ---
 col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2.5, 1])
 with col_hero_2:
     try:
@@ -30,7 +62,7 @@ with col_hero_2:
     except:
         st.warning("⚠️ Main presentation image not found")
 
-# --- 3. الأرقام المحدثة (التي طلبتها) ---
+# --- 4. الأرقام المحدثة (Metrics) ---
 st.write("")
 m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 
@@ -45,7 +77,7 @@ with m_col4:
 
 st.divider()
 
-# --- 4. الملخص المهني ---
+# --- 5. الملخص المهني ---
 st.subheader("PROFESSIONAL SUMMARY")
 st.write("""
 Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
@@ -57,7 +89,7 @@ Specialized in **workforce analytics and operational efficiency**, with strong c
 effectively convey insights to both technical and non-technical stakeholders.
 """)
 
-# --- 5. قسم المشاريع التقنية الكامل (9 مشاريع) ---
+# --- 6. قسم المشاريع التقنية الكامل (9 مشاريع) ---
 st.header("🚀 Technical Projects")
 
 # المشروع 1
@@ -93,50 +125,53 @@ with c2:
 
 st.markdown("---")
 
-# المشروع 4 & 5 (طريقة عرض مميزة)
+# بقية المشاريع (4-9)
+st.write("### More Key Projects")
 col_p4, col_p5 = st.columns(2)
 with col_p4:
-    st.markdown('<p class="project-title">4. Real-time Monitoring Dashboard</p>', unsafe_allow_html=True)
-    st.write("Developed real-time monitoring and reporting solution for operational efficiency at e&, reducing process duration from **4 minutes to just 6 seconds**.")
+    st.markdown('<div class="project-card-simple"><b>4. Real-time Monitoring Dashboard for e&:</b> Developed real-time monitoring and reporting solution for operational efficiency improvements across multiple departments at e& reducing process duration from 4 minutes to just 6 seconds.</div>', unsafe_allow_html=True)
 with col_p5:
-    st.markdown('<p class="project-title">5. Automated Notification System</p>', unsafe_allow_html=True)
-    st.write("Implemented automatic email notification system for critical information dissemination across **15+ different LOBs**, ensuring timely communication.")
+    st.markdown('<div class="project-card-simple"><b>5. Automated Notification System for e&:</b> Implemented automatic email notification system for critical information dissemination across 15+ different LOBs, ensuring timely communication.</div>', unsafe_allow_html=True)
 
-# المشاريع من 6 إلى 9
-st.write("### Additional Key Projects")
-col_67, col_89 = st.columns(2)
+col_p6, col_p7 = st.columns(2)
+with col_p6:
+    st.markdown('<div class="project-card-simple"><b>6. Dynamic KPI Dashboards:</b> Designed and implemented comprehensive dynamic KPI dashboards using Power BI to track critical performance indicators across various departments at e&.</div>', unsafe_allow_html=True)
+with col_p7:
+    st.markdown('<div class="project-card-simple"><b>7. ETL Data Integration System:</b> Integrated multiple disparate data sources into cohesive datasets using ETL processes, significantly improving overall analytic capabilities.</div>', unsafe_allow_html=True)
 
-with col_67:
-    st.markdown("""<div class="project-card-simple"><b>6. Dynamic KPI Dashboards:</b> Designed and implemented comprehensive Power BI dashboards to track critical performance indicators across various departments at e&.</div>""", unsafe_allow_html=True)
-    st.markdown("""<div class="project-card-simple"><b>7. ETL Data Integration System:</b> Integrated multiple disparate data sources into cohesive datasets using ETL processes, significantly improving analytic capabilities.</div>""", unsafe_allow_html=True)
-
-with col_89:
-    st.markdown("""<div class="project-card-simple"><b>8. Employee Satisfaction (Raya CX):</b> Automated staff schedule swap requests, break management, and offline activity updates to improve employee satisfaction.</div>""", unsafe_allow_html=True)
-    st.markdown("""<div class="project-card-simple"><b>9. Optimized Scheduling Strategies:</b> Developed strategies for the planning team that significantly improved operational efficiency and reduced overall costs.</div>""", unsafe_allow_html=True)
+col_p8, col_p9 = st.columns(2)
+with col_p8:
+    st.markdown('<div class="project-card-simple"><b>8. Employee Satisfaction (Raya CX):</b> Improved employee satisfaction by addressing scheduling concerns and implementing a flexible solution that automated staff schedule swap requests and break management.</div>', unsafe_allow_html=True)
+with col_p9:
+    st.markdown('<div class="project-card-simple"><b>9. Optimized Scheduling Strategies:</b> Developed optimized scheduling strategies for the planning team that significantly improved operational efficiency and reduced overall operational costs.</div>', unsafe_allow_html=True)
 
 st.divider()
 
-# --- 6. التبويبات المتبقية (تاريخ العمل، المهارات، التعليم) ---
+# --- 7. التبويبات المتبقية ---
 tabs = st.tabs(["💼 Work History", "🛠 Technical Skills", "🎓 Education"])
 
 with tabs[0]:
     st.markdown('<p class="job-header">e& UAE - Workforce Data Analyst (06/2021 - Current)</p>', unsafe_allow_html=True)
-    st.write("Analyzing large datasets, KPI dashboards, and data validation. Implemented 15+ LOB notification system.")
+    st.write("- Analyzing large datasets, KPI dashboards, and data validation. Implemented 15+ LOB notification system.")
     st.markdown('<p class="job-header">e& UAE - MIS Analyst (02/2019 - 06/2021)</p>', unsafe_allow_html=True)
-    st.write("MIS reporting, data accuracy, and database optimization.")
+    st.write("- MIS reporting, data accuracy, and database optimization.")
     st.markdown('<p class="job-header">Orange Egypt - Data Analyst (07/2015 - 02/2019)</p>', unsafe_allow_html=True)
-    st.write("Customer trend analysis, strategic data-driven insights, and statistical validation.")
+    st.write("- Customer trend analysis, strategic data-driven insights, and statistical validation.")
     st.markdown('<p class="job-header">Raya CX - Workforce Management Analyst (03/2012 - 07/2015)</p>', unsafe_allow_html=True)
-    st.write("Workforce forecasting, resource optimization, and productivity assessment.")
+    st.write("- Workforce forecasting, resource optimization, and productivity assessment.")
 
 with tabs[1]:
-    col_s1, col_s2 = st.columns(2)
-    with col_s1:
+    col_tech, col_core = st.columns(2)
+    with col_tech:
         st.markdown("**TECHNICAL SKILLS:**")
-        st.write("• SQL & Big Data (DWH, ETL)\n• Python (Analysis, Scraping, Scripting)\n• Power BI & Advanced Excel (VBA)")
-    with col_s2:
+        st.write("• SQL & Big Data (DWH, ETL)")
+        st.write("• Python (Analysis, Scraping, Scripting)")
+        st.write("• Power BI & Advanced Excel (VBA)")
+    with col_core:
         st.markdown("**CORE COMPETENCIES:**")
-        st.write("• Strategic Business Planning\n• Process Optimization\n• Data Visualization & Storytelling")
+        st.write("• Strategic Business Planning")
+        st.write("• Process Optimization")
+        st.write("• Data Visualization & Storytelling")
 
 with tabs[2]:
     st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt • Graduated 07/2012")
