@@ -16,6 +16,12 @@ st.markdown("""
 
 # --- القائمة الجانبية (Sidebar) ---
 with st.sidebar:
+    # 1. إعادة صورة البروفايل (الجلوس) هنا
+    try:
+        st.image("Gemini_Generated_Image_t16h26t16h26t16h.jpg", caption="Sayed Moustafa", use_column_width=True)
+    except:
+        st.warning("Profile Image not found")
+
     st.title("Sayed Moustafa")
     st.markdown("**Senior Data Analyst & Data Engineer**")
     st.write("📍 Dubai, UAE")
@@ -35,16 +41,16 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
     
     st.divider()
-    # زر تحميل السيرة الذاتية (تأكد من وجود ملف PDF بنفس الاسم)
+    # زر تحميل السيرة الذاتية
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
             PDFbyte = pdf_file.read()
         st.download_button(label="📄 Download Resume", data=PDFbyte, file_name="Sayed_Resume.pdf", mime='application/octet-stream')
     except:
-        st.warning("Resume file not found")
+        pass
 
 # --- الواجهة الرئيسية ---
-st.title("")
+st.title("🚀 Professional Portfolio")
 st.markdown("""
 > **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
 > Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
@@ -65,23 +71,22 @@ tabs = st.tabs(["🏆 Featured Projects & Gallery", "💼 Work History", "🎓 E
 # === التبويب الأول: المشاريع والمعرض ===
 with tabs[0]:
     
-    # --- 1. الصورة الرئيسية (Hero Section - صورة الوقوف فقط) ---
+    # --- 2. الصورة الافتتاحية في المنتصف (صورة الوقوف) ---
     st.subheader("📸 Strategic Data Storytelling")
     st.write("Delivering actionable insights through advanced data visualization.")
     
-    # عرض الصورة في المنتصف
     col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2, 1])
     with col_hero_2:
         try:
-            st.image("me.jpg", caption="Strategic Data Presentation", use_column_width=True)
+            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.jpg", caption="Strategic Data Presentation", use_column_width=True)
         except:
-            st.error("Image not found: Gemini_Generated_Image_tbczcetbczcetbcz.png")
+            st.error("Missing Image: Gemini_Generated_Image_tbczcetbczcetbcz.jpg")
     
     st.divider()
 
     st.header("Projects & Case Studies")
 
-    # --- المشروع 1: الأتمتة (مساحة مستقلة) ---
+    # --- المشروع 1: الأتمتة ---
     with st.container():
         c1, c2 = st.columns([1, 1.5])
         with c1:
@@ -100,7 +105,7 @@ with tabs[0]:
     
     st.markdown("---")
 
-    # --- المشروع 2: داشبورد المراقبة (مساحة مستقلة) ---
+    # --- المشروع 2: داشبورد المراقبة ---
     with st.container():
         c1, c2 = st.columns([1.5, 1])
         with c1:
@@ -119,7 +124,7 @@ with tabs[0]:
 
     st.markdown("---")
 
-    # --- المشروع 3: الخريطة (مساحة مستقلة بالكامل) ---
+    # --- المشروع 3: الخريطة ---
     with st.container():
         c1, c2 = st.columns([1, 1.5])
         with c1:
@@ -138,7 +143,7 @@ with tabs[0]:
 
     st.markdown("---")
 
-    # --- المشروع 4: التنبيهات (مساحة مستقلة بالكامل) ---
+    # --- المشروع 4: التنبيهات ---
     with st.container():
         c1, c2 = st.columns([1.5, 1])
         with c1:
