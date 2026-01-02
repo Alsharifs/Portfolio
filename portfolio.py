@@ -63,10 +63,10 @@ with tabs[0]:
     st.header("Projects & Case Studies")
 
     # --- 1. قسم الصور (تم نقله للأعلى) ---
-    st.subheader("📸 Professional Moments")
+    st.subheader("")
     st.write("A glimpse into my daily workflow: From deep-dive analysis to strategic presentations.")
     
-    pm1 = st.columns(1)
+    pm1, pm2 = st.columns(2)
     
     with pm1:
         # الصورة: العرض التقديمي (واقف)
@@ -75,7 +75,12 @@ with tabs[0]:
         except:
             st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.png")
             
-    
+    with pm2:
+        # الصورة: التحليل (جالس)
+        try:
+            st.image("Gemini_Generated_Image_t16h26t16h26t16h.png", caption="High-Performance Analytics Workstation", use_column_width=True)
+        except:
+            st.error("Missing: Gemini_Generated_Image_t16h26t16h26t16h.png")
 
     st.divider()
     
