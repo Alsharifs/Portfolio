@@ -3,52 +3,17 @@ import streamlit as st
 # --- إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- تنسيق CSS مخصص للجماليات ---
+# --- تنسيق CSS مخصص ---
 st.markdown("""
 <style>
-    /* تنسيق الاسم المميز جداً */
-    .hero-name { 
-        text-align: center; 
-        color: #1f1f1f; 
-        font-size: 70px; 
-        font-weight: 900; 
-        margin-bottom: 0px; 
-        letter-spacing: -2px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1); 
-        font-family: 'Arial Black', sans-serif;
-    }
-    
-    .hero-title { 
-        text-align: center; 
-        color: #007bff; 
-        font-size: 28px; 
-        font-weight: 600; 
-        margin-top: -15px; 
-        margin-bottom: 30px;
-        letter-spacing: 1px;
-    }
-
-    /* تنسيق كروت الأرقام المميزة المحدثة */
-    .metric-container {
-        background-color: #ffffff;
-        border-radius: 15px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        border-bottom: 5px solid #007bff;
-        height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+    .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; letter-spacing: -2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-family: 'Arial Black', sans-serif; }
+    .hero-title { text-align: center; color: #007bff; font-size: 28px; font-weight: 600; margin-top: -15px; margin-bottom: 30px; letter-spacing: 1px; }
+    .metric-container { background-color: #ffffff; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-bottom: 5px solid #007bff; height: 180px; display: flex; flex-direction: column; justify-content: center; }
     .metric-value { font-size: 28px; font-weight: bold; color: #007bff; line-height: 1.2; }
     .metric-label { font-size: 15px; color: #444; margin-top: 10px; font-weight: 600; }
-    .metric-sub { font-size: 12px; color: #777; margin-top: 4px; }
-    
     .project-title { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 10px; }
     .job-header { color: #007bff; font-size: 22px; font-weight: bold; margin-top: 15px; }
-    img { border-radius: 15px; transition: transform .3s; }
-    img:hover { transform: scale(1.01); }
+    img { border-radius: 15px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -56,7 +21,7 @@ st.markdown("""
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
 st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
 
-# --- 2. الصورة الرئيسية (صورة الشرح) ---
+# --- 2. الصورة الرئيسية ---
 col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2.5, 1])
 with col_hero_2:
     try:
@@ -64,45 +29,21 @@ with col_hero_2:
     except:
         st.warning("⚠️ Main presentation image not found")
 
-# --- 3. تحديث الأرقام والبيانات الجديدة (Metrics) ---
+# --- 3. الأرقام المحدثة (التعديل المطلوب فقط) ---
 st.write("")
 m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 
 with m_col1:
-    st.markdown("""
-        <div class="metric-container">
-            <div class="metric-value">10+ Years</div>
-            <div class="metric-label">Professional Experience</div>
-            <div class="metric-sub">Telecom & CX Expertise</div>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">10+ Years</div><div class="metric-label">Experience</div></div>', unsafe_allow_html=True)
 
 with m_col2:
-    st.markdown("""
-        <div class="metric-container">
-            <div class="metric-value">24x Faster</div>
-            <div class="metric-label">Recent Automation Impact</div>
-            <div class="metric-sub">From 4 mins to 5 seconds</div>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">98% Faster</div><div class="metric-label">Recent Automation impact on business<br><small>24 times faster, from 4 minutes to 5 seconds</small></div></div>', unsafe_allow_html=True)
 
 with m_col3:
-    st.markdown("""
-        <div class="metric-container">
-            <div class="metric-value">3 Mastered</div>
-            <div class="metric-label">Programming Languages</div>
-            <div class="metric-sub">Python, C#, JavaScript</div>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">3</div><div class="metric-label">Mastered programming languages:<br><small>(Python, C#, JavaScript)</small></div></div>', unsafe_allow_html=True)
 
 with m_col4:
-    st.markdown("""
-        <div class="metric-container">
-            <div class="metric-value">100% Accuracy</div>
-            <div class="metric-label">Big Data Handling</div>
-            <div class="metric-sub">Optimized & Validated Processes</div>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">100%</div><div class="metric-label">Big data handling:<br><small>Accurate & Optimized process</small></div></div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -112,32 +53,41 @@ with st.sidebar:
         st.image("me.jpg", use_container_width=True)
     except:
         pass
-    st.markdown("### Contact Details")
-    st.write("📍 Dubai, UAE | 📧 alsharif.me@gmail.com | 📱 +971505634778")
+    st.write("📍 Dubai, UAE")
+    st.write("📧 alsharif.me@gmail.com")
+    st.write("📱 +971505634778")
+    st.divider()
+    st.subheader("🌐 LANGUAGES")
+    st.write("• **English:** Proficient\n• **Arabic:** Native")
     st.divider()
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
-            st.download_button("📥 Download Resume (PDF)", f, "Sayed_Moustafa_CV.pdf", use_container_width=True)
+            st.download_button("Download CV", f, "Sayed_Moustafa_CV.pdf", use_container_width=True)
     except:
-        st.error("Resume File Not Found")
+        st.error("CV File Not Found")
 
-# --- 4. الملخص المهني والمشاريع (كما هي مع الحفاظ على المحتوى) ---
-st.subheader("📋 PROFESSIONAL SUMMARY")
+# --- 4. الملخص المهني والمشاريع (كاملة بدون أي تغيير) ---
+st.subheader("PROFESSIONAL SUMMARY")
 st.write("""
-Data Analyst with **10+ years of experience** delivering actionable insights through advanced data analysis, data warehousing, and Big Data technologies. Expert in **SQL, Power BI, Python, C#, JavaScript, and VBA**. 
-Specialized in workforce analytics and operational efficiency with a proven track record of reducing process durations by **98%**.
+Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
+analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
+including **e& UAE, Vodafone Egypt, and RAYA CX**. Expert in **SQL, Power BI, Python, Advanced Excel
+(VBA)**, and managing large-scale datasets. Adept at creating interactive dashboards, automating
+reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
+Specialized in **workforce analytics and operational efficiency**, with strong communication skills to
+effectively convey insights to both technical and non-technical stakeholders.
 """)
 
-st.header("🚀 KEY TECHNICAL PROJECTS")
+st.header("🚀 Technical Projects")
 
 # المشروع 1
 c1, c2 = st.columns([1, 1.2])
 with c1:
     st.markdown('<p class="project-title">1. Automation System for LOB Analysis</p>', unsafe_allow_html=True)
-    st.write("تحويل وقت المعالجة من **10 دقائق إلى 8 ثوانٍ** فقط لجميع خطوط العمل في e&.")
+    st.write("Designed and implemented a comprehensive automation system delivering analysis for all Lines of Business at e&, improving forecast accuracy and reducing processing time from **10 minutes to just 8 seconds**.")
 with c2:
     try: st.image("unnamed.jpg", use_container_width=True)
-    except: st.caption("Project Visual: LOB Automation")
+    except: st.caption("Image placeholder")
 
 st.markdown("---")
 
@@ -145,24 +95,32 @@ st.markdown("---")
 c1, c2 = st.columns([1.2, 1])
 with c1:
     try: st.image("unnamed (2).jpg", use_container_width=True)
-    except: st.caption("Project Visual: DWH Architecture")
+    except: st.caption("Image placeholder")
 with c2:
     st.markdown('<p class="project-title">2. Scalable Data Warehouse Integration</p>', unsafe_allow_html=True)
-    st.write("تحسين سرعة التقارير بنسبة **70%** من خلال دمج مصادر بيانات ضخمة ومتعددة.")
+    st.write("Designed and implemented a scalable data warehouse integrating multiple large-scale data sources, improving data accessibility and **reporting speed at e& by 70%**.")
 
-# --- التبويبات المتبقية ---
-tabs = st.tabs(["💼 WORK HISTORY", "🛠 SKILLS", "🎓 EDUCATION"])
+# التبويبات (العمل، المهارات، التعليم)
+tabs = st.tabs(["💼 Work History", "🛠 Skills", "🎓 Education"])
 
 with tabs[0]:
     st.markdown('<p class="job-header">e& UAE - Workforce Data Analyst (06/2021 - Current)</p>', unsafe_allow_html=True)
-    st.write("إدارة وتحليل البيانات الضخمة وتطوير أنظمة تنبيه آلية لـ 15+ خط عمل.")
+    st.write("- Analyzing large datasets, KPI dashboards, and data validation. Implemented 15+ LOB notification system.")
+    st.markdown('<p class="job-header">e& UAE - MIS Analyst (02/2019 - 06/2021)</p>', unsafe_allow_html=True)
+    st.write("- MIS reporting, data accuracy, and database optimization.")
+    st.markdown('<p class="job-header">Orange Egypt - Data Analyst (07/2015 - 02/2019)</p>', unsafe_allow_html=True)
+    st.write("- Customer trend analysis, strategic data-driven insights, and statistical validation.")
+    st.markdown('<p class="job-header">Raya CX - Workforce Management Analyst (03/2012 - 07/2015)</p>', unsafe_allow_html=True)
+    st.write("- Workforce forecasting, resource optimization, and productivity assessment.")
 
 with tabs[1]:
-    st.write("**Technical Stack:** Python, C#, JavaScript, SQL, Power BI, VBA.")
-    st.write("**Expertise:** Big Data Handling, ETL, Process Optimization.")
+    st.markdown("### TECHNICAL SKILLS")
+    st.write("• **SQL & Big Data:** Data Warehouse Design, ETL Processes, Extraction & Manipulation.")
+    st.write("• **Python:** Big data analysis, scripting, and dynamic web scraping.")
+    st.write("• **Power BI & VBA:** Dashboard development and Excel automation.")
 
 with tabs[2]:
-    st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt • Graduated 07/2012")
+    st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt • 07/2012")
 
 st.divider()
-st.markdown("<p style='text-align: center; color: grey;'>Sayed Moustafa | 2026 | Portfolio Created with Python & Streamlit</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Professional Data Portfolio</p>", unsafe_allow_html=True)
