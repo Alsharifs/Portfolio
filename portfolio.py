@@ -1,15 +1,6 @@
 import streamlit as st
 from PIL import Image
 
-# كود لإخفاء الفوتر (Footer) والقائمة العلوية (اختياري)
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 # --- إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
@@ -25,10 +16,10 @@ st.markdown("""
 # --- القائمة الجانبية (Sidebar) ---
 with st.sidebar:
     try:
-        # استخدام الصورة الشخصية التي اخترتها (الشخص أمام الشاشات)
+        # الصورة الشخصية (الجالس أمام الشاشات)
         st.image("me.jpg", caption="Sayed Moustafa", use_column_width=True)
     except:
-        st.warning("⚠️ يرجى التأكد من وجود صورة البروفايل في المجلد")
+        st.warning("⚠️ صورة البروفايل غير موجودة")
 
     st.title("Sayed Moustafa")
     st.markdown("**Senior Data Analyst & Data Engineer**")
@@ -49,7 +40,7 @@ with st.sidebar:
     st.info("ETL & Automation (VBA)")
 
 # --- الواجهة الرئيسية ---
-st.title("Welcome to my portfolio")
+st.title("🚀 Professional Portfolio")
 st.markdown("""
 > **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
 > Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
@@ -65,9 +56,9 @@ col4.metric("Reporting Speed", "+70%", "Scalable DWH")
 st.divider()
 
 # --- التبويبات الرئيسية ---
-tabs = st.tabs(["🏆 Featured Projects", "💼 Work History", "🎓 Education"])
+tabs = st.tabs(["🏆 Featured Projects & Gallery", "💼 Work History", "🎓 Education"])
 
-# === التبويب الأول: المشاريع (مع الصور المخصصة) ===
+# === التبويب الأول: المشاريع والمعرض ===
 with tabs[0]:
     st.header("Projects & Case Studies")
 
@@ -78,17 +69,15 @@ with tabs[0]:
             st.markdown('<p class="project-title">1. Automated Queue Status System</p>', unsafe_allow_html=True)
             st.write("""
             **The Challenge:** Manual monitoring of queue statuses and sending notifications was time-consuming.
-            
-            **The Solution:** - Developed a Python-based automation system.
-            - Automatically triggers emails based on specific wait-time thresholds.
-            - **Result:** Reduced processing time from **10 minutes to 8 seconds**.
+            **The Solution:** Developed a Python-based automation system triggering emails based on wait-time thresholds.
+            **Result:** Reduced processing time from **10m to 8s**.
             """)
             st.caption("Tools: Python, SMTP Lib, Pandas")
         with c2:
             try:
                 st.image("unnamed.jpg", caption="Automated Email Notification System Logic", use_column_width=True)
             except:
-                st.error("Image not found: unnamed.jpg")
+                st.error("Missing: unnamed.jpg")
     
     st.divider()
 
@@ -99,95 +88,79 @@ with tabs[0]:
             try:
                 st.image("unnamed (2).jpg", caption="Real-time Operations Dashboard", use_column_width=True)
             except:
-                st.error("Image not found: unnamed (2).jpg")
+                st.error("Missing: unnamed (2).jpg")
         with c2:
             st.markdown('<p class="project-title">2. Real-time Monitoring Dashboard</p>', unsafe_allow_html=True)
             st.write("""
             **Overview:** A dark-themed, high-contrast dashboard designed for NOC/Operations centers.
-            
-            **Key Features:**
-            - Live tracking of Agent Status (Available, On Call).
-            - Visualizing Average Handle Time (AHT) trends.
-            - **Impact:** Reduced issue detection time from 4 minutes to **6 seconds**.
+            **Key Features:** Live tracking of Agent Status, AHT trends.
+            **Impact:** Reduced issue detection time to **6 seconds**.
             """)
             st.caption("Tools: Power BI, SQL, Real-time Streaming")
 
     st.divider()
 
-    # --- المشروع الثالث: الخرائط والعمليات الميدانية ---
-    with st.container():
-        c1, c2 = st.columns([1, 1.5])
-        with c1:
-            st.markdown('<p class="project-title">3. Geographic Operations Map</p>', unsafe_allow_html=True)
-            st.write("""
-            **Overview:** Visualizing incident reports and agent availability across Dubai & UAE.
-            
-            **Highlights:**
-            - Integration with Google Maps API.
-            - Live traffic and incident overlay.
-            - Enables faster dispatching of field resources.
-            """)
-        with c2:
-            try:
-                st.image("unnamed (1).jpg", caption="Live Geo-Spatial Dashboard", use_column_width=True)
-            except:
-                st.error("Image not found: unnamed (1).jpg")
+    # --- المشروع الثالث والرابع (صف واحد) ---
+    col3, col4 = st.columns(2)
+    with col3:
+        st.markdown('<p class="project-title">3. Geographic Operations Map</p>', unsafe_allow_html=True)
+        try:
+            st.image("unnamed (1).jpg", caption="Live Geo-Spatial Dashboard", use_column_width=True)
+        except:
+            st.error("Missing: unnamed (1).jpg")
+        st.write("Visualizing incident reports and agent availability across Dubai & UAE via Google Maps API.")
 
-    st.divider()
-
-    # --- المشروع الرابع: تحليلات الأداء ---
-    with st.container():
+    with col4:
         st.markdown('<p class="project-title">4. Agent Performance & Alerts</p>', unsafe_allow_html=True)
         try:
             st.image("original-ab8eb52a96cd9281450c721086176260.webp", caption="Comprehensive Performance Metrics", use_column_width=True)
         except:
-            st.error("Image not found: original-ab8eb52a...")
-        st.write("""
-        **Description:** A detailed view of agent performance metrics including Service Levels, Call Rates, and Customer Satisfaction scores.
-        Used for weekly performance reviews and spotting training needs.
-        """)
+            st.error("Missing: original-ab8eb52a...")
+        st.write("Detailed view of agent performance metrics including Service Levels and Call Rates.")
+
+    st.divider()
+
+    # --- قسم الصور الجديدة (Professional Moments) ---
+    st.subheader("📸 Professional Moments")
+    st.write("A glimpse into my daily workflow: From deep-dive analysis to strategic presentations.")
+    
+    pm1, pm2 = st.columns(2)
+    
+    with pm1:
+        # الصورة الجديدة: العرض التقديمي (واقف)
+        try:
+            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.jpg", caption="Strategic Data Storytelling & Presentation", use_column_width=True)
+        except:
+            st.error("Missing: Gemini_Generated_Image_tbczcetbczcetbcz.jpg")
+            
+    with pm2:
+        # الصورة الجديدة: التحليل (جالس)
+        try:
+            st.image("Gemini_Generated_Image_t16h26t16h26t16h.jpg", caption="High-Performance Analytics Workstation", use_column_width=True)
+        except:
+            st.error("Missing: Gemini_Generated_Image_t16h26t16h26t16h.jpg")
 
 # === التبويب الثاني: الخبرة العملية ===
 with tabs[1]:
     st.header("Professional Journey")
-    
     st.subheader("🏢 e& UAE (Etisalat)")
     st.markdown("**Workforce Data Analyst** | *06/2021 - Present*")
-    st.markdown("""
-    - Analyzed large datasets to identify trends and provide actionable insights.
-    - Implemented automatic email notification system for 15+ LOBs.
-    - Maintained dashboards ensuring 100% data accuracy.
-    """)
-    
+    st.write("- Analyzed large datasets to identify trends and provide actionable insights.")
+    st.write("- Implemented automatic email notification system for 15+ LOBs.")
     st.markdown("---")
-    
     st.subheader("🏢 e& UAE (Etisalat)")
     st.markdown("**MIS Analyst** | *02/2019 - 06/2021*")
-    st.markdown("""
-    - Designed and optimized databases and Data Warehouses.
-    - Supported business decisions with regular reports.
-    """)
-    
+    st.write("- Designed and optimized databases and Data Warehouses.")
     st.markdown("---")
-    
     st.subheader("🏢 Orange Egypt")
     st.markdown("**Data Analyst** | *07/2015 - 02/2019*")
-    st.markdown("- Analyzed customer data to improve satisfaction and retention.")
 
 # === التبويب الثالث: التعليم ===
 with tabs[2]:
     st.header("Education")
-    st.success("""
-    **Bachelor's Degree in Languages and Simultaneous Translation**
-    \nEgypt | Graduated: 2012
-    """)
-    
-    st.subheader("Languages")
-    st.write("🟢 **Arabic:** Native")
-    st.write("🔵 **English:** Proficient")
+    st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt | Graduated: 2012")
+    st.write("🟢 **Arabic:** Native | 🔵 **English:** Proficient")
 
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
-
-
