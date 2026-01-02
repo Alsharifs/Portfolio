@@ -50,13 +50,22 @@ with st.sidebar:
         pass
 
 # --- الواجهة الرئيسية ---
-st.title("")
+st.title("") # ترك العنوان فارغًا للمسافة
+
+# === تم تحديث هذا الجزء بالنص الجديد ===
 st.markdown("""
-> **10+ Years of Experience** in bridging the gap between raw data and strategic decision-making.  
-> Proven track record at **e& UAE, Vodafone Egypt, and RAYA CX**.
+Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
+analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
+including **e& UAE, Vodafone Egypt, and RAYA CX**. Expert in **SQL, Power BI, Python, Advanced Excel
+(VBA)**, and managing large-scale datasets. Adept at creating interactive dashboards, automating
+reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
+Specialized in **workforce analytics and operational efficiency**, with strong communication skills to
+effectively convey insights to both technical and non-technical stakeholders.
 """)
+# =======================================
 
 # --- قسم الإحصائيات (Metrics) ---
+st.write("") # مسافة إضافية
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Experience", "10+ Years", "Telecom & CX")
 col2.metric("Automation Impact", "98% Faster", "10m to 8s")
@@ -183,4 +192,3 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
-
