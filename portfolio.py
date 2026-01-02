@@ -102,7 +102,7 @@ m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 with m_col1:
     st.markdown('<div class="metric-container"><div class="metric-value">10+ Years</div><div class="metric-label">Experience</div></div>', unsafe_allow_html=True)
 with m_col2:
-    st.markdown('<div class="metric-container"><div class="metric-value">98% Faster</div><div class="metric-label">Recent Automation impact on business<br><small>24 times faster, from 4 minutes to 5 seconds</small></div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">24 Faster</div><div class="metric-label">Recent Automation impact on business<br><small>24 times faster, from 4 minutes to 5 seconds</small></div></div>', unsafe_allow_html=True)
 with m_col3:
     st.markdown('<div class="metric-container"><div class="metric-value">3 programming languages</div><div class="metric-label">Mastered 3 programming languages :<br><small>(Python, C#, JavaScript)</small></div></div>', unsafe_allow_html=True)
 with m_col4:
@@ -205,4 +205,5 @@ with tabs[2]:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Streamlit</p>", unsafe_allow_html=True)
+
 
