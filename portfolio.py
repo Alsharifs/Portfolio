@@ -7,236 +7,160 @@ st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", la
 # --- تنسيق CSS مخصص ---
 st.markdown("""
 <style>
-    /* 1. تنسيق البطاقات */
-    .metric-card { background-color: #f0f2f6; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
-    .project-title { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 10px; }
-    img { border-radius: 10px; }
-
-    /* 2. تنسيق التبويبات (Tabs) بشكل جذاب */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 10px; /* مسافة بين التبويبات */
-    }
-
+    .main { background-color: #f8f9fa; }
+    .stTabs [data-baseweb="tab-list"] { gap: 8px; }
     .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        white-space: pre-wrap;
-        background-color: #f9f9f9;
-        border-radius: 10px 10px 0px 0px;
-        gap: 1px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border: 1px solid #ddd;
-        border-bottom: none;
-        font-size: 18px; /* تكبير الخط */
-        font-weight: 600; /* جعل الخط سميك */
-        color: #555; /* لون الخط غير النشط */
+        height: 50px; white-space: pre-wrap; background-color: #f1f3f5;
+        border-radius: 10px 10px 0px 0px; font-size: 16px; font-weight: 600; color: #495057;
     }
-
     .stTabs [aria-selected="true"] {
-        background-color: #ffffff !important;
-        border-top: 4px solid #007bff !important; /* خط أزرق علوي للتبويب النشط */
-        color: #007bff !important; /* لون الخط للتبويب النشط */
-        font-weight: bold;
+        background-color: #ffffff !important; border-top: 4px solid #007bff !important; color: #007bff !important;
     }
-    
-    /* تأثير عند مرور الماوس */
-    .stTabs [data-baseweb="tab"]:hover {
-        color: #007bff;
-        background-color: #eef4ff;
+    .skill-tag {
+        display: inline-block; padding: 4px 12px; margin: 4px;
+        background-color: #e9ecef; border-left: 3px solid #007bff;
+        border-radius: 4px; font-size: 14px; font-weight: 500;
     }
-
+    .project-card {
+        background-color: white; padding: 20px; border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 15px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # --- القائمة الجانبية (Sidebar) ---
 with st.sidebar:
     try:
-        st.image("me.jpg", caption="Sayed Moustafa", use_column_width=True)
+        st.image("me.jpg", caption="Sayed Moustafa", use_container_width=True)
     except:
-        st.warning("Profile Image not found")
-
+        st.info("👤 Sayed Moustafa")
+    
     st.title("Sayed Moustafa")
-    st.markdown("**Senior Data Analyst & Data Engineer**")
     st.write("📍 Dubai, UAE")
-    
-    st.divider()
-    
-    st.subheader("📞 Contact Info")
     st.write("📧 alsharif.me@gmail.com")
     st.write("📱 +971505634778")
     
     st.divider()
-    
-    st.subheader("🛠 Technical Skills")
-    st.info("Python (Big Data, Scraping)")
-    st.info("Power BI & Tableau")
-    st.info("SQL & Data Warehousing")
-    st.info("ETL & Automation (VBA)")
-    
-    # مسافة فارغة لدفع الزر للأسفل إذا كانت القائمة قصيرة
-    st.write("") 
-    st.write("") 
+    st.subheader("🌐 Languages")
+    st.write("• **Arabic:** Native")
+    st.write("• **English:** Proficient")
     
     st.divider()
-    
-    # === نقل زر التحميل هنا (في نهاية القائمة الجانبية) ===
-    st.markdown("### 📄 Resume")
+    st.subheader("📄 Resume")
     try:
-        with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
-            PDFbyte = pdf_file.read()
-        st.download_button(
-            label="Download CV", 
-            data=PDFbyte, 
-            file_name="Sayed Moustafa_Data Analyst & Data Engineer.pdf", 
-            mime='application/octet-stream',
-            use_container_width=True # جعل الزر بعرض القائمة بالكامل
-        )
+        with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
+            st.download_button("Download Full CV", f, "Sayed_Moustafa_CV.pdf", "application/pdf", use_container_width=True)
     except:
-        st.error("CV file not found")
+        st.caption("PDF file not found for download.")
 
-# --- الواجهة الرئيسية ---
-
-# === 1. إضافة العنوان في المنتصف ===
-st.markdown("<h1 style='text-align: center; color: #333;'>Welcome to my Portfolio</h1>", unsafe_allow_html=True)
-st.write("") # مسافة صغيرة
-
-# --- النص التعريفي ---
-st.markdown("""
-Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
-analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
-including **e& UAE, Vodafone Egypt, and RAYA CX**. Expert in **SQL, Power BI, Python, Advanced Excel
-(VBA)**, and managing large-scale datasets. Adept at creating interactive dashboards, automating
-reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
-Specialized in **workforce analytics and operational efficiency**, with strong communication skills to
-effectively convey insights to both technical and non-technical stakeholders.
+# --- العنوان الرئيسي والملخص المهني ---
+st.title("Senior Data Analyst & Data Engineer")
+st.subheader("Professional Summary")
+st.info("""
+Data Analyst with **10+ years of experience** delivering actionable insights through advanced data analysis, data warehousing, and Big Data technologies. Proven track record at top organizations including **e& UAE, Vodafone Egypt, and RAYA CX**. Expert in **SQL, Power BI, Python, Advanced Excel (VBA)**, and managing large-scale datasets. Adept at creating interactive dashboards, automating reporting workflows, and applying statistical models to identify trends and inform strategic decisions. Specialized in **workforce analytics and operational efficiency**, with strong communication skills to effectively convey insights to both technical and non-technical stakeholders.
 """)
 
-# --- قسم الإحصائيات (Metrics) ---
-st.write("") 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Experience", "10+ Years", "Telecom & CX")
-col2.metric("Automation Impact", "98% Faster", "10m to 8s")
-col3.metric("Data Accuracy", "100%", "Validation Checks")
-col4.metric("Reporting Speed", "+70%", "Scalable DWH")
+# --- التبويبات ---
+tabs = st.tabs(["🛠 Skills & Competencies", "💼 Work History", "🚀 Technical Projects", "🎓 Education"])
 
-st.divider()
-
-# --- التبويبات الرئيسية ---
-tabs = st.tabs(["🏆 Featured Projects", "💼 Work History", "🎓 Education"])
-
-# === التبويب الأول: المشاريع والمعرض ===
+# --- التبويب الأول: المهارات والكفاءات ---
 with tabs[0]:
-    st.write("") 
-    st.subheader("📸 Strategic Data Storytelling")
-    st.write("Delivering actionable insights through advanced data visualization.")
-    
-    col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2, 1])
-    with col_hero_2:
-        try:
-            st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", caption="Strategic Data Presentation", use_column_width=True)
-        except:
-            st.error("Missing Image: Gemini_Generated_Image_tbczcetbczcetbcz.png")
-    
-    st.divider()
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("### 🛠 Technical Skills")
+        skills = {
+            "Programming": "Python (Big data analysis, scripting, dynamic web scraping)",
+            "Business Intelligence": "Power BI expertise, Dashboard development, Real-time visualization",
+            "Big Data & DWH": "Data Warehouse Design, ETL Processes, Data Integration, Large-scale Datasets",
+            "Data Analysis": "Statistical modeling, Trend identification, KPI development, Data validation",
+            "Database": "SQL (extraction, manipulation), ETL integration",
+            "Software": "Advanced Excel with VBA for automation",
+            "Reporting": "Automated workflows, Performance visualization, Real-time monitoring",
+            "Soft Skills": "Data storytelling, Cross-functional collaboration, Strategic analysis"
+        }
+        for category, desc in skills.items():
+            st.markdown(f"**{category}:** {desc}")
 
-    st.header("Projects & Case Studies")
+    with col2:
+        st.markdown("### 🎯 Core Competencies")
+        core_comp = [
+            "SQL big data extraction", "Data Warehouse Design", "Big Data Analytics", 
+            "Power BI development", "Python scripting", "VBA automation", 
+            "Statistical validation", "Strategic analysis", "Data storytelling",
+            "Process optimization", "Cross-functional collaboration", "ETL processes"
+        ]
+        for comp in core_comp:
+            st.markdown(f'<span class="skill-tag">{comp}</span>', unsafe_allow_html=True)
 
-    # --- المشروع 1 ---
-    with st.container():
-        c1, c2 = st.columns([1, 1.5])
-        with c1:
-            st.markdown('<p class="project-title">1. Automated Queue Status System</p>', unsafe_allow_html=True)
-            st.write("""
-            **The Challenge:** Manual monitoring of queue statuses was inefficient.
-            **The Solution:** Python automation triggering emails based on wait-time thresholds.
-            **Result:** Process time reduced from **10m to 8s**.
-            """)
-            st.caption("Tools: Python, SMTP Lib, Pandas")
-        with c2:
-            try:
-                st.image("unnamed.jpg", caption="Automated Email Notification System", use_column_width=True)
-            except:
-                st.error("Missing: unnamed.jpg")
-    
-    st.markdown("---")
-
-    # --- المشروع 2 ---
-    with st.container():
-        c1, c2 = st.columns([1.5, 1])
-        with c1:
-            try:
-                st.image("unnamed (2).jpg", caption="Real-time Operations Dashboard", use_column_width=True)
-            except:
-                st.error("Missing: unnamed (2).jpg")
-        with c2:
-            st.markdown('<p class="project-title">2. Real-time Monitoring Dashboard</p>', unsafe_allow_html=True)
-            st.write("""
-            **Overview:** Dark-themed dashboard for NOC/Operations.
-            **Key Features:** Live tracking of Agent Status & AHT.
-            **Impact:** Issue detection in **6 seconds**.
-            """)
-            st.caption("Tools: Power BI, SQL, Real-time Streaming")
-
-    st.markdown("---")
-
-    # --- المشروع 3 ---
-    with st.container():
-        c1, c2 = st.columns([1, 1.5])
-        with c1:
-            st.markdown('<p class="project-title">3. Geographic Operations Map</p>', unsafe_allow_html=True)
-            st.write("""
-            **Overview:** A Geo-Spatial Dashboard integrating with Google Maps API.
-            **Function:** Visualizes incident reports and agent availability across Dubai & UAE in real-time.
-            **Benefit:** Enables faster dispatching of field resources based on location proximity.
-            """)
-            st.caption("Tools: Google Maps API, Python, Plotly")
-        with c2:
-            try:
-                st.image("unnamed (1).jpg", caption="Live Geo-Spatial Dashboard", use_column_width=True)
-            except:
-                st.error("Missing: unnamed (1).jpg")
-
-    st.markdown("---")
-
-    # --- المشروع 4 ---
-    with st.container():
-        c1, c2 = st.columns([1.5, 1])
-        with c1:
-            try:
-                st.image("original-ab8eb52a96cd9281450c721086176260.webp", caption="Comprehensive Performance Metrics", use_column_width=True)
-            except:
-                st.error("Missing: original-ab8eb52a...")
-        with c2:
-            st.markdown('<p class="project-title">4. Agent Performance & Alerts</p>', unsafe_allow_html=True)
-            st.write("""
-            **Description:** Detailed analytics for agent performance including Service Levels, Call Rates, and CSAT scores.
-            **Usage:** Used for weekly performance reviews to spot training needs and outlier patterns.
-            """)
-            st.caption("Tools: Power BI, DAX, SQL")
-
-# === التبويب الثاني: الخبرة العملية ===
+# --- التبويب الثاني: الخبرة العملية ---
 with tabs[1]:
-    st.write("")
-    st.header("Professional Journey")
-    st.subheader("🏢 e& UAE (Etisalat)")
-    st.markdown("**Workforce Data Analyst** | *06/2021 - Present*")
-    st.write("- Analyzing large datasets to identify trends and provide actionable insights.")
-    st.write("- Implemented automatic email notification system for 15+ LOBs.")
-    st.markdown("---")
-    st.subheader("🏢 e& UAE (Etisalat)")
-    st.markdown("**MIS Analyst** | *02/2019 - 06/2021*")
-    st.write("- Designed and optimized databases and Data Warehouses.")
-    st.markdown("---")
-    st.subheader("🏢 Orange Egypt")
-    st.markdown("**Data Analyst** | *07/2015 - 02/2019*")
+    st.markdown("### Work History")
+    
+    # Job 1
+    with st.expander("🏢 e& UAE - Workforce Data Analyst | Dubai (06/2021 - Current)", expanded=True):
+        st.write("""
+        * Analyzing large datasets to identify trends and provide actionable insights for business strategies.
+        * Developing and maintaining dashboards and reports to track key performance indicators (KPIs).
+        * Collaborating with cross-functional teams to enhance data quality and streamline reporting processes.
+        * Conducting data validation and integrity checks to ensure 100% accuracy and reliability of reports.
+        * **Implemented automatic email notification system** to disseminate critical information across 15+ different LOBs within seconds, ensuring timely communication and responsiveness.
+        * Designed and implemented comprehensive dynamic KPI dashboards using Power BI to track critical performance indicators across various departments.
+        """)
 
-# === التبويب الثالث: التعليم ===
+    # Job 2
+    with st.expander("🏢 e& UAE - MIS Analyst | Dubai (02/2019 - 06/2021)"):
+        st.write("""
+        * Analyze data to support business decisions and generate regular reports and dashboards.
+        * Ensure data accuracy, consistency.
+        * Develop customized reporting tools.
+        * Design, maintain, and optimize databases and data warehouses.
+        """)
+
+    # Job 3
+    with st.expander("🏢 Orange Egypt - Data Analyst | UAE/Egypt (07/2015 - 02/2019)"):
+        st.write("""
+        * Analyzing customer data to identify trends and patterns, providing insights to improve customer satisfaction and retention.
+        * Developed and maintained dashboards and reports to track key performance indicators (KPIs) and business metrics.
+        * Worked closely with cross-functional teams to implement data-driven strategies and improve business processes.
+        * Provided ad-hoc analytical support to various departments to solve complex business challenges.
+        * Conducting data validation and integrity checks to ensure 100% accuracy and reliability of reports.
+        * Applied statistical methods and techniques to validate findings and ensure data accuracy.
+        """)
+
+    # Job 4
+    with st.expander("🏢 Raya CX - Workforce Management Analyst | Egypt (03/2012 - 07/2015)"):
+        st.write("""
+        * Analyzing workforce data to forecast staffing needs and optimize resource allocation.
+        * Creating and maintaining performance metrics to assess workforce productivity.
+        * Collaborating with management to implement training and development programs based on data insights.
+        * Assisting in the development of business continuity plans to ensure service delivery during peak periods.
+        * Applied data-driven approaches to workforce planning and resource optimization.
+        """)
+
+# --- التبويب الثالث: المشاريع التقنية ---
 with tabs[2]:
-    st.write("")
-    st.header("Education")
-    st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt | Graduated: 2012")
-    st.write("🟢 **Arabic:** Native | 🔵 **English:** Proficient")
+    st.markdown("### Key Technical Projects")
+    projects = [
+        ("🚀 Automation System for LOB Analysis", "Designed and implemented a comprehensive automation system delivering analysis for all Lines of Business at e&, improving forecast accuracy and reducing processing time from **10 minutes to just 8 seconds**."),
+        ("🏗️ Scalable Data Warehouse", "Designed and implemented a scalable data warehouse integrating multiple large-scale data sources, improving data accessibility and **reporting speed at e& by 70%**."),
+        ("📊 Big Data Analytics Implementation", "Applied Big Data analytics techniques to uncover insights from massive datasets, enabling strategic decisions across multiple departments."),
+        ("⏱️ Real-time Monitoring Dashboard", "Developed real-time monitoring and reporting solution for operational efficiency at e& reducing process duration from **4 minutes to just 6 seconds**."),
+        ("📧 Automated Notification System", "Implemented automatic email notification system for critical information dissemination across 15+ different LOBs."),
+        ("📈 Dynamic KPI Dashboards", "Designed and implemented comprehensive dynamic KPI dashboards using Power BI to track critical performance indicators across various departments at e&."),
+        ("🔗 ETL Data Integration System", "Integrated multiple disparate data sources into cohesive datasets using ETL processes, significantly improving analytic capabilities."),
+        ("🤝 Employee Satisfaction (Raya CX)", "Automated staff schedule swap requests, break management, and offline activity updates to improve employee satisfaction."),
+        ("📉 Optimized Scheduling Strategies", "Developed strategies for the planning team that significantly improved operational efficiency and reduced overall costs.")
+    ]
+    
+    for title, detail in projects:
+        st.markdown(f"""<div class="project-card"><b>{title}</b><br><small>{detail}</small></div>""", unsafe_allow_html=True)
+
+# --- التبويب الرابع: التعليم ---
+with tabs[3]:
+    st.markdown("### Education")
+    st.success("**Bachelor's Degree in Languages and Simultaneous Translation**")
+    st.write("Egypt | Graduated: 07/2012")
 
 # --- Footer ---
-st.markdown("---")
-st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
+st.divider()
+st.markdown("<center>© 2026 Sayed Moustafa | Professional Portfolio</center>", unsafe_allow_html=True)
