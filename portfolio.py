@@ -17,7 +17,7 @@ st.markdown("""
 with st.sidebar:
     try:
         # استخدام الصورة الشخصية التي اخترتها (الشخص أمام الشاشات)
-        st.image("Gemini_Generated_Image_t16h26t16h26t16h.jpg", caption="Sayed Moustafa", use_column_width=True)
+        st.image("me.jpg", caption="Sayed Moustafa", use_column_width=True)
     except:
         st.warning("⚠️ يرجى التأكد من وجود صورة البروفايل في المجلد")
 
@@ -180,3 +180,4 @@ with tabs[2]:
 # --- Footer ---
 st.markdown("---")
 st.center = st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Python & Streamlit</p>", unsafe_allow_html=True)
+
