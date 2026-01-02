@@ -6,11 +6,44 @@ st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", la
 # --- تنسيق CSS مخصص ---
 st.markdown("""
 <style>
-    .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; letter-spacing: -2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-family: 'Arial Black', sans-serif; }
-    .hero-title { text-align: center; color: #007bff; font-size: 28px; font-weight: 600; margin-top: -15px; margin-bottom: 30px; letter-spacing: 1px; }
-    .metric-container { background-color: #ffffff; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-bottom: 5px solid #007bff; height: 180px; display: flex; flex-direction: column; justify-content: center; }
+    /* تنسيق الاسم الضخم في المنتصف */
+    .hero-name { 
+        text-align: center; 
+        color: #1f1f1f; 
+        font-size: 70px; 
+        font-weight: 900; 
+        margin-bottom: 0px; 
+        letter-spacing: -2px; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1); 
+        font-family: 'Arial Black', sans-serif; 
+    }
+    .hero-title { 
+        text-align: center; 
+        color: #007bff; 
+        font-size: 28px; 
+        font-weight: 600; 
+        margin-top: -15px; 
+        margin-bottom: 30px; 
+        letter-spacing: 1px; 
+    }
+    
+    /* تنسيق كروت الأرقام */
+    .metric-container { 
+        background-color: #ffffff; 
+        border-radius: 15px; 
+        padding: 20px; 
+        text-align: center; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+        border-bottom: 5px solid #007bff; 
+        height: 180px; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+    }
     .metric-value { font-size: 26px; font-weight: bold; color: #007bff; line-height: 1.2; }
     .metric-label { font-size: 14px; color: #444; margin-top: 10px; font-weight: 600; }
+    
+    /* تنسيق المشاريع */
     .project-title { color: #007bff; font-weight: bold; font-size: 24px; margin-bottom: 10px; }
     .job-header { color: #007bff; font-size: 22px; font-weight: bold; margin-top: 15px; }
     .project-card-simple { background-color: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 5px solid #007bff; margin-bottom: 10px; }
@@ -18,15 +51,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# --- 1. الشريط الجانبي (Sidebar) - تمت إعادته بالكامل ---
+# --- 1. القائمة الجانبية (Sidebar) - نسخة منقحة ---
 with st.sidebar:
     try:
-        st.image("me.jpg", caption="Sayed Moustafa", use_container_width=True)
+        st.image("me.jpg", use_container_width=True)
     except:
-        st.info("👤 Sayed Moustafa")
+        pass
     
-    st.title("Sayed Moustafa")
-    st.markdown("**Senior Data Analyst & Data Engineer**")
+    st.divider()
+    st.subheader("📞 CONTACT INFO")
     st.write("📍 Dubai, UAE")
     st.write("📧 alsharif.me@gmail.com")
     st.write("📱 +971505634778")
@@ -37,7 +70,7 @@ with st.sidebar:
     st.write("• **Arabic:** Native")
     
     st.divider()
-    st.subheader("📄 Resume")
+    st.subheader("📄 RESUME")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as pdf_file:
             st.download_button(
@@ -50,11 +83,11 @@ with st.sidebar:
     except:
         st.error("CV File not found")
 
-# --- 2. الاسم والمهنة في الأعلى (المنتصف) ---
+# --- 2. الاسم والمهنة في قمة الصفحة ---
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
 st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
 
-# --- 3. الصورة الرئيسية (صورة الشرح) ---
+# --- 3. صورة الشرح الرئيسية ---
 col_hero_1, col_hero_2, col_hero_3 = st.columns([1, 2.5, 1])
 with col_hero_2:
     try:
@@ -89,7 +122,7 @@ Specialized in **workforce analytics and operational efficiency**, with strong c
 effectively convey insights to both technical and non-technical stakeholders.
 """)
 
-# --- 6. قسم المشاريع التقنية الكامل (9 مشاريع) ---
+# --- 6. قسم المشاريع التسعة الكامل ---
 st.header("🚀 Technical Projects")
 
 # المشروع 1
@@ -123,59 +156,52 @@ with c2:
     try: st.image("unnamed (1).jpg", use_container_width=True)
     except: st.caption("Image: unnamed (1).jpg")
 
-st.markdown("---")
-
-# بقية المشاريع (4-9)
 st.write("### More Key Projects")
 col_p4, col_p5 = st.columns(2)
 with col_p4:
-    st.markdown('<div class="project-card-simple"><b>4. Real-time Monitoring Dashboard for e&:</b> Developed real-time monitoring and reporting solution for operational efficiency improvements across multiple departments at e& reducing process duration from 4 minutes to just 6 seconds.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>4. Real-time Monitoring Dashboard:</b> Reducing process duration from 4 minutes to 6 seconds at e&.</div>', unsafe_allow_html=True)
 with col_p5:
-    st.markdown('<div class="project-card-simple"><b>5. Automated Notification System for e&:</b> Implemented automatic email notification system for critical information dissemination across 15+ different LOBs, ensuring timely communication.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>5. Automated Notification System:</b> Notification system for 15+ different LOBs.</div>', unsafe_allow_html=True)
 
 col_p6, col_p7 = st.columns(2)
 with col_p6:
-    st.markdown('<div class="project-card-simple"><b>6. Dynamic KPI Dashboards:</b> Designed and implemented comprehensive dynamic KPI dashboards using Power BI to track critical performance indicators across various departments at e&.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>6. Dynamic KPI Dashboards:</b> Comprehensive Power BI departmental tracking.</div>', unsafe_allow_html=True)
 with col_p7:
-    st.markdown('<div class="project-card-simple"><b>7. ETL Data Integration System:</b> Integrated multiple disparate data sources into cohesive datasets using ETL processes, significantly improving overall analytic capabilities.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>7. ETL Data Integration System:</b> Integrated disparate data sources into cohesive datasets.</div>', unsafe_allow_html=True)
 
 col_p8, col_p9 = st.columns(2)
 with col_p8:
-    st.markdown('<div class="project-card-simple"><b>8. Employee Satisfaction (Raya CX):</b> Improved employee satisfaction by addressing scheduling concerns and implementing a flexible solution that automated staff schedule swap requests and break management.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>8. Employee Satisfaction (Raya CX):</b> Automated scheduling and break management solutions.</div>', unsafe_allow_html=True)
 with col_p9:
-    st.markdown('<div class="project-card-simple"><b>9. Optimized Scheduling Strategies:</b> Developed optimized scheduling strategies for the planning team that significantly improved operational efficiency and reduced overall operational costs.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="project-card-simple"><b>9. Optimized Scheduling Strategies:</b> Strategies that reduced overall operational costs.</div>', unsafe_allow_html=True)
 
 st.divider()
 
-# --- 7. التبويبات المتبقية ---
+# --- 7. التبويبات ---
 tabs = st.tabs(["💼 Work History", "🛠 Technical Skills", "🎓 Education"])
 
 with tabs[0]:
     st.markdown('<p class="job-header">e& UAE - Workforce Data Analyst (06/2021 - Current)</p>', unsafe_allow_html=True)
-    st.write("- Analyzing large datasets, KPI dashboards, and data validation. Implemented 15+ LOB notification system.")
+    st.write("Analyzing large datasets, KPI dashboards, and data validation. Implemented 15+ LOB notification system.")
     st.markdown('<p class="job-header">e& UAE - MIS Analyst (02/2019 - 06/2021)</p>', unsafe_allow_html=True)
-    st.write("- MIS reporting, data accuracy, and database optimization.")
+    st.write("MIS reporting, data accuracy, and database optimization.")
     st.markdown('<p class="job-header">Orange Egypt - Data Analyst (07/2015 - 02/2019)</p>', unsafe_allow_html=True)
-    st.write("- Customer trend analysis, strategic data-driven insights, and statistical validation.")
+    st.write("Customer trend analysis, strategic data-driven insights, and statistical validation.")
     st.markdown('<p class="job-header">Raya CX - Workforce Management Analyst (03/2012 - 07/2015)</p>', unsafe_allow_html=True)
-    st.write("- Workforce forecasting, resource optimization, and productivity assessment.")
+    st.write("Workforce forecasting, resource optimization, and productivity assessment.")
 
 with tabs[1]:
     col_tech, col_core = st.columns(2)
     with col_tech:
         st.markdown("**TECHNICAL SKILLS:**")
-        st.write("• SQL & Big Data (DWH, ETL)")
-        st.write("• Python (Analysis, Scraping, Scripting)")
-        st.write("• Power BI & Advanced Excel (VBA)")
+        st.write("• SQL & Big Data (DWH, ETL)\n• Python, C#, JavaScript\n• Power BI & Advanced Excel (VBA)")
     with col_core:
         st.markdown("**CORE COMPETENCIES:**")
-        st.write("• Strategic Business Planning")
-        st.write("• Process Optimization")
-        st.write("• Data Visualization & Storytelling")
+        st.write("• Strategic Business Planning\n• Process Optimization\n• Data Visualization & Storytelling")
 
 with tabs[2]:
     st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt • Graduated 07/2012")
 
 # --- Footer ---
 st.divider()
-st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Professional Data Portfolio</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Streamlit</p>", unsafe_allow_html=True)
