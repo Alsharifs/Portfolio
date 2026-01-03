@@ -57,7 +57,7 @@ with st.sidebar:
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
-    <div class="sidebar-text">📱 <b>Phone:</b> +971 50 563 4778</div>
+    <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
@@ -67,7 +67,7 @@ with st.sidebar:
     st.markdown("---")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
-            st.download_button(label="📑 Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
+            st.download_button(label="📥 Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
     except: pass
 
 # --- 4. الجزء العلوي (Hero Section) ---
@@ -89,7 +89,7 @@ with m4: st.markdown('<div class="metric-container"><div class="metric-value">Bi
 
 st.divider()
 
-# --- 6. الملخص المهني (بتنسيق الصندوق الرمادي الجديد) ---
+# --- 6. الملخص المهني ---
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="grey-box">
@@ -138,7 +138,7 @@ with c2:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # المشاريع الإضافية (4-9)
-st.markdown("### ➕ Additional Significant Projects")
+st.markdown("### 🚀 Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
     st.markdown('<div class="project-card-simple"><div><b>4. Real-time Monitoring:</b> Process reduction from 4m to 6s for live operations.</div></div>', unsafe_allow_html=True)
@@ -167,25 +167,26 @@ with ex2:
 
 st.divider()
 
-# --- 9. المهارات التقنية ---
+# --- 9. المهارات التقنية (المحدثة) ---
 st.header("🛠 Technical Expertise")
-sk1, sk2, sk3 = st.columns(3)
-with sk1:
-    st.write("**Programming Languages**: Python for big data analysis, scripting, and data web scraping from
-dynamic websites")
-with sk2:
-    st.write("**Business Intelligence Tools**: Power BI expertise, Dashboard development, Real-time data
-visualization
-")
+sk_col1, sk_col2 = st.columns(2)
 
-with sk3:
-    st.write("**Big Data & Data Warehousing**: Data Warehouse Design, Big Data Analytics, ETL Processes, Data
-Integration, Handling Large-scale Datasets
-")
+with sk_col1:
+    st.markdown("**• Programming Languages:** Python for big data analysis, scripting, and data web scraping from dynamic websites")
+    st.markdown("**• Business Intelligence Tools:** Power BI expertise, Dashboard development, Real-time data visualization")
+    st.markdown("**• Big Data & Data Warehousing:** Data Warehouse Design, Big Data Analytics, ETL Processes, Data Integration, Handling Large-scale Datasets")
+    st.markdown("**• Data Analysis:** Advanced statistical analysis, Trend identification, Statistical modeling, KPI development, Data validation and integrity checks")
+    st.markdown("**• Database & Query Skills:** SQL (data extraction, manipulation, and analysis), ETL processes, Data integration")
+
+with sk_col2:
+    st.markdown("**• Software Proficiency:** Advanced Excel with VBA for automation, Data visualization tools")
+    st.markdown("**• Analytics Methodologies:** Data-driven forecasting, Business planning and strategic analysis, Process optimization")
+    st.markdown("**• Reporting Skills:** Design and automate reporting workflows, Performance visualization, Real-time monitoring solutions")
+    st.markdown("**• Communication Skills:** Excellent verbal and written communication, Data storytelling, Cross functional collaboration")
 
 st.divider()
 
-# --- 10. التعليم (بنفس تنسيق البوكس الرمادي) ---
+# --- 10. التعليم ---
 st.header("🎓 Education")
 st.markdown("""
 <div class="grey-box">
@@ -197,5 +198,3 @@ st.markdown("""
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
-
-
