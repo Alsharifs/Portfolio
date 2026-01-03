@@ -106,7 +106,7 @@ with m_col2:
 with m_col3:
     st.markdown('<div class="metric-container"><div class="metric-value">3 programming languages</div><div class="metric-label">Mastered 3 programming languages :<br><small>(Python, C#, JavaScript)</small></div></div>', unsafe_allow_html=True)
 with m_col4:
-    st.markdown('<div class="metric-container"><div class="metric-value">Top Data Analysis Tools</div><div class="metric-label"><br><small>Mastering SQl, Advanced Excel includding VBA, Power BI for Scalable Data Warehousing & Big Data Integration</small></div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-container"><div class="metric-value">Top Data Analysis Tools</div><div class="metric-label">Mastering SQl, Advanced Excel includding VBA, Power BI for Scalable Data Warehousing & Big Data Integration</small></div></div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -205,6 +205,7 @@ with tabs[2]:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Streamlit</p>", unsafe_allow_html=True)
+
 
 
 
