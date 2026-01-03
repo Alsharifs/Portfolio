@@ -57,7 +57,7 @@ with st.sidebar:
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
-    <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
+    <div class="sidebar-text">📱 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
@@ -67,7 +67,7 @@ with st.sidebar:
     st.markdown("---")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
-            st.download_button(label="📥 Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
+            st.download_button(label="📑 Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
     except: pass
 
 # --- 4. الجزء العلوي (Hero Section) ---
@@ -138,7 +138,7 @@ with c2:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # المشاريع الإضافية (4-9)
-st.markdown("### 🚀 Additional Significant Projects")
+st.markdown("### ➕ Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
     st.markdown('<div class="project-card-simple"><div><b>4. Real-time Monitoring:</b> Process reduction from 4m to 6s for live operations.</div></div>', unsafe_allow_html=True)
@@ -189,3 +189,4 @@ st.markdown("""
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
