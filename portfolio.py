@@ -219,7 +219,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم تحديث الوصف للنموذج المطلوب) ---
+# --- 10. قسم المشاريع (تم التحديث: استبدال الاسم بالتاريخ) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -229,7 +229,7 @@ c1, c2 = st.columns([1, 1.2], gap="large")
 with c1:
     st.markdown('<p class="project-title">1. Automation System for LOB Analysis</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Name:** Automation System for LOB Analysis
+    **Project Published Date:** 2022
     \n**Tools Used:** Python, Pandas, Excel VBA
     \n**Organization:** e& UAE
     \n**Output:** Reduced processing time from **10 mins to 8 secs** for all Lines of Business.
@@ -248,7 +248,7 @@ with c1:
 with c2:
     st.markdown('<p class="project-title">2. Data Warehouse Integration</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Name:** Data Warehouse Integration
+    **Project Published Date:** 2023
     \n**Tools Used:** SQL, ETL, Power BI
     \n**Organization:** e& UAE
     \n**Output:** Improved reporting speed by **70%** by integrating massive data sources.
@@ -261,7 +261,7 @@ c1, c2 = st.columns([1, 1.2], gap="large")
 with c1:
     st.markdown('<p class="project-title">3. Big Data Insights</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Name:** Big Data Strategic Insights
+    **Project Published Date:** 2021
     \n**Tools Used:** Python, SQL, Big Data Analytics
     \n**Organization:** Telecommunications Sector
     \n**Output:** Enabled strategic decisions by uncovering insights from massive datasets.
@@ -280,7 +280,7 @@ with c1:
 with c2:
     st.markdown('<p class="project-title">4. Real-time Monitoring System</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Name:** Real-time Monitoring System
+    **Project Published Date:** 2024
     \n**Tools Used:** Python, SQL, Dashboarding Tools
     \n**Organization:** Operations Team
     \n**Output:** Reduced processing time from **4 mins to 6 secs**, enhancing operational agility.
