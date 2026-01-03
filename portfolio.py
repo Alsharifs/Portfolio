@@ -111,7 +111,7 @@ with m_col4:
 st.divider()
 
 # --- 5. الملخص المهني ---
-st.subheader("PROFESSIONAL SUMMARY")
+st.subheader("📋PROFESSIONAL SUMMARY")
 st.write("""
 Data Analyst with **10+ years of experience** delivering actionable insights through advanced data
 analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
@@ -123,7 +123,7 @@ effectively convey insights to both technical and non-technical stakeholders.
 """)
 
 # --- 6. قسم المشاريع التسعة الكامل ---
-st.header("🚀 Technical Projects")
+st.header("📊Technical Projects")
 
 # المشروع 1
 c1, c2 = st.columns([1, 1.2])
@@ -205,6 +205,7 @@ with tabs[2]:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Designed with Streamlit</p>", unsafe_allow_html=True)
+
 
 
 
