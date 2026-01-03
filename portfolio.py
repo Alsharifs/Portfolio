@@ -124,8 +124,8 @@ with st.sidebar:
 
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
-    <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
-    <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
+    <div class="sidebar-text">📧 <b>Email:</b> alsharif.me@gmail.com</div>
+    <div class="sidebar-text">📱 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
@@ -135,7 +135,7 @@ with st.sidebar:
     st.markdown("---")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
-            st.download_button(label="📥 Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
+            st.download_button(label="⬇️ Download Resume", data=f, file_name="Sayed_Moustafa_CV.pdf", use_container_width=True, type="primary")
     except: pass
 
 # --- 4. الجزء العلوي (Hero Section) ---
@@ -220,7 +220,7 @@ st.markdown("""
 st.divider()
 
 # --- 10. قسم المشاريع (تم نقله للأسفل وتحديث المشروع 4) ---
-st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
 # مشروع 1
@@ -268,7 +268,7 @@ with c2:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # المشاريع الإضافية (تمت إزالة المشروع 4 من هنا)
-st.markdown("### 🚀 Additional Significant Projects")
+st.markdown("### ➕ Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
     # تم نقل المشروع 4 للأعلى، وبقيت المشاريع الأخرى
@@ -282,3 +282,4 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
