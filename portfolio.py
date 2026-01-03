@@ -172,7 +172,8 @@ st.markdown("""
 st.write("")
 
 # --- 7. قسم المشاريع (9 مشاريع) ---
-st.markdown("<h2 style='text-align: center; color: #007bff;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
+# تم تعديل المحاذاة لليسار (text-align: left) بدلاً من center
+st.markdown("<h2 style='text-align: left; color: #007bff;'>📊 Technical Projects </h2>", unsafe_allow_html=True)
 st.write("")
 
 # مشروع 1
