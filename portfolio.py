@@ -116,7 +116,7 @@ st.markdown("""
 # --- 3. الجانب الأيسر (Sidebar) ---
 with st.sidebar:
     try:
-        st.image("me.jpg", use_container_width=True)
+        st.image("Sayed.jpg", use_container_width=True)
     except:
         st.info("👤 Profile Image")
 
@@ -316,3 +316,4 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
