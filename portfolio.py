@@ -219,8 +219,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم نقله للأسفل) ---
-# تم الحفاظ على margin-top لزيادة المسافة
+# --- 10. قسم المشاريع (تم نقله للأسفل وتحديث المشروع 4) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -257,11 +256,22 @@ with c2:
     except: st.caption("Big Data Visualization")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# المشاريع الإضافية (4-9)
+# مشروع 4 (الجديد - تم تحويله إلى مشروع رئيسي مع الصورة المطلوبة)
+st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
+c1, c2 = st.columns([1.2, 1], gap="large") # تنسيق عكسي (صورة ثم نص) مثل المشروع 2
+with c1:
+    try: st.image("callsBI.png", use_container_width=True)
+    except: st.caption("Real-time Monitoring Visualization")
+with c2:
+    st.markdown('<p class="project-title">4. Real-time Monitoring System</p>', unsafe_allow_html=True)
+    st.write("Developed a real-time monitoring system that drastically reduced processing time from **4 minutes to 6 seconds** for live operations, significantly enhancing operational agility.")
+st.markdown('</div>', unsafe_allow_html=True)
+
+# المشاريع الإضافية (تمت إزالة المشروع 4 من هنا)
 st.markdown("### 🚀 Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
-    st.markdown('<div class="project-card-simple"><div><b>4. Real-time Monitoring:</b> Process reduction from 4m to 6s for live operations.</div></div>', unsafe_allow_html=True)
+    # تم نقل المشروع 4 للأعلى، وبقيت المشاريع الأخرى
     st.markdown('<div class="project-card-simple"><div><b>6. Dynamic KPI Dashboards:</b> Automated departmental tracking via Power BI.</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="project-card-simple"><div><b>8. Employee Satisfaction:</b> Developed scheduling & break management tools (Raya CX).</div></div>', unsafe_allow_html=True)
 with col_r:
