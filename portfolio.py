@@ -51,7 +51,7 @@ with st.sidebar:
         st.info("👤 Profile Image")
     
     # كلمة Contact تحت الصورة مباشرة
-    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 2px;'>CONTACT</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 1px;'>CONTACT</h2>", unsafe_allow_html=True)
     
     st.markdown("---")
     
@@ -59,7 +59,7 @@ with st.sidebar:
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
-    <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
+    <div class="sidebar-text">📱 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
@@ -181,4 +181,5 @@ st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgy
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
