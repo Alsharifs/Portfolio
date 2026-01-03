@@ -51,7 +51,7 @@ with st.sidebar:
         st.info("👤 Profile Image")
     
     # كلمة Contact تحت الصورة مباشرة
-    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 10px;'>CONTACT</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 2px;'>CONTACT</h2>", unsafe_allow_html=True)
     
     st.markdown("---")
     
@@ -181,3 +181,4 @@ st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgy
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
