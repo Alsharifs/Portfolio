@@ -219,7 +219,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم نقله للأسفل وتحديث المشروع 4) ---
+# --- 10. قسم المشاريع (تم تحديث الوصف للنموذج المطلوب) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -228,7 +228,12 @@ st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large")
 with c1:
     st.markdown('<p class="project-title">1. Automation System for LOB Analysis</p>', unsafe_allow_html=True)
-    st.write("Designed an automation system for **e&**, reducing processing time from **10 minutes to 8 seconds** for all Lines of Business.")
+    st.markdown("""
+    **Project Name:** Automation System for LOB Analysis
+    \n**Tools Used:** Python, Pandas, Excel VBA
+    \n**Organization:** e& UAE
+    \n**Output:** Reduced processing time from **10 mins to 8 secs** for all Lines of Business.
+    """)
 with c2:
     try: st.image("unnamed.jpg", use_container_width=True)
     except: st.caption("Analysis Automation")
@@ -242,7 +247,12 @@ with c1:
     except: st.caption("DWH Integration")
 with c2:
     st.markdown('<p class="project-title">2. Data Warehouse Integration</p>', unsafe_allow_html=True)
-    st.write("Implemented a scalable DWH integrating massive data sources, improving **reporting speed by 70%**.")
+    st.markdown("""
+    **Project Name:** Data Warehouse Integration
+    \n**Tools Used:** SQL, ETL, Power BI
+    \n**Organization:** e& UAE
+    \n**Output:** Improved reporting speed by **70%** by integrating massive data sources.
+    """)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # مشروع 3
@@ -250,28 +260,37 @@ st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large")
 with c1:
     st.markdown('<p class="project-title">3. Big Data Insights</p>', unsafe_allow_html=True)
-    st.write("Applied Big Data analytics to uncover insights from massive datasets, enabling strategic decisions using SQL and Python.")
+    st.markdown("""
+    **Project Name:** Big Data Strategic Insights
+    \n**Tools Used:** Python, SQL, Big Data Analytics
+    \n**Organization:** Telecommunications Sector
+    \n**Output:** Enabled strategic decisions by uncovering insights from massive datasets.
+    """)
 with c2:
     try: st.image("unnamed (1).jpg", use_container_width=True)
     except: st.caption("Big Data Visualization")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# مشروع 4 (الجديد - تم تحويله إلى مشروع رئيسي مع الصورة المطلوبة)
+# مشروع 4
 st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # تنسيق عكسي (صورة ثم نص) مثل المشروع 2
+c1, c2 = st.columns([1.2, 1], gap="large")
 with c1:
     try: st.image("callsBI.png", use_container_width=True)
     except: st.caption("Real-time Monitoring Visualization")
 with c2:
     st.markdown('<p class="project-title">4. Real-time Monitoring System</p>', unsafe_allow_html=True)
-    st.write("Developed a real-time monitoring system that drastically reduced processing time from **4 minutes to 6 seconds** for live operations, significantly enhancing operational agility.")
+    st.markdown("""
+    **Project Name:** Real-time Monitoring System
+    \n**Tools Used:** Python, SQL, Dashboarding Tools
+    \n**Organization:** Operations Team
+    \n**Output:** Reduced processing time from **4 mins to 6 secs**, enhancing operational agility.
+    """)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# المشاريع الإضافية (تمت إزالة المشروع 4 من هنا)
+# المشاريع الإضافية
 st.markdown("### ➕ Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
-    # تم نقل المشروع 4 للأعلى، وبقيت المشاريع الأخرى
     st.markdown('<div class="project-card-simple"><div><b>6. Dynamic KPI Dashboards:</b> Automated departmental tracking via Power BI.</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="project-card-simple"><div><b>8. Employee Satisfaction:</b> Developed scheduling & break management tools (Raya CX).</div></div>', unsafe_allow_html=True)
 with col_r:
@@ -282,4 +301,3 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
-
