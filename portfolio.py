@@ -169,11 +169,19 @@ st.divider()
 
 # --- 9. المهارات التقنية ---
 st.header("🛠 Technical Expertise")
-sk1, sk2 = st.columns(2)
+sk1, sk2, sk3 = st.columns(3)
 with sk1:
-    st.write("**Data & BI:** SQL, Big Data, Power BI, Advanced Excel (VBA)")
+    st.write("**Programming Languages**: Python for big data analysis, scripting, and data web scraping from
+dynamic websites")
 with sk2:
-    st.write("**Dev:** Python (Pandas/Numpy), C#, JavaScript, ETL Processes")
+    st.write("**Business Intelligence Tools**: Power BI expertise, Dashboard development, Real-time data
+visualization
+")
+
+with sk3:
+    st.write("**Big Data & Data Warehousing**: Data Warehouse Design, Big Data Analytics, ETL Processes, Data
+Integration, Handling Large-scale Datasets
+")
 
 st.divider()
 
@@ -189,4 +197,5 @@ st.markdown("""
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
