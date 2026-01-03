@@ -21,22 +21,33 @@ st.markdown("""
     /* تنسيق الحاوية الرئيسية */
     .main { background-color: #fcfcfc; }
 
-    /* --- تنسيق كارت الملخص (Power BI Style) --- */
+    /* --- تنسيق كارت الملخص (Power BI Style) - تم تعديل اللون للأحمر الغامق --- */
     .summary-card {
         background-color: #ffffff;
         padding: 35px;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* ظل ناعم مثل تقارير Power BI */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         border: 1px solid #f0f0f0;
         font-size: 16px;
         color: #444;
         line-height: 1.8;
-        border-left: 6px solid #007bff; /* شريط أزرق جانبي لإبراز الكارت */
+        /* تم تغيير اللون هنا إلى أحمر غامق #8b0000 */
+        border-left: 6px solid #8b0000; 
+    }
+
+    /* --- تنسيق زر التحميل (Download Button) ليصبح أحمر غامق --- */
+    div[data-testid="stDownloadButton"] > button {
+        background-color: #8b0000 !important; /* خلفية حمراء غامقة */
+        border-color: #8b0000 !important;
+        color: white !important; /* النص أبيض */
+    }
+    div[data-testid="stDownloadButton"] > button:hover {
+        background-color: #a50000 !important; /* تفتيح بسيط عند الهوفر */
+        border-color: #a50000 !important;
     }
 
     /* --- تطبيق الحركة على العناصر --- */
     
-    /* أضفنا .summary-card للقائمة لتتحرك مع السكرول */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card {
         animation: scrollReveal linear both;
@@ -144,7 +155,7 @@ with m4: st.markdown('<div class="metric-container"><div class="metric-value">Bi
 
 st.divider()
 
-# --- 6. الملخص المهني (تم التعديل ليصبح كارت أبيض Power BI Style) ---
+# --- 6. الملخص المهني (باللون الأحمر الغامق) ---
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
