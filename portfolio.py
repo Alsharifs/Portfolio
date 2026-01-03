@@ -287,15 +287,26 @@ with c2:
     """)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# المشاريع الإضافية (تم إضافة الصورة Dash2.jpg للمشروع 6)
+# مشروع 6 (أصبح الآن مشروعاً مستقلاً بعد 4)
+st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
+c1, c2 = st.columns([1, 1.2], gap="large")
+with c1:
+    st.markdown('<p class="project-title">6. Dynamic KPI Dashboards</p>', unsafe_allow_html=True)
+    st.markdown("""
+    **Project Published Date:** 2024
+    \n**Tools Used:** Python, SQL, Dashboarding Tools
+    \n**Organization:** Operations Team
+    \n**Output:** Reduced processing time from **4 mins to 6 secs**, enhancing operational agility.
+    """)
+with c2:
+    try: st.image("Dash2.jpg", use_container_width=True)
+    except: st.caption("KPI Dashboard")
+st.markdown('</div>', unsafe_allow_html=True)
+
+# المشاريع الإضافية (تم إزالة المشروع 6 وصورته من هنا)
 st.markdown("### ➕ Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
-    # --- إضافة الصورة للمشروع 6 ---
-    try: st.image("Dash2.jpg", use_container_width=True)
-    except: pass
-    st.markdown('<div class="project-card-simple"><div><b>6. Dynamic KPI Dashboards:</b> Automated departmental tracking via Power BI.</div></div>', unsafe_allow_html=True)
-    
     st.markdown('<div class="project-card-simple"><div><b>8. Employee Satisfaction:</b> Developed scheduling & break management tools (Raya CX).</div></div>', unsafe_allow_html=True)
 with col_r:
     st.markdown('<div class="project-card-simple"><div><b>5. Automated Notification:</b> Multi-channel alert system for 15+ LOBs.</div></div>', unsafe_allow_html=True)
