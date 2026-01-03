@@ -93,8 +93,15 @@ st.divider()
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="grey-box">
-    Data Analyst with <b>10+ years of experience</b> delivering insights at <b>e& UAE, Vodafone, and Raya CX</b>. 
-    Expert in automation, workforce analytics, and interactive dashboarding to drive operational efficiency using SQL, Power BI, and Python.
+    
+    Data Analyst with 10+ years of experience delivering actionable insights through advanced data
+    analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
+    including e& UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
+    (VBA), and managing large-scale datasets. Adept at creating interactive dashboards, automating
+    reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
+    Specialized in workforce analytics and operational efficiency, with strong communication skills to
+    effectively convey insights to both technical and non-technical stakeholders.
+    
 </div>
 """, unsafe_allow_html=True)
 
@@ -198,3 +205,4 @@ st.markdown("""
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
