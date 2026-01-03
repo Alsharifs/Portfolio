@@ -38,8 +38,8 @@ st.markdown("""
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
     
-    /* بوكس التعليم الرمادي */
-    .edu-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; }
+    /* بوكس التنسيق الرمادي (للملخص والتعليم) */
+    .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
     
     img { border-radius: 15px; transition: transform 0.3s; }
 </style>
@@ -52,10 +52,8 @@ with st.sidebar:
     except: 
         st.info("👤 Profile Image")
     
-    # عنوان Contact بمسافة سفلية أقل
     st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 10px; margin-bottom: 5px;'>CONTACT</h2>", unsafe_allow_html=True)
     
-    # معلومات التواصل بمسافات ضيقة
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
@@ -91,9 +89,14 @@ with m4: st.markdown('<div class="metric-container"><div class="metric-value">Bi
 
 st.divider()
 
-# --- 6. الملخص المهني ---
+# --- 6. الملخص المهني (بتنسيق الصندوق الرمادي الجديد) ---
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
-st.info("Data Analyst with **10+ years of experience** delivering insights at **e& UAE, Vodafone, and Raya CX**. Expert in automation, workforce analytics, and interactive dashboarding to drive operational efficiency.")
+st.markdown("""
+<div class="grey-box">
+    Data Analyst with <b>10+ years of experience</b> delivering insights at <b>e& UAE, Vodafone, and Raya CX</b>. 
+    Expert in automation, workforce analytics, and interactive dashboarding to drive operational efficiency using SQL, Power BI, and Python.
+</div>
+""", unsafe_allow_html=True)
 
 st.write("")
 
@@ -174,10 +177,10 @@ with sk2:
 
 st.divider()
 
-# --- 10. التعليم (بخلفية رمادية) ---
+# --- 10. التعليم (بنفس تنسيق البوكس الرمادي) ---
 st.header("🎓 Education")
 st.markdown("""
-<div class="edu-box">
+<div class="grey-box">
     <b>Bachelor's Degree in Languages and Simultaneous Translation</b><br>
     Egypt • Graduated: 2012
 </div>
