@@ -3,67 +3,96 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور ---
+# --- 2. تنسيق CSS المطور (تم التعديل هنا فقط) ---
 st.markdown("""
 <style>
+    /* --- بداية تعريف الحركات (Animations) --- */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    /* --- نهاية تعريف الحركات --- */
+
     /* تنسيق الحاوية الرئيسية */
     .main { background-color: #fcfcfc; }
-    
+
     /* العناوين */
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
     .hero-title { text-align: center; color: #007bff; font-size: 26px; font-weight: 600; margin-top: -15px; margin-bottom: 40px; }
-    
+
     /* تنسيق المسافات بين المشاريع */
     .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-    
+
     /* كروت المشاريع الصغيرة */
-    .project-card-simple { 
-        background-color: #ffffff; padding: 20px; border-radius: 12px; 
+    .project-card-simple {
+        background-color: #ffffff; padding: 20px; border-radius: 12px;
         border-right: 4px solid #007bff; border-left: 4px solid #007bff;
         margin-bottom: 25px; min-height: 120px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         display: flex; align-items: center;
     }
-    
+
     /* الجانب الأيسر (Sidebar) */
     [data-testid="stSidebar"] { background-color: #f8f9fa; border-right: 1px solid #e0e0e0; }
     .sidebar-text { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-    
+
     /* كروت الأرقام */
-    .metric-container { 
-        background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; 
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; 
+    .metric-container {
+        background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff;
         height: 100%;
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
-    
+
     /* بوكس التنسيق الرمادي (للملخص والتعليم) */
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
-    
-    img { border-radius: 15px; transition: transform 0.3s; }
+
+    /* --- تنسيق الصور المحدث مع الحركة --- */
+    img {
+        border-radius: 15px;
+        /* حركة انسيابية عند التحويم */
+        transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+        /* تطبيق حركة الدخول عند تحميل الصفحة */
+        animation: fadeInUp 0.8s ease-out both;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    /* تأثير عند مرور الماوس فوق الصورة */
+    img:hover {
+        transform: scale(1.03) translateY(-5px) !important; /* تكبير بسيط وتحريك للأعلى */
+        box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; /* ظل أزرق خفيف */
+    }
+    /* ------------------------------------ */
+
 </style>
 """, unsafe_allow_html=True)
 
 # --- 3. الجانب الأيسر (Sidebar) ---
 with st.sidebar:
-    try: 
+    try:
         st.image("me.jpg", use_container_width=True)
-    except: 
+    except:
         st.info("👤 Profile Image")
-    
+
     st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 10px; margin-bottom: 5px;'>CONTACT</h2>", unsafe_allow_html=True)
-    
+
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
     <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
-    
+
     st.markdown("---")
     st.markdown("### 🌐 LANGUAGES")
     st.markdown("- **English:** Proficient\n- **Arabic:** Native")
-    
+
     st.markdown("---")
     try:
         with open("Sayed Moustafa_Data Analyst & Data Engineer.pdf", "rb") as f:
