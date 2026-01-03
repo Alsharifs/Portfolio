@@ -28,7 +28,7 @@ st.markdown("""
     
     /* الجانب الأيسر (Sidebar) */
     [data-testid="stSidebar"] { background-color: #f8f9fa; border-right: 1px solid #e0e0e0; }
-    .sidebar-text { font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .sidebar-text { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
     
     /* كروت الأرقام */
     .metric-container { 
@@ -38,28 +38,28 @@ st.markdown("""
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
     
+    /* بوكس التعليم الرمادي */
+    .edu-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; }
+    
     img { border-radius: 15px; transition: transform 0.3s; }
 </style>
 """, unsafe_allow_html=True)
 
 # --- 3. الجانب الأيسر (Sidebar) ---
 with st.sidebar:
-    # الصورة أولاً
     try: 
         st.image("me.jpg", use_container_width=True)
     except: 
         st.info("👤 Profile Image")
     
-    # كلمة Contact تحت الصورة مباشرة
-    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 1px;'>CONTACT</h2>", unsafe_allow_html=True)
+    # عنوان Contact بمسافة سفلية أقل
+    st.markdown("<h2 style='text-align: center; color: #007bff; margin-top: 10px; margin-bottom: 5px;'>CONTACT</h2>", unsafe_allow_html=True)
     
-    st.markdown("---")
-    
-    # معلومات التواصل
+    # معلومات التواصل بمسافات ضيقة
     st.markdown(f"""
     <div class="sidebar-text">📍 <b>Location:</b> Dubai, UAE</div>
     <div class="sidebar-text">✉️ <b>Email:</b> alsharif.me@gmail.com</div>
-    <div class="sidebar-text">📱 <b>Phone:</b> +971 50 563 4778</div>
+    <div class="sidebar-text">📞 <b>Phone:</b> +971 50 563 4778</div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
@@ -174,12 +174,15 @@ with sk2:
 
 st.divider()
 
-# --- 10. التعليم (في الأسفل) ---
+# --- 10. التعليم (بخلفية رمادية) ---
 st.header("🎓 Education")
-st.success("**Bachelor's Degree in Languages and Simultaneous Translation**\nEgypt • Graduated: 2012")
+st.markdown("""
+<div class="edu-box">
+    <b>Bachelor's Degree in Languages and Simultaneous Translation</b><br>
+    Egypt • Graduated: 2012
+</div>
+""", unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
-
-
