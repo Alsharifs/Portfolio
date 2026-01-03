@@ -33,7 +33,7 @@ st.markdown("""
         line-height: 1.8;
         border-left: 6px solid #8b0000;
         
-        /* --- تم إضافة المسافة هنا --- */
+        /* المسافة الخاصة بالكارت نفسه */
         margin-top: 25px; 
     }
 
@@ -51,7 +51,7 @@ st.markdown("""
     /* --- تطبيق الحركة على العناصر --- */
     
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
-    .hero-name, .hero-title, .project-title, .summary-card {
+    .hero-name, .hero-title, .project-title, .summary-card, h2 {
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 10% cover 30%;
@@ -171,10 +171,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.write("")
-
 # --- 7. قسم المشاريع (9 مشاريع) ---
-st.markdown("<h2 style='text-align: left; color: #007bff;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
+# تم إضافة margin-top: 60px لزيادة المسافة
+st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
 st.write("")
 
 # مشروع 1
