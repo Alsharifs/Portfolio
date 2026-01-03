@@ -10,27 +10,35 @@ st.markdown("""
     @keyframes scrollReveal {
         0% {
             opacity: 0;
-            transform: scale(0.85) translateY(50px); /* يبدأ صغيراً ومن الأسفل */
+            transform: scale(0.85) translateY(50px);
         }
         100% {
             opacity: 1;
-            transform: scale(1) translateY(0); /* الحجم الطبيعي وفي مكانه */
+            transform: scale(1) translateY(0);
         }
     }
 
     /* تنسيق الحاوية الرئيسية */
     .main { background-color: #fcfcfc; }
 
+    /* --- تنسيق كارت الملخص (Power BI Style) --- */
+    .summary-card {
+        background-color: #ffffff;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* ظل ناعم مثل تقارير Power BI */
+        border: 1px solid #f0f0f0;
+        font-size: 16px;
+        color: #444;
+        line-height: 1.8;
+        border-left: 6px solid #007bff; /* شريط أزرق جانبي لإبراز الكارت */
+    }
+
     /* --- تطبيق الحركة على العناصر --- */
     
-    /* السر هنا هو animation-range
-       entry 10%: تبدأ الحركة عندما يظهر 10% من العنصر أسفل الشاشة.
-       cover 30%: تنتهي الحركة (يصبح ظاهراً بالكامل) عندما يغطي العنصر 30% من مجال الرؤية.
-       بمجرد الخروج (السكرول لأعلى)، يتم عكس الحركة تلقائياً فيختفي العنصر ليعود ويظهر عند النزول مجدداً.
-    */
-    
+    /* أضفنا .summary-card للقائمة لتتحرك مع السكرول */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
-    .hero-name, .hero-title, .project-title {
+    .hero-name, .hero-title, .project-title, .summary-card {
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 10% cover 30%;
@@ -44,7 +52,6 @@ st.markdown("""
         /* ربط الحركة بالسكرول */
         animation: scrollReveal linear both;
         animation-timeline: view();
-        /* نستخدم مدى أوسع للصور لتبدو الحركة أجمل */
         animation-range: entry 5% cover 40%;
         
         box-shadow: 0 5px 15px rgba(0,0,0,0.08);
@@ -57,8 +64,6 @@ st.markdown("""
         opacity: 1 !important;
         z-index: 10;
     }
-
-    /* --- بقية التنسيقات كما هي --- */
 
     /* العناوين */
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
@@ -89,7 +94,7 @@ st.markdown("""
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
 
-    /* بوكس التنسيق الرمادي */
+    /* بوكس التنسيق الرمادي (للتعليم فقط الآن) */
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
 
 </style>
@@ -139,10 +144,10 @@ with m4: st.markdown('<div class="metric-container"><div class="metric-value">Bi
 
 st.divider()
 
-# --- 6. الملخص المهني (المحدث) ---
+# --- 6. الملخص المهني (تم التعديل ليصبح كارت أبيض Power BI Style) ---
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
-<div class="grey-box">
+<div class="summary-card">
     Data Analyst with 10+ years of experience delivering actionable insights through advanced data
     analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
     including e& UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
