@@ -163,7 +163,7 @@ st.markdown("""
 <div class="summary-card">
     Data Analyst with 10+ years of experience delivering actionable insights through advanced data
     analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
-    including e& UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
+    including RTA UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
     (VBA), and managing large-scale datasets. Adept at creating interactive dashboards, automating
     reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
     Specialized in workforce analytics and operational efficiency, with strong communication skills to
