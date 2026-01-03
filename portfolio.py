@@ -3,24 +3,62 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (تم التعديل هنا فقط) ---
+# --- 2. تنسيق CSS المطور (حركة تفاعلية مستمرة - Scrubbing) ---
 st.markdown("""
 <style>
-    /* --- بداية تعريف الحركات (Animations) --- */
-    @keyframes fadeInUp {
-        from {
+    /* 1. تعريف الحركة (تأثير الدخول القوي) */
+    @keyframes scrollReveal {
+        0% {
             opacity: 0;
-            transform: translate3d(0, 40px, 0);
+            transform: scale(0.85) translateY(50px); /* يبدأ صغيراً ومن الأسفل */
         }
-        to {
+        100% {
             opacity: 1;
-            transform: translate3d(0, 0, 0);
+            transform: scale(1) translateY(0); /* الحجم الطبيعي وفي مكانه */
         }
     }
-    /* --- نهاية تعريف الحركات --- */
 
     /* تنسيق الحاوية الرئيسية */
     .main { background-color: #fcfcfc; }
+
+    /* --- تطبيق الحركة على العناصر --- */
+    
+    /* السر هنا هو animation-range
+       entry 10%: تبدأ الحركة عندما يظهر 10% من العنصر أسفل الشاشة.
+       cover 30%: تنتهي الحركة (يصبح ظاهراً بالكامل) عندما يغطي العنصر 30% من مجال الرؤية.
+       بمجرد الخروج (السكرول لأعلى)، يتم عكس الحركة تلقائياً فيختفي العنصر ليعود ويظهر عند النزول مجدداً.
+    */
+    
+    .metric-container, .project-card-simple, .grey-box, .project-spacer, 
+    .hero-name, .hero-title, .project-title {
+        animation: scrollReveal linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+    }
+
+    /* تخصيص الصور بحركة أوضح */
+    img {
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        
+        /* ربط الحركة بالسكرول */
+        animation: scrollReveal linear both;
+        animation-timeline: view();
+        /* نستخدم مدى أوسع للصور لتبدو الحركة أجمل */
+        animation-range: entry 5% cover 40%;
+        
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    /* الحفاظ على تأثير الهوفر (Zoom) */
+    img:hover {
+        transform: scale(1.03) translateY(-5px) !important;
+        box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important;
+        opacity: 1 !important;
+        z-index: 10;
+    }
+
+    /* --- بقية التنسيقات كما هي --- */
 
     /* العناوين */
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
@@ -51,25 +89,8 @@ st.markdown("""
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
 
-    /* بوكس التنسيق الرمادي (للملخص والتعليم) */
+    /* بوكس التنسيق الرمادي */
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
-
-    /* --- تنسيق الصور المحدث مع الحركة --- */
-    img {
-        border-radius: 15px;
-        /* حركة انسيابية عند التحويم */
-        transition: transform 0.4s ease, box-shadow 0.4s ease !important;
-        /* تطبيق حركة الدخول عند تحميل الصفحة */
-        animation: fadeInUp 0.8s ease-out both;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-
-    /* تأثير عند مرور الماوس فوق الصورة */
-    img:hover {
-        transform: scale(1.03) translateY(-5px) !important; /* تكبير بسيط وتحريك للأعلى */
-        box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; /* ظل أزرق خفيف */
-    }
-    /* ------------------------------------ */
 
 </style>
 """, unsafe_allow_html=True)
