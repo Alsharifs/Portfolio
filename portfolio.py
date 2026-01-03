@@ -194,7 +194,7 @@ st.header("🛠 Technical Expertise")
 sk_col1, sk_col2 = st.columns(2)
 
 with sk_col1:
-    st.markdown("**• Programming Languages:** Python for big data analysis, scripting, and data web scraping from dynamic websites")
+    st.markdown("**• Programming Languages:** Python, C#, Next for big data analysis, scripting, and data web scraping from dynamic websites")
     st.markdown("**• Business Intelligence Tools:** Power BI expertise, Dashboard development, Real-time data visualization")
     st.markdown("**• Big Data & Data Warehousing:** Data Warehouse Design, Big Data Analytics, ETL Processes, Data Integration, Handling Large-scale Datasets")
     st.markdown("**• Data Analysis:** Advanced statistical analysis, Trend identification, Statistical modeling, KPI development, Data validation and integrity checks")
@@ -316,4 +316,5 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
