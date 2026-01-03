@@ -21,7 +21,7 @@ st.markdown("""
     /* تنسيق الحاوية الرئيسية */
     .main { background-color: #fcfcfc; }
 
-    /* --- تنسيق كارت الملخص (Power BI Style) - تم تعديل اللون للأحمر الغامق --- */
+    /* --- تنسيق كارت الملخص (Power BI Style) --- */
     .summary-card {
         background-color: #ffffff;
         padding: 35px;
@@ -31,18 +31,20 @@ st.markdown("""
         font-size: 16px;
         color: #444;
         line-height: 1.8;
-        /* تم تغيير اللون هنا إلى أحمر غامق #8b0000 */
-        border-left: 6px solid #8b0000; 
+        border-left: 6px solid #8b0000;
+        
+        /* --- تم إضافة المسافة هنا --- */
+        margin-top: 25px; 
     }
 
     /* --- تنسيق زر التحميل (Download Button) ليصبح أحمر غامق --- */
     div[data-testid="stDownloadButton"] > button {
-        background-color: #8b0000 !important; /* خلفية حمراء غامقة */
+        background-color: #8b0000 !important;
         border-color: #8b0000 !important;
-        color: white !important; /* النص أبيض */
+        color: white !important;
     }
     div[data-testid="stDownloadButton"] > button:hover {
-        background-color: #a50000 !important; /* تفتيح بسيط عند الهوفر */
+        background-color: #a50000 !important;
         border-color: #a50000 !important;
     }
 
@@ -105,7 +107,7 @@ st.markdown("""
     }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
 
-    /* بوكس التنسيق الرمادي (للتعليم فقط الآن) */
+    /* بوكس التنسيق الرمادي */
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
 
 </style>
@@ -172,8 +174,7 @@ st.markdown("""
 st.write("")
 
 # --- 7. قسم المشاريع (9 مشاريع) ---
-# تم تعديل المحاذاة لليسار (text-align: left) بدلاً من center
-st.markdown("<h2 style='text-align: left; color: #007bff;'>📊 Technical Projects </h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color: #007bff;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
 st.write("")
 
 # مشروع 1
