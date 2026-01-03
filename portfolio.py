@@ -163,7 +163,7 @@ st.markdown("""
 <div class="summary-card">
     Data Analyst with 10+ years of experience delivering actionable insights through advanced data
     analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
-    including RTA UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
+    including e& UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, Advanced Excel
     (VBA), and managing large-scale datasets. Adept at creating interactive dashboards, automating
     reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
     Specialized in workforce analytics and operational efficiency, with strong communication skills to
@@ -171,8 +171,56 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- 7. قسم المشاريع (9 مشاريع) ---
-# تم إضافة margin-top: 60px لزيادة المسافة
+st.divider()
+
+# --- 7. الخبرة العملية (تم تقديمها) ---
+st.header("💼 Professional Experience")
+ex1, ex2 = st.columns(2)
+with ex1:
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">e& UAE - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
+    st.write("06/2021 - Present | Automation, KPI dashboarding, and predictive modeling.")
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">e& UAE - MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("02/2019 - 06/2021 | Data accuracy and database query optimization.")
+with ex2:
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">Orange Egypt - Data Analyst</p>', unsafe_allow_html=True)
+    st.write("07/2015 - 02/2019 | Customer trend analysis and strategic growth insights.")
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">Raya CX - Workforce Management Analyst</p>', unsafe_allow_html=True)
+    st.write("03/2012 - 07/2015 | Forecasting and resource optimization.")
+
+st.divider()
+
+# --- 8. المهارات التقنية (تم تقديمها) ---
+st.header("🛠 Technical Expertise")
+sk_col1, sk_col2 = st.columns(2)
+
+with sk_col1:
+    st.markdown("**• Programming Languages:** Python for big data analysis, scripting, and data web scraping from dynamic websites")
+    st.markdown("**• Business Intelligence Tools:** Power BI expertise, Dashboard development, Real-time data visualization")
+    st.markdown("**• Big Data & Data Warehousing:** Data Warehouse Design, Big Data Analytics, ETL Processes, Data Integration, Handling Large-scale Datasets")
+    st.markdown("**• Data Analysis:** Advanced statistical analysis, Trend identification, Statistical modeling, KPI development, Data validation and integrity checks")
+    st.markdown("**• Database & Query Skills:** SQL (data extraction, manipulation, and analysis), ETL processes, Data integration")
+
+with sk_col2:
+    st.markdown("**• Software Proficiency:** Advanced Excel with VBA for automation, Data visualization tools")
+    st.markdown("**• Analytics Methodologies:** Data-driven forecasting, Business planning and strategic analysis, Process optimization")
+    st.markdown("**• Reporting Skills:** Design and automate reporting workflows, Performance visualization, Real-time monitoring solutions")
+    st.markdown("**• Communication Skills:** Excellent verbal and written communication, Data storytelling, Cross functional collaboration")
+
+st.divider()
+
+# --- 9. التعليم (تم تقديمه) ---
+st.header("🎓 Education")
+st.markdown("""
+<div class="grey-box">
+    <b>Bachelor's Degree in Languages and Simultaneous Translation</b><br>
+    Egypt • Graduated: 2012
+</div>
+""", unsafe_allow_html=True)
+
+st.divider()
+
+# --- 10. قسم المشاريع (تم نقله للأسفل) ---
+# تم الحفاظ على margin-top لزيادة المسافة
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📊 Technical Projects Portfolio</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -220,52 +268,6 @@ with col_r:
     st.markdown('<div class="project-card-simple"><div><b>5. Automated Notification:</b> Multi-channel alert system for 15+ LOBs.</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="project-card-simple"><div><b>7. ETL Integration System:</b> Unified reporting layer from disparate sources.</div></div>', unsafe_allow_html=True)
     st.markdown('<div class="project-card-simple"><div><b>9. Optimized Scheduling:</b> Algorithmic resource planning to reduce costs.</div></div>', unsafe_allow_html=True)
-
-st.divider()
-
-# --- 8. الخبرة العملية ---
-st.header("💼 Professional Experience")
-ex1, ex2 = st.columns(2)
-with ex1:
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">e& UAE - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
-    st.write("06/2021 - Present | Automation, KPI dashboarding, and predictive modeling.")
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">e& UAE - MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("02/2019 - 06/2021 | Data accuracy and database query optimization.")
-with ex2:
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">Orange Egypt - Data Analyst</p>', unsafe_allow_html=True)
-    st.write("07/2015 - 02/2019 | Customer trend analysis and strategic growth insights.")
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;">Raya CX - Workforce Management Analyst</p>', unsafe_allow_html=True)
-    st.write("03/2012 - 07/2015 | Forecasting and resource optimization.")
-
-st.divider()
-
-# --- 9. المهارات التقنية ---
-st.header("🛠 Technical Expertise")
-sk_col1, sk_col2 = st.columns(2)
-
-with sk_col1:
-    st.markdown("**• Programming Languages:** Python for big data analysis, scripting, and data web scraping from dynamic websites")
-    st.markdown("**• Business Intelligence Tools:** Power BI expertise, Dashboard development, Real-time data visualization")
-    st.markdown("**• Big Data & Data Warehousing:** Data Warehouse Design, Big Data Analytics, ETL Processes, Data Integration, Handling Large-scale Datasets")
-    st.markdown("**• Data Analysis:** Advanced statistical analysis, Trend identification, Statistical modeling, KPI development, Data validation and integrity checks")
-    st.markdown("**• Database & Query Skills:** SQL (data extraction, manipulation, and analysis), ETL processes, Data integration")
-
-with sk_col2:
-    st.markdown("**• Software Proficiency:** Advanced Excel with VBA for automation, Data visualization tools")
-    st.markdown("**• Analytics Methodologies:** Data-driven forecasting, Business planning and strategic analysis, Process optimization")
-    st.markdown("**• Reporting Skills:** Design and automate reporting workflows, Performance visualization, Real-time monitoring solutions")
-    st.markdown("**• Communication Skills:** Excellent verbal and written communication, Data storytelling, Cross functional collaboration")
-
-st.divider()
-
-# --- 10. التعليم ---
-st.header("🎓 Education")
-st.markdown("""
-<div class="grey-box">
-    <b>Bachelor's Degree in Languages and Simultaneous Translation</b><br>
-    Egypt • Graduated: 2012
-</div>
-""", unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
