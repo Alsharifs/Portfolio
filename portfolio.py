@@ -166,7 +166,7 @@ st.markdown("""
   I have worked with leading organizations such as RTA UAE, Orange Egypt, and RAYA CX, supporting data-driven decision-making through advanced analytics and scalable data solutions.
   My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
   I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
-  With a background in workforce analytics and operational efficiency, I bridge the gap between technical
+  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.
      
 </div>
 """, unsafe_allow_html=True)
@@ -316,6 +316,7 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
 
