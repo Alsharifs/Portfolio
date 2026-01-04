@@ -54,12 +54,14 @@ st.markdown("""
         opacity: 1 !important; /* إجبار الظهور */
     }
 
-    /* ب) استثناء الصورة الرئيسية في المنتصف (Hero Image) - لتكون بنفس انيميشن الصورة الجانبية */
-    section.main div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
+    /* ب) استثناء الصورة الرئيسية في المنتصف (Hero Image) */
+    /* التعديل: استهداف دقيق للصورة لضمان تطبيق الأنيميشن عليها فوراً */
+    section.main [data-testid="stHorizontalBlock"]:first-of-type img, 
+    img[src*="Gemini"] {
         animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
         animation-range: unset !important;
-        /* تطبيق نفس انيميشن الدخول الفوري وبنفس التوقيت (1.2s) */
-        animation: topImageEntrance 1.2s ease-out both !important; 
+        /* تطبيق نفس انيميشن الدخول الفوري وبنفس التوقيت */
+        animation: topImageEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) both !important; 
         opacity: 1 !important; /* إجبار الظهور */
         box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* ظل مميز للصورة الرئيسية */
     }
@@ -119,7 +121,7 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # لم نعد بحاجة لاسم ملف محدد في الـ CSS، الموقع هو الذي يحدد الانيميشن
+        # الصورة الرئيسية التي سيطبق عليها انيميشن الدخول
         st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
@@ -141,7 +143,7 @@ st.markdown("""
   I have worked with leading organizations such as RTA UAE, Orange Egypt, and RAYA CX, supporting data-driven decision-making through advanced analytics and scalable data solutions.
   My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
   I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
-  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.     
+  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.      
 </div>
 """, unsafe_allow_html=True)
 
