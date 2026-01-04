@@ -3,30 +3,30 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (تعديل انيميشن الصورة الوسطى) ---
+# --- 2. تنسيق CSS المطور (الحل الكامل) ---
 st.markdown("""
 <style>
     /* ============================================================
        1. تعريف الحركات (Keyframes)
        ============================================================ */
     
-    /* حركة السكرول (Scrubbing) - لباقي الصور والعناصر بالأسفل */
+    /* حركة السكرول (Scrubbing) - لباقي الصور والعناصر */
     @keyframes scrollReveal {
         from { opacity: 0; transform: scale(0.9) translateY(50px); }
         to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* حركة الدخول الفوري (Entrance) - للصور العلوية (الجانبية والوسطى) */
+    /* حركة الدخول الفوري (Entrance) - للصور العلوية */
     @keyframes topImageEntrance {
-        from { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
-        to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
+        0% { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
     }
 
     /* ============================================================
        2. التطبيق العام (Scroll Animation)
        ============================================================ */
 
-    /* تطبيق حركة السكرول على جميع العناصر والصور بشكل افتراضي */
+    /* نطبق حركة السكرول على كل الصور والعناصر بشكل عام */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2,
     div[data-testid="stImage"] img {
@@ -35,7 +35,7 @@ st.markdown("""
         animation-range: entry 5% cover 30%;
     }
 
-    /* تنسيق جمالي للصور (حواف وظلال) */
+    /* تنسيق جمالي للصور */
     div[data-testid="stImage"] img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
@@ -43,27 +43,28 @@ st.markdown("""
     }
 
     /* ============================================================
-       3. الاستثناءات القوية (Override) - للصور العلوية فقط
+       3. الاستثناءات القوية (The Override Fix)
        ============================================================ */
 
-    /* أ) استثناء صورة القائمة الجانبية (Sidebar) - انيميشن دخول فوري */
+    /* أ) استثناء صورة القائمة الجانبية (Sidebar) */
     [data-testid="stSidebar"] img {
-        animation-timeline: auto !important; /* إلغاء السكرول */
+        animation-timeline: auto !important;
         animation-range: unset !important;
         animation: topImageEntrance 1.2s ease-out both !important;
-        opacity: 1 !important; /* إجبار الظهور */
     }
 
-    /* ب) استثناء الصورة الرئيسية في المنتصف (Hero Image) */
-    /* التعديل: استهداف دقيق للصورة لضمان تطبيق الأنيميشن عليها فوراً */
-    section.main [data-testid="stHorizontalBlock"]:first-of-type img, 
-    img[src*="Gemini"] {
-        animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
-        animation-range: unset !important;
-        /* تطبيق نفس انيميشن الدخول الفوري وبنفس التوقيت */
-        animation: topImageEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) both !important; 
-        opacity: 1 !important; /* إجبار الظهور */
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* ظل مميز للصورة الرئيسية */
+    /* ب) استثناء الصورة الرئيسية (Hero Image) باستخدام الـ ALT Selector */
+    /* هذا هو الجزء الذي يحل المشكلة جذرياً */
+    img[alt="hero_image"] {
+        animation: none !important; /* تصفير أي انيميشن سابق */
+        animation-timeline: auto !important; /* إلغاء ارتباط السكرول */
+        animation-range: unset !important; /* إلغاء نطاق السكرول */
+        
+        /* تطبيق انيميشن الدخول بقوة */
+        animation: topImageEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) both !important;
+        
+        opacity: 0; /* نبدأ مخفيين لتفعيل الحركة */
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important; /* ظل أقوى للتمييز */
     }
 
     /* ============================================================
@@ -121,8 +122,9 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # الصورة الرئيسية التي سيطبق عليها انيميشن الدخول
-        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
+        # 🟢 هام جداً: لاحظ إضافة alt="hero_image" هنا
+        # هذا هو الرابط بين الصورة وكود الـ CSS الجديد
+        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True, alt="hero_image")
     except: pass
 
 # --- 5. كروت الإنجازات (ستعمل مع السكرول تلقائياً) ---
