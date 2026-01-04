@@ -3,7 +3,7 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (الحل الكامل) ---
+# --- 2. تنسيق CSS المطور (نسخة الإصلاح) ---
 st.markdown("""
 <style>
     /* ============================================================
@@ -53,18 +53,20 @@ st.markdown("""
         animation: topImageEntrance 1.2s ease-out both !important;
     }
 
-    /* ب) استثناء الصورة الرئيسية (Hero Image) باستخدام الـ ALT Selector */
-    /* هذا هو الجزء الذي يحل المشكلة جذرياً */
-    img[alt="hero_image"] {
-        animation: none !important; /* تصفير أي انيميشن سابق */
-        animation-timeline: auto !important; /* إلغاء ارتباط السكرول */
-        animation-range: unset !important; /* إلغاء نطاق السكرول */
+    /* ب) استثناء الصورة الرئيسية (Hero Image) - الحل المستقر */
+    /* نستهدف الصورة التي يحتوي اسمها على كلمة Gemini */
+    div[data-testid="stImage"] img[src*="Gemini"] {
+        animation-timeline: auto !important; /* إلغاء السكرول */
+        animation-range: unset !important;
         
-        /* تطبيق انيميشن الدخول بقوة */
-        animation: topImageEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) both !important;
+        /* تطبيق الانيميشن */
+        animation: topImageEntrance 1.5s ease-out both !important;
         
-        opacity: 0; /* نبدأ مخفيين لتفعيل الحركة */
-        box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important; /* ظل أقوى للتمييز */
+        /* ضمان الظهور: في حالة فشل الانيميشن، الصورة ستكون ظاهرة */
+        opacity: 1 !important; 
+        
+        /* تحسينات بصرية */
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important;
     }
 
     /* ============================================================
@@ -122,9 +124,8 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # 🟢 هام جداً: لاحظ إضافة alt="hero_image" هنا
-        # هذا هو الرابط بين الصورة وكود الـ CSS الجديد
-        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True, alt="hero_image")
+        # عدنا للكود الطبيعي بدون alt، الاعتماد على اسم الملف في الـ CSS
+        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
 # --- 5. كروت الإنجازات (ستعمل مع السكرول تلقائياً) ---
