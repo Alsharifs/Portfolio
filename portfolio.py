@@ -3,44 +3,30 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (دمج Scrubbing القديم + Entrance الجديد) ---
+# --- 2. تنسيق CSS المطور (الحل النهائي) ---
 st.markdown("""
 <style>
     /* =========================================
        1. تعريف الحركات (Animations Definitions)
        ========================================= */
     
-    /* أ: حركة السكرول القديمة (Scrubbing) لباقي الصور والمشاريع */
+    /* أ: حركة السكرول (Scrubbing) - للصور السفلية */
     @keyframes scrollReveal {
-        0% {
-            opacity: 0;
-            transform: scale(0.85) translateY(50px);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
+        0% { opacity: 0; transform: scale(0.85) translateY(50px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* ب: حركة الدخول التلقائية (Entrance) للصور العلوية فقط */
+    /* ب: حركة الدخول التلقائية (Entrance) - للصور العلوية */
     @keyframes topImageEntrance {
-        0% {
-            opacity: 0;
-            transform: scale(0.8) translateY(30px);
-            filter: blur(5px);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            filter: blur(0px);
-        }
+        0% { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(4px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
     }
 
     /* =========================================
-       2. التطبيق العام (Scrubbing) - كما كان سابقاً
+       2. التطبيق العام (Scrubbing)
        ========================================= */
-       
-    /* تطبيق الحركة على الكروت والنصوص والصور العامة */
+    
+    /* العناصر النصية وكروت المشاريع */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2 {
         animation: scrollReveal linear both;
@@ -48,86 +34,51 @@ st.markdown("""
         animation-range: entry 10% cover 30%;
     }
 
-    /* القاعدة العامة لجميع الصور: تتحرك مع السكرول */
+    /* القاعدة الافتراضية للصور (صور المشاريع): تتحرك مع السكرول */
     img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         
-        /* هذا السطر هو ما يربط الصورة بحركة الماوس (Scrubbing) */
+        /* ربط الحركة بالسكرول */
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 5% cover 40%;
     }
 
     /* =========================================
-       3. الاستثناءات (الصور العلوية فقط)
+       3. الاستثناءات (الصور العلوية - Fix)
        ========================================= */
 
-    /* استثناء 1: صورة السايد بار (Sidebar Image) */
+    /* استثناء 1: صورة السايد بار */
     [data-testid="stSidebar"] img {
-        /* إلغاء ارتباط السكرول */
-        animation-timeline: auto !important; 
+        animation-timeline: auto !important; /* إلغاء السكرول */
         animation-range: unset !important;
-        
-        /* تطبيق أنيميشن الدخول الفوري */
-        animation: topImageEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        animation: topImageEntrance 1s ease-out both !important;
     }
 
-    /* استثناء 2: الصورة الرئيسية (Hero Image) */
-    /* نستهدف الصورة الموجودة في أول صف أعمدة، العمود الأوسط */
-    div[data-testid="stHorizontalBlock"]:nth-of-type(1) [data-testid="column"]:nth-of-type(2) img {
-        /* إلغاء ارتباط السكرول */
-        animation-timeline: auto !important;
+    /* استثناء 2: الصورة الرئيسية في المنتصف (يتم استهدافها عبر وسم alt) */
+    img[alt="hero_image"] {
+        animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
         animation-range: unset !important;
-        
-        /* تطبيق أنيميشن الدخول الفوري مع تأخير بسيط */
-        animation: topImageEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both !important;
+        animation: topImageEntrance 1.2s ease-out 0.2s both !important; /* تأخير بسيط 0.2 */
     }
 
     /* =========================================
-       4. تنسيقات عامة أخرى
+       4. تنسيقات عامة
        ========================================= */
-
     .main { background-color: #fcfcfc; }
-
-    /* تأثير الهوفر للصور (Zoom) */
-    img:hover {
-        transform: scale(1.03) translateY(-5px) !important;
-        box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important;
-        opacity: 1 !important;
-        z-index: 10;
-    }
-
-    /* كارت الملخص */
-    .summary-card {
-        background-color: #ffffff; padding: 35px; border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;
-        font-size: 16px; color: #444; line-height: 1.8;
-        border-left: 6px solid #8b0000; margin-top: 25px; 
-    }
-
-    /* زر التحميل */
-    div[data-testid="stDownloadButton"] > button {
-        background-color: #8b0000 !important; border-color: #8b0000 !important; color: white !important;
-    }
-    div[data-testid="stDownloadButton"] > button:hover {
-        background-color: #a50000 !important; border-color: #a50000 !important;
-    }
-
-    /* النصوص والعناوين */
+    img:hover { transform: scale(1.03) translateY(-5px) !important; box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; opacity: 1 !important; z-index: 10; }
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
     .hero-title { text-align: center; color: #007bff; font-size: 26px; font-weight: 600; margin-top: -15px; margin-bottom: 40px; }
+    .summary-card { background-color: #ffffff; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; border-left: 6px solid #8b0000; margin-top: 25px; }
+    div[data-testid="stDownloadButton"] > button { background-color: #8b0000 !important; border-color: #8b0000 !important; color: white !important; }
+    div[data-testid="stDownloadButton"] > button:hover { background-color: #a50000 !important; border-color: #a50000 !important; }
     .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
     .project-card-simple { background-color: #ffffff; padding: 20px; border-radius: 12px; border-right: 4px solid #007bff; border-left: 4px solid #007bff; margin-bottom: 25px; min-height: 120px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
-    
-    /* السايد بار */
     [data-testid="stSidebar"] { background-color: #f8f9fa; border-right: 1px solid #e0e0e0; }
     .sidebar-text { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-
-    /* الميتريكس */
     .metric-container { background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; height: 100%; }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
@@ -166,7 +117,9 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
-    try: st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
+    try:
+        # 🟢 ملاحظة هامة: تمت إضافة alt="hero_image" هنا لكي يتعرف عليها الـ CSS
+        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True, alt="hero_image")
     except: pass
 
 # --- 5. كروت الإنجازات ---
