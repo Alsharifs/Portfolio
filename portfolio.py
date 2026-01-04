@@ -3,46 +3,38 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (الهيكلية النهائية لإصلاح الحركات) ---
+# --- 2. تنسيق CSS المطور (استهداف ذكي باسم الملف) ---
 st.markdown("""
 <style>
     /* ============================================================
        1. تعريف الحركات (Keyframes)
        ============================================================ */
     
-    /* حركة السكرول (Scrubbing): للعناصر التي تظهر أثناء النزول */
+    /* حركة السكرول (للمشاريع بالأسفل) */
     @keyframes scrollReveal {
         from { opacity: 0; transform: scale(0.9) translateY(50px); }
         to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* حركة الدخول التلقائي (Entrance): للصور العلوية فقط */
+    /* حركة الدخول الفوري (للصور العلوية) */
     @keyframes topImageEntrance {
         from { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(4px); }
         to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
     }
 
     /* ============================================================
-       2. تطبيق حركة السكرول (الوضع الافتراضي لكل شيء)
+       2. القاعدة العامة (Scrubbing) - لكل الصور والعناصر
        ============================================================ */
 
-    /* القائمة الشاملة للعناصر التي يجب أن تتحرك مع السكرول */
-    .metric-container, 
-    .project-card-simple, 
-    .grey-box, 
-    .project-spacer, 
-    .hero-name, 
-    .hero-title, 
-    .project-title, 
-    .summary-card, 
-    h2,
-    div[data-testid="stImage"] img {  /* استهداف جميع الصور بشكل افتراضي */
+    .metric-container, .project-card-simple, .grey-box, .project-spacer, 
+    .hero-name, .hero-title, .project-title, .summary-card, h2,
+    div[data-testid="stImage"] img { /* الوضع الافتراضي للصور: حركة سكرول */
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 5% cover 30%;
     }
 
-    /* تنسيق إضافي للصور (حواف وظل) */
+    /* تنسيق جمالي للصور */
     div[data-testid="stImage"] img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
@@ -55,53 +47,39 @@ st.markdown("""
 
     /* أ) استثناء صورة القائمة الجانبية (Sidebar) */
     [data-testid="stSidebar"] img {
-        animation-timeline: auto !important; /* إلغاء السكرول */
-        animation-range: unset !important;   /* إلغاء النطاق */
-        animation: topImageEntrance 1.2s ease-out both !important; /* تطبيق الدخول */
-        opacity: 1; /* ضمان الظهور */
+        animation-timeline: auto !important;
+        animation-range: unset !important;
+        animation: topImageEntrance 1.2s ease-out both !important;
     }
 
-    /* ب) استثناء الصورة الرئيسية (Hero Image) 
-       المحدد: الصورة الموجودة داخل أول مجموعة أعمدة في الصفحة */
-    div.block-container > div[data-testid="stVerticalBlock"] > div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
-        animation-timeline: auto !important; /* إلغاء السكرول */
-        animation-range: unset !important;   /* إلغاء النطاق */
-        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* تطبيق الدخول مع تأخير */
-        opacity: 1; /* ضمان الظهور */
+    /* ب) استثناء الصورة الرئيسية (Hero Image)
+       الحيلة الذكية: استهداف الصورة التي يحتوي رابطها (src) على كلمة "Gemini" */
+    img[src*="Gemini"] {
+        animation-timeline: auto !important; /* إلغاء السكرول إجباري */
+        animation-range: unset !important;
+        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* دخول مع تأخير بسيط */
+        opacity: 1 !important; /* تأكيد الظهور */
     }
 
     /* ============================================================
-       4. تنسيقات عامة (Static Styles)
+       4. تنسيقات عامة
        ============================================================ */
     
     .main { background-color: #fcfcfc; }
-    
-    /* تأثير الهوفر للصور */
-    img:hover { 
-        transform: scale(1.03) translateY(-5px) !important; 
-        box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; 
-        opacity: 1 !important; 
-        z-index: 10; 
-    }
-
-    /* النصوص والعناوين */
+    img:hover { transform: scale(1.03) translateY(-5px) !important; box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; opacity: 1 !important; z-index: 10; }
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
     .hero-title { text-align: center; color: #007bff; font-size: 26px; font-weight: 600; margin-top: -15px; margin-bottom: 40px; }
-    
-    /* الكروت */
     .summary-card { background-color: #ffffff; padding: 35px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; border-left: 6px solid #8b0000; margin-top: 25px; }
-    .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .project-card-simple { background-color: #ffffff; padding: 20px; border-radius: 12px; border-right: 4px solid #007bff; border-left: 4px solid #007bff; margin-bottom: 25px; min-height: 120px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
-    .metric-container { background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; height: 100%; }
-    .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
-    .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
-    .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-
-    /* أزرار وقوائم */
     div[data-testid="stDownloadButton"] > button { background-color: #8b0000 !important; border-color: #8b0000 !important; color: white !important; }
     div[data-testid="stDownloadButton"] > button:hover { background-color: #a50000 !important; border-color: #a50000 !important; }
     [data-testid="stSidebar"] { background-color: #f8f9fa; border-right: 1px solid #e0e0e0; }
     .sidebar-text { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .metric-container { background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; height: 100%; }
+    .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
+    .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
+    .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+    .project-card-simple { background-color: #ffffff; padding: 20px; border-radius: 12px; border-right: 4px solid #007bff; border-left: 4px solid #007bff; margin-bottom: 25px; min-height: 120px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
 
 </style>
 """, unsafe_allow_html=True)
@@ -135,14 +113,15 @@ with st.sidebar:
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
 st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
 
-# الصورة الرئيسية (التي ستأخذ حركة الدخول Entrance)
+# الصورة الرئيسية
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
+        # ملاحظة: اسم الملف هنا هو المفتاح لعمل الـ CSS بشكل صحيح
         st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
-# --- 5. كروت الإنجازات (ستأخذ حركة السكرول) ---
+# --- 5. كروت الإنجازات ---
 st.write("")
 m1, m2, m3, m4 = st.columns(4)
 with m1: st.markdown('<div class="metric-container"><div class="metric-value">10+ Years</div><div>Workforce & Operational Analytics</div></div>', unsafe_allow_html=True)
@@ -214,7 +193,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (الصور هنا ستأخذ حركة السكرول تلقائياً) ---
+# --- 10. قسم المشاريع ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
