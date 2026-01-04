@@ -1,4 +1,4 @@
-import streamlit as st
+timport streamlit as st
 
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
@@ -144,7 +144,7 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
-    try: st.image("Gemini_Generated_Image_tbczcetbczcetbcz.png", use_container_width=True)
+    try: st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
 # --- 5. كروت الإنجازات ---
@@ -319,4 +319,5 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
