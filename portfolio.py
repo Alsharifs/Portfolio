@@ -1,4 +1,4 @@
-timport streamlit as st
+import streamlit as st
 
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
@@ -319,5 +319,6 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
