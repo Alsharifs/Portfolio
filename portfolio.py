@@ -161,13 +161,13 @@ st.divider()
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
-     Software Dvelopper specialized in Big Data Analysis with 10+ years of experience delivering actionable insights through advanced data
-    analysis, data warehousing, and Big Data technologies. Proven track record at top organizations
-    including e& UAE, Vodafone Egypt, and RAYA CX. Expert in SQL, Power BI, Python, C#, Next, Advanced Excel
-    (VBA), and managing large-scale datasets. Adept at creating interactive dashboards, automating
-    reporting workflows, and applying statistical models to identify trends and inform strategic decisions.
-    Specialized in workforce analytics and operational efficiency, with strong communication skills to
-    effectively convey insights to both technical and non-technical stakeholders.
+
+  Software Developer and Big Data Analyst with over 10 years of hands-on experience turning complex data into clear, actionable insights.
+  I have worked with leading organizations such as RTA UAE, Orange Egypt, and RAYA CX, supporting data-driven decision-making through advanced analytics and scalable data solutions.
+  My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
+  I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
+  With a background in workforce analytics and operational efficiency, I bridge the gap between technical
+     
 </div>
 """, unsafe_allow_html=True)
 
@@ -316,6 +316,7 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
 
