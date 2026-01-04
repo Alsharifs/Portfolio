@@ -235,7 +235,7 @@ with c1:
     \n**Output:** Reduced processing time from **10 mins to 8 secs** for all Lines of Business.
     """)
 with c2:
-    try: st.image("unnamed.jpg", use_container_width=True)
+    try: st.image("unnamededit.jpg", use_container_width=True)
     except: st.caption("Analysis Automation")
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -243,7 +243,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
 c1, c2 = st.columns([1.2, 1], gap="large")
 with c1:
-    try: st.image("unnamed (2).jpg", use_container_width=True)
+    try: st.image("unnamed (2)edit.jpg", use_container_width=True)
     except: st.caption("DWH Integration")
 with c2:
     st.markdown('<p class="project-title">2. Data Warehouse Integration</p>', unsafe_allow_html=True)
@@ -267,7 +267,7 @@ with c1:
     \n**Output:** Enabled strategic decisions by uncovering insights from massive datasets.
     """)
 with c2:
-    try: st.image("unnamed (1).jpg", use_container_width=True)
+    try: st.image("unnamed (1)edit.jpg", use_container_width=True)
     except: st.caption("Big Data Visualization")
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -316,6 +316,7 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
 
