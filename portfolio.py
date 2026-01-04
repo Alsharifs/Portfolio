@@ -3,10 +3,14 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (حركة تفاعلية + أنيميشن دخول للصور العلوية) ---
+# --- 2. تنسيق CSS المطور (دمج Scrubbing القديم + Entrance الجديد) ---
 st.markdown("""
 <style>
-    /* 1. تعريف الحركة (تأثير الدخول القوي) للعناصر السفلية عند السكرول */
+    /* =========================================
+       1. تعريف الحركات (Animations Definitions)
+       ========================================= */
+    
+    /* أ: حركة السكرول القديمة (Scrubbing) لباقي الصور والمشاريع */
     @keyframes scrollReveal {
         0% {
             opacity: 0;
@@ -18,12 +22,12 @@ st.markdown("""
         }
     }
 
-    /* 2. تعريف حركة دخول خاصة (Load Animation) للصور العلوية فقط */
+    /* ب: حركة الدخول التلقائية (Entrance) للصور العلوية فقط */
     @keyframes topImageEntrance {
         0% {
             opacity: 0;
-            transform: scale(0.8) translateY(40px);
-            filter: blur(8px);
+            transform: scale(0.8) translateY(30px);
+            filter: blur(5px);
         }
         100% {
             opacity: 1;
@@ -32,35 +36,11 @@ st.markdown("""
         }
     }
 
-    /* تنسيق الحاوية الرئيسية */
-    .main { background-color: #fcfcfc; }
-
-    /* --- تنسيق كارت الملخص (Power BI Style) --- */
-    .summary-card {
-        background-color: #ffffff;
-        padding: 35px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        border: 1px solid #f0f0f0;
-        font-size: 16px;
-        color: #444;
-        line-height: 1.8;
-        border-left: 6px solid #8b0000;
-        margin-top: 25px; 
-    }
-
-    /* --- تنسيق زر التحميل --- */
-    div[data-testid="stDownloadButton"] > button {
-        background-color: #8b0000 !important;
-        border-color: #8b0000 !important;
-        color: white !important;
-    }
-    div[data-testid="stDownloadButton"] > button:hover {
-        background-color: #a50000 !important;
-        border-color: #a50000 !important;
-    }
-
-    /* --- تطبيق الحركة بالسكرول على العناصر العامة --- */
+    /* =========================================
+       2. التطبيق العام (Scrubbing) - كما كان سابقاً
+       ========================================= */
+       
+    /* تطبيق الحركة على الكروت والنصوص والصور العامة */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2 {
         animation: scrollReveal linear both;
@@ -68,34 +48,51 @@ st.markdown("""
         animation-range: entry 10% cover 30%;
     }
 
-    /* --- تنسيق الصور العام (يُطبق على صور المشاريع بالأسفل) --- */
+    /* القاعدة العامة لجميع الصور: تتحرك مع السكرول */
     img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         
-        /* ربط الحركة بالسكرول (الافتراضي) */
+        /* هذا السطر هو ما يربط الصورة بحركة الماوس (Scrubbing) */
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 5% cover 40%;
-        
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
 
-    /* --- تخصيص: أنيميشن دخول للصورة الشخصية (Sidebar) --- */
+    /* =========================================
+       3. الاستثناءات (الصور العلوية فقط)
+       ========================================= */
+
+    /* استثناء 1: صورة السايد بار (Sidebar Image) */
     [data-testid="stSidebar"] img {
+        /* إلغاء ارتباط السكرول */
+        animation-timeline: auto !important; 
+        animation-range: unset !important;
+        
+        /* تطبيق أنيميشن الدخول الفوري */
         animation: topImageEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both !important;
-        animation-timeline: auto !important; /* إلغاء السكرول لهذه الصورة */
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* ظل أقوى قليلاً */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    /* --- تخصيص: أنيميشن دخول للصورة الرئيسية (Hero Image) --- */
-    /* نستهدف الصورة الموجودة داخل أول مجموعة أعمدة (stColumns) في الصفحة */
-    div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
-        animation: topImageEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both !important; /* تأخير بسيط 0.3 ثانية */
-        animation-timeline: auto !important; /* إلغاء السكرول لهذه الصورة */
+    /* استثناء 2: الصورة الرئيسية (Hero Image) */
+    /* نستهدف الصورة الموجودة في أول صف أعمدة، العمود الأوسط */
+    div[data-testid="stHorizontalBlock"]:nth-of-type(1) [data-testid="column"]:nth-of-type(2) img {
+        /* إلغاء ارتباط السكرول */
+        animation-timeline: auto !important;
+        animation-range: unset !important;
+        
+        /* تطبيق أنيميشن الدخول الفوري مع تأخير بسيط */
+        animation: topImageEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both !important;
     }
 
-    /* الحفاظ على تأثير الهوفر (Zoom) */
+    /* =========================================
+       4. تنسيقات عامة أخرى
+       ========================================= */
+
+    .main { background-color: #fcfcfc; }
+
+    /* تأثير الهوفر للصور (Zoom) */
     img:hover {
         transform: scale(1.03) translateY(-5px) !important;
         box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important;
@@ -103,36 +100,36 @@ st.markdown("""
         z-index: 10;
     }
 
-    /* العناوين */
-    .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
-    .hero-title { text-align: center; color: #007bff; font-size: 26px; font-weight: 600; margin-top: -15px; margin-bottom: 40px; }
-
-    /* تنسيق المسافات بين المشاريع */
-    .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-
-    /* كروت المشاريع الصغيرة */
-    .project-card-simple {
-        background-color: #ffffff; padding: 20px; border-radius: 12px;
-        border-right: 4px solid #007bff; border-left: 4px solid #007bff;
-        margin-bottom: 25px; min-height: 120px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        display: flex; align-items: center;
+    /* كارت الملخص */
+    .summary-card {
+        background-color: #ffffff; padding: 35px; border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;
+        font-size: 16px; color: #444; line-height: 1.8;
+        border-left: 6px solid #8b0000; margin-top: 25px; 
     }
 
-    /* الجانب الأيسر (Sidebar) */
+    /* زر التحميل */
+    div[data-testid="stDownloadButton"] > button {
+        background-color: #8b0000 !important; border-color: #8b0000 !important; color: white !important;
+    }
+    div[data-testid="stDownloadButton"] > button:hover {
+        background-color: #a50000 !important; border-color: #a50000 !important;
+    }
+
+    /* النصوص والعناوين */
+    .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
+    .hero-title { text-align: center; color: #007bff; font-size: 26px; font-weight: 600; margin-top: -15px; margin-bottom: 40px; }
+    .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+    .project-card-simple { background-color: #ffffff; padding: 20px; border-radius: 12px; border-right: 4px solid #007bff; border-left: 4px solid #007bff; margin-bottom: 25px; min-height: 120px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
+    
+    /* السايد بار */
     [data-testid="stSidebar"] { background-color: #f8f9fa; border-right: 1px solid #e0e0e0; }
     .sidebar-text { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
 
-    /* كروت الأرقام */
-    .metric-container {
-        background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff;
-        height: 100%;
-    }
+    /* الميتريكس */
+    .metric-container { background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; height: 100%; }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
-
-    /* بوكس التنسيق الرمادي */
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
 
 </style>
@@ -182,27 +179,24 @@ with m4: st.markdown('<div class="metric-container"><div class="metric-value">Bi
 
 st.divider()
 
-# --- 6. الملخص المهني (باللون الأحمر الغامق) ---
+# --- 6. الملخص المهني ---
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
-
   Software Developer and Big Data Analyst with over 10 years of hands-on experience turning complex data into clear, actionable insights.
   I have worked with leading organizations such as RTA UAE, Orange Egypt, and RAYA CX, supporting data-driven decision-making through advanced analytics and scalable data solutions.
   My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
   I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
-  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.
-       
+  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.     
 </div>
 """, unsafe_allow_html=True)
 
 st.divider()
 
-# --- 7. الخبرة العملية (تم تقديمها) ---
+# --- 7. الخبرة العملية ---
 st.header("💼 Professional Experience")
 ex1, ex2 = st.columns(2)
 with ex1:
-    # تم تعديل اللون لاسم الشركة فقط ليصبح أحمر غامق (#8b0000)
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">RTA UAE</span> - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
     st.write("06/2021 - Present | Automation, KPI dashboarding, and predictive modeling.")
     
@@ -217,7 +211,7 @@ with ex2:
 
 st.divider()
 
-# --- 8. المهارات التقنية (تم تقديمها) ---
+# --- 8. المهارات التقنية ---
 st.header("🛠 Technical Expertise")
 sk_col1, sk_col2 = st.columns(2)
 
@@ -236,7 +230,7 @@ with sk_col2:
 
 st.divider()
 
-# --- 9. التعليم (تم تقديمه) ---
+# --- 9. التعليم ---
 st.header("🎓 Education")
 st.markdown("""
 <div class="grey-box">
@@ -247,7 +241,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (الرئيسية) ---
+# --- 10. قسم المشاريع ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -315,7 +309,7 @@ with c2:
     """)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# مشروع 6 (أصبح الآن مشروعاً مستقلاً بعد 4)
+# مشروع 6
 st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large")
 with c1:
@@ -331,7 +325,7 @@ with c2:
     except: st.caption("KPI Dashboard")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# المشاريع الإضافية (تم إزالة المشروع 6 وصورته من هنا)
+# المشاريع الإضافية
 st.markdown("### ➕ Additional Significant Projects")
 col_l, col_r = st.columns(2, gap="medium")
 with col_l:
