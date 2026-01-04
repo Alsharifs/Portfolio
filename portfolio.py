@@ -3,10 +3,10 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (حركة تفاعلية مستمرة - Scrubbing) ---
+# --- 2. تنسيق CSS المطور (حركة تفاعلية + أنيميشن دخول للصور العلوية) ---
 st.markdown("""
 <style>
-    /* 1. تعريف الحركة (تأثير الدخول القوي) */
+    /* 1. تعريف الحركة (تأثير الدخول القوي) للعناصر السفلية عند السكرول */
     @keyframes scrollReveal {
         0% {
             opacity: 0;
@@ -15,6 +15,20 @@ st.markdown("""
         100% {
             opacity: 1;
             transform: scale(1) translateY(0);
+        }
+    }
+
+    /* 2. تعريف حركة دخول خاصة (Load Animation) للصور العلوية فقط */
+    @keyframes topImageEntrance {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(40px);
+            filter: blur(8px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
         }
     }
 
@@ -32,12 +46,10 @@ st.markdown("""
         color: #444;
         line-height: 1.8;
         border-left: 6px solid #8b0000;
-        
-        /* المسافة الخاصة بالكارت نفسه */
         margin-top: 25px; 
     }
 
-    /* --- تنسيق زر التحميل (Download Button) ليصبح أحمر غامق --- */
+    /* --- تنسيق زر التحميل --- */
     div[data-testid="stDownloadButton"] > button {
         background-color: #8b0000 !important;
         border-color: #8b0000 !important;
@@ -48,8 +60,7 @@ st.markdown("""
         border-color: #a50000 !important;
     }
 
-    /* --- تطبيق الحركة على العناصر --- */
-    
+    /* --- تطبيق الحركة بالسكرول على العناصر العامة --- */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2 {
         animation: scrollReveal linear both;
@@ -57,17 +68,31 @@ st.markdown("""
         animation-range: entry 10% cover 30%;
     }
 
-    /* تخصيص الصور بحركة أوضح */
+    /* --- تنسيق الصور العام (يُطبق على صور المشاريع بالأسفل) --- */
     img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
         
-        /* ربط الحركة بالسكرول */
+        /* ربط الحركة بالسكرول (الافتراضي) */
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 5% cover 40%;
         
         box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    /* --- تخصيص: أنيميشن دخول للصورة الشخصية (Sidebar) --- */
+    [data-testid="stSidebar"] img {
+        animation: topImageEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both !important;
+        animation-timeline: auto !important; /* إلغاء السكرول لهذه الصورة */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* ظل أقوى قليلاً */
+    }
+
+    /* --- تخصيص: أنيميشن دخول للصورة الرئيسية (Hero Image) --- */
+    /* نستهدف الصورة الموجودة داخل أول مجموعة أعمدة (stColumns) في الصفحة */
+    div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
+        animation: topImageEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both !important; /* تأخير بسيط 0.3 ثانية */
+        animation-timeline: auto !important; /* إلغاء السكرول لهذه الصورة */
     }
 
     /* الحفاظ على تأثير الهوفر (Zoom) */
@@ -167,7 +192,7 @@ st.markdown("""
   My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
   I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
   With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.
-      
+       
 </div>
 """, unsafe_allow_html=True)
 
@@ -319,6 +344,3 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
-
-
-
