@@ -3,20 +3,20 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (الحل النهائي للهيكلية) ---
+# --- 2. تنسيق CSS المطور (تعديل انيميشن الصورة الوسطى) ---
 st.markdown("""
 <style>
     /* ============================================================
        1. تعريف الحركات (Keyframes)
        ============================================================ */
     
-    /* حركة السكرول (Scrubbing) - لباقي الصور بالأسفل */
+    /* حركة السكرول (Scrubbing) - لباقي الصور والعناصر بالأسفل */
     @keyframes scrollReveal {
         from { opacity: 0; transform: scale(0.9) translateY(50px); }
         to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* حركة الدخول الفوري (Entrance) - للصور العلوية */
+    /* حركة الدخول الفوري (Entrance) - للصور العلوية (الجانبية والوسطى) */
     @keyframes topImageEntrance {
         from { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
         to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
@@ -46,20 +46,20 @@ st.markdown("""
        3. الاستثناءات القوية (Override) - للصور العلوية فقط
        ============================================================ */
 
-    /* أ) استثناء صورة القائمة الجانبية (Sidebar) */
+    /* أ) استثناء صورة القائمة الجانبية (Sidebar) - انيميشن دخول فوري */
     [data-testid="stSidebar"] img {
         animation-timeline: auto !important; /* إلغاء السكرول */
         animation-range: unset !important;
-        animation: topImageEntrance 1s ease-out both !important;
+        animation: topImageEntrance 1.2s ease-out both !important;
         opacity: 1 !important; /* إجبار الظهور */
     }
 
-    /* ب) استثناء الصورة الرئيسية (Hero Image)
-       المنطق: هي الصورة الموجودة داخل "أول" مجموعة أعمدة في الصفحة الرئيسية */
+    /* ب) استثناء الصورة الرئيسية في المنتصف (Hero Image) - لتكون بنفس انيميشن الصورة الجانبية */
     section.main div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
         animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
         animation-range: unset !important;
-        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* حركة دخول مع تأخير بسيط */
+        /* تطبيق نفس انيميشن الدخول الفوري وبنفس التوقيت (1.2s) */
+        animation: topImageEntrance 1.2s ease-out both !important; 
         opacity: 1 !important; /* إجبار الظهور */
         box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* ظل مميز للصورة الرئيسية */
     }
