@@ -178,10 +178,10 @@ st.header("💼 Professional Experience")
 ex1, ex2 = st.columns(2)
 with ex1:
     # تم تعديل اللون لاسم الشركة فقط ليصبح أحمر غامق (#8b0000)
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">RTA UAE</span> - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
     st.write("06/2021 - Present | Automation, KPI dashboarding, and predictive modeling.")
     
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - MIS Analyst</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">RTA UAE</span> - MIS Analyst</p>', unsafe_allow_html=True)
     st.write("02/2019 - 06/2021 | Data accuracy and database query optimization.")
 with ex2:
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Orange Egypt</span> - Data Analyst</p>', unsafe_allow_html=True)
@@ -234,7 +234,7 @@ with c1:
     st.markdown("""
     **Project Published Date:** 2022
     \n**Tools Used:** Python, Pandas, Excel VBA
-    \n**Organization:** e& UAE
+    \n**Organization:** RTA UAE
     \n**Output:** Reduced processing time from **10 mins to 8 secs** for all Lines of Business.
     """)
 with c2:
@@ -253,7 +253,7 @@ with c2:
     st.markdown("""
     **Project Published Date:** 2023
     \n**Tools Used:** SQL, ETL, Power BI
-    \n**Organization:** e& UAE
+    \n**Organization:** RTA UAE
     \n**Output:** Improved reporting speed by **70%** by integrating massive data sources.
     """)
 st.markdown('</div>', unsafe_allow_html=True)
@@ -319,3 +319,4 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
