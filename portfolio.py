@@ -3,38 +3,39 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (استهداف ذكي باسم الملف) ---
+# --- 2. تنسيق CSS المطور (الحل النهائي للهيكلية) ---
 st.markdown("""
 <style>
     /* ============================================================
        1. تعريف الحركات (Keyframes)
        ============================================================ */
     
-    /* حركة السكرول (للمشاريع بالأسفل) */
+    /* حركة السكرول (Scrubbing) - لباقي الصور بالأسفل */
     @keyframes scrollReveal {
         from { opacity: 0; transform: scale(0.9) translateY(50px); }
         to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* حركة الدخول الفوري (للصور العلوية) */
+    /* حركة الدخول الفوري (Entrance) - للصور العلوية */
     @keyframes topImageEntrance {
-        from { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(4px); }
+        from { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
         to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
     }
 
     /* ============================================================
-       2. القاعدة العامة (Scrubbing) - لكل الصور والعناصر
+       2. التطبيق العام (Scroll Animation)
        ============================================================ */
 
+    /* تطبيق حركة السكرول على جميع العناصر والصور بشكل افتراضي */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2,
-    div[data-testid="stImage"] img { /* الوضع الافتراضي للصور: حركة سكرول */
+    div[data-testid="stImage"] img {
         animation: scrollReveal linear both;
         animation-timeline: view();
         animation-range: entry 5% cover 30%;
     }
 
-    /* تنسيق جمالي للصور */
+    /* تنسيق جمالي للصور (حواف وظلال) */
     div[data-testid="stImage"] img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
@@ -42,29 +43,30 @@ st.markdown("""
     }
 
     /* ============================================================
-       3. الاستثناءات (Override) - للصور العلوية فقط
+       3. الاستثناءات القوية (Override) - للصور العلوية فقط
        ============================================================ */
 
     /* أ) استثناء صورة القائمة الجانبية (Sidebar) */
     [data-testid="stSidebar"] img {
-        animation-timeline: auto !important;
+        animation-timeline: auto !important; /* إلغاء السكرول */
         animation-range: unset !important;
-        animation: topImageEntrance 1.2s ease-out both !important;
+        animation: topImageEntrance 1s ease-out both !important;
+        opacity: 1 !important; /* إجبار الظهور */
     }
 
     /* ب) استثناء الصورة الرئيسية (Hero Image)
-       الحيلة الذكية: استهداف الصورة التي يحتوي رابطها (src) على كلمة "Gemini" */
-    img[src*="Gemini"] {
-        animation-timeline: auto !important; /* إلغاء السكرول إجباري */
+       المنطق: هي الصورة الموجودة داخل "أول" مجموعة أعمدة في الصفحة الرئيسية */
+    section.main div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
+        animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
         animation-range: unset !important;
-        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* دخول مع تأخير بسيط */
-        opacity: 1 !important; /* تأكيد الظهور */
+        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* حركة دخول مع تأخير بسيط */
+        opacity: 1 !important; /* إجبار الظهور */
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* ظل مميز للصورة الرئيسية */
     }
 
     /* ============================================================
        4. تنسيقات عامة
        ============================================================ */
-    
     .main { background-color: #fcfcfc; }
     img:hover { transform: scale(1.03) translateY(-5px) !important; box-shadow: 0 20px 40px rgba(0,123,255,0.2) !important; opacity: 1 !important; z-index: 10; }
     .hero-name { text-align: center; color: #1f1f1f; font-size: 70px; font-weight: 900; margin-bottom: 0px; font-family: 'Arial Black', sans-serif; }
@@ -117,11 +119,11 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # ملاحظة: اسم الملف هنا هو المفتاح لعمل الـ CSS بشكل صحيح
+        # لم نعد بحاجة لاسم ملف محدد في الـ CSS، الموقع هو الذي يحدد الانيميشن
         st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
-# --- 5. كروت الإنجازات ---
+# --- 5. كروت الإنجازات (ستعمل مع السكرول تلقائياً) ---
 st.write("")
 m1, m2, m3, m4 = st.columns(4)
 with m1: st.markdown('<div class="metric-container"><div class="metric-value">10+ Years</div><div>Workforce & Operational Analytics</div></div>', unsafe_allow_html=True)
@@ -193,7 +195,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع ---
+# --- 10. قسم المشاريع (ستعمل مع السكرول تلقائياً) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
