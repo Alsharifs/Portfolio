@@ -3,7 +3,7 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (الحل النهائي) ---
+# --- 2. تنسيق CSS المطور (نسخة الإصلاح النهائي) ---
 st.markdown("""
 <style>
     /* =========================================
@@ -18,7 +18,7 @@ st.markdown("""
 
     /* ب: حركة الدخول التلقائية (Entrance) - للصور العلوية */
     @keyframes topImageEntrance {
-        0% { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(4px); }
+        0% { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
         100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
     }
 
@@ -26,7 +26,6 @@ st.markdown("""
        2. التطبيق العام (Scrubbing)
        ========================================= */
     
-    /* العناصر النصية وكروت المشاريع */
     .metric-container, .project-card-simple, .grey-box, .project-spacer, 
     .hero-name, .hero-title, .project-title, .summary-card, h2 {
         animation: scrollReveal linear both;
@@ -34,7 +33,7 @@ st.markdown("""
         animation-range: entry 10% cover 30%;
     }
 
-    /* القاعدة الافتراضية للصور (صور المشاريع): تتحرك مع السكرول */
+    /* الوضع الافتراضي لجميع الصور: تتحرك مع السكرول */
     img {
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
@@ -47,21 +46,23 @@ st.markdown("""
     }
 
     /* =========================================
-       3. الاستثناءات (الصور العلوية - Fix)
+       3. الاستثناءات (الصور العلوية - Fixed)
        ========================================= */
 
-    /* استثناء 1: صورة السايد بار */
+    /* استثناء 1: صورة القائمة الجانبية (Sidebar) */
     [data-testid="stSidebar"] img {
         animation-timeline: auto !important; /* إلغاء السكرول */
         animation-range: unset !important;
-        animation: topImageEntrance 1s ease-out both !important;
+        animation: topImageEntrance 1.2s ease-out both !important;
     }
 
-    /* استثناء 2: الصورة الرئيسية في المنتصف (يتم استهدافها عبر وسم alt) */
-    img[alt="hero_image"] {
+    /* استثناء 2: الصورة الرئيسية (Hero Image) 
+       المنطق: هي الصورة الموجودة داخل "أول" مجموعة أعمدة (Horizontal Block) في الصفحة */
+    div[data-testid="stHorizontalBlock"]:nth-of-type(1) img {
         animation-timeline: auto !important; /* إلغاء السكرول ضروري جداً */
         animation-range: unset !important;
-        animation: topImageEntrance 1.2s ease-out 0.2s both !important; /* تأخير بسيط 0.2 */
+        animation: topImageEntrance 1.5s ease-out 0.2s both !important; /* تأخير بسيط */
+        opacity: 1 !important; /* ضمان الظهور */
     }
 
     /* =========================================
@@ -115,11 +116,12 @@ with st.sidebar:
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
 st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
 
+# هنا يتم عرض الصورة الرئيسية
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # 🟢 ملاحظة هامة: تمت إضافة alt="hero_image" هنا لكي يتعرف عليها الـ CSS
-        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True, alt="hero_image")
+        # تمت إزالة الـ alt لأنه غير ضروري مع التعديل الجديد في CSS
+        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
     except: pass
 
 # --- 5. كروت الإنجازات ---
