@@ -101,7 +101,7 @@ projects = [
         "date": "2024",
         "tools": ["Next.js", "Python (Backend API)", "SQL"],
         "desc": "Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a 'Single Source of Truth' for the department.",
-        "image": "Project 5 RTAINteligence.png"
+        "image": "Project 5 RTAINteligence.jpg"
     },
     {
         "title": "'Shift Master' – Desktop WFM Assistant",
@@ -181,3 +181,4 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
