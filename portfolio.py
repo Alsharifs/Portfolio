@@ -152,7 +152,7 @@ My custom-built software solutions have automated critical workflows, processed 
 
 I specialize in building scalable reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy, delivering tangible financial impact and streamlined performance.
 
-Tech Stack: SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA).
+Tech Stack:  Python, C#, Next.js, SQL, Power BI, and Advanced Excel (VBA).
        
 </div>
 """, unsafe_allow_html=True)
@@ -304,6 +304,7 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
 
