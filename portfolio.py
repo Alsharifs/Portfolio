@@ -147,6 +147,7 @@ Senior Software Architect & Big Data Specialist with over 10 years of experience
 
 Throughout my tenure with industry leaders like RTA UAE, Orange Egypt, and RAYA CX, 
 I have designed and deployed enterprise-grade applications specifically tailored for Workforce Management (WFM) and Customer Service operations. 
+
 My custom-built software solutions have automated critical workflows, processed massive datasets, and directly driven significant cost reductions and efficiency gains in high-volume contact centers.
 
 Tech Stack: SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA).
@@ -303,4 +304,5 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
