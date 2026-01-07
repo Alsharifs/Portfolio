@@ -142,11 +142,17 @@ st.divider()
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
-  Software Developer and Big Data Analyst with over 10 years of hands-on experience turning complex data into clear, actionable insights.
-  I have worked with leading organizations such as RTA UAE, Orange Egypt, and RAYA CX, supporting data-driven decision-making through advanced analytics and scalable data solutions.
-  My expertise includes SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA), with a strong focus on large-scale datasets, data warehousing, and automation. 
-  I specialize in building interactive dashboards, streamlining reporting processes, and applying statistical analysis to uncover trends and improve operational performance.
-  With a background in workforce analytics and operational efficiency, I bridge the gap between technical teams and business stakeholders, delivering insights in a clear and practical way that drives real impact.      
+  
+Senior Software Architect & Big Data Specialist with over 10 years of experience engineering high-performance software solutions that transform complex data into operational assets.
+
+Throughout my tenure with industry leaders like RTA UAE, Orange Egypt, and RAYA CX, 
+I have designed and deployed enterprise-grade applications specifically tailored for Workforce Management (WFM) and Customer Service operations. 
+My custom-built software solutions have automated critical workflows, processed massive datasets, and directly driven significant cost reductions and efficiency gains in high-volume contact centers.
+
+Tech Stack: SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA).
+
+I specialize in building scalable reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy, delivering tangible financial impact and streamlined performance.
+       
 </div>
 """, unsafe_allow_html=True)
 
@@ -297,3 +303,4 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
