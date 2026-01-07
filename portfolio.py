@@ -3,20 +3,20 @@ import streamlit as st
 # --- 1. إعدادات الصفحة ---
 st.set_page_config(page_title="Sayed Moustafa | Portfolio", page_icon="📊", layout="wide")
 
-# --- 2. تنسيق CSS المطور (نفس الكود المرجعي تماماً) ---
+# --- 2. تنسيق CSS المطور ---
 st.markdown("""
 <style>
     /* ============================================================
        1. تعريف الحركات (Keyframes)
        ============================================================ */
     
-    /* حركة السكرول (Scrubbing) - لباقي الصور والعناصر */
+    /* حركة السكرول (Scrubbing) */
     @keyframes scrollReveal {
         from { opacity: 0; transform: scale(0.9) translateY(50px); }
         to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* حركة الدخول الفوري (Entrance) - للصور العلوية */
+    /* حركة الدخول الفوري (Entrance) */
     @keyframes topImageEntrance {
         0% { opacity: 0; transform: scale(0.9) translateY(30px); filter: blur(5px); }
         100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
@@ -26,9 +26,9 @@ st.markdown("""
        2. التطبيق العام (Scroll Animation)
        ============================================================ */
 
-    /* نطبق حركة السكرول على كل الصور والعناصر بشكل عام */
-    .metric-container, .project-card-simple, .grey-box, .project-spacer, 
-    .hero-name, .hero-title, .project-title, .summary-card, h2,
+    /* نطبق حركة السكرول على العناصر بما فيها كروت المشاريع الجديدة */
+    .metric-container, .project-card-simple, .grey-box, .project-card, 
+    .hero-name, .hero-title, .summary-card, h2,
     div[data-testid="stImage"] img {
         animation: scrollReveal linear both;
         animation-timeline: view();
@@ -53,19 +53,12 @@ st.markdown("""
         animation: topImageEntrance 1.2s ease-out both !important;
     }
 
-    /* ب) استثناء الصورة الرئيسية (Hero Image) - الحل المستقر */
-    /* نستهدف الصورة التي يحتوي اسمها على كلمة Gemini */
+    /* ب) استثناء الصورة الرئيسية (Hero Image) */
     div[data-testid="stImage"] img[src*="Gemini"] {
-        animation-timeline: auto !important; /* إلغاء السكرول */
+        animation-timeline: auto !important;
         animation-range: unset !important;
-        
-        /* تطبيق الانيميشن */
         animation: topImageEntrance 1.5s ease-out both !important;
-        
-        /* ضمان الظهور: في حالة فشل الانيميشن، الصورة ستكون ظاهرة */
         opacity: 1 !important; 
-        
-        /* تحسينات بصرية */
         box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important;
     }
 
@@ -84,9 +77,66 @@ st.markdown("""
     .metric-container { background-color: #ffffff; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #007bff; height: 100%; }
     .metric-value { font-size: 24px; font-weight: bold; color: #007bff; margin-bottom: 5px; }
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
-    .project-spacer { margin-bottom: 60px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .project-title { color: #007bff; font-weight: bold; font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-    .project-card-simple { background-color: #ffffff; padding: 20px; border-radius: 12px; border-right: 4px solid #007bff; border-left: 4px solid #007bff; margin-bottom: 25px; min-height: 120px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; }
+    
+    /* ============================================================
+       5. تصميم المشاريع الجديد (Elegant Project Cards)
+       ============================================================ */
+    .project-card { 
+        background-color: #ffffff; 
+        padding: 30px; 
+        border-radius: 20px; 
+        margin-bottom: 50px; 
+        box-shadow: 0 15px 35px rgba(0,0,0,0.06); 
+        border: 1px solid #f0f0f0;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 25px 50px rgba(0,123,255,0.15);
+        border-color: rgba(0,123,255,0.2);
+    }
+
+    /* خط جمالي جانبي للكارت */
+    .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 5px;
+        background: linear-gradient(to bottom, #007bff, #00d2ff);
+    }
+
+    /* عنوان المشروع */
+    .project-header {
+        color: #1a1a1a;
+        font-weight: 800;
+        font-size: 24px;
+        margin-bottom: 15px;
+        background: linear-gradient(90deg, #1a1a1a, #007bff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* تفاصيل المشروع (Tags) */
+    .project-meta-box {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 1px solid #eee;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    .meta-label { font-weight: bold; color: #007bff; margin-right: 5px; }
+    
+    .project-desc {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #333;
+    }
 
 </style>
 """, unsafe_allow_html=True)
@@ -124,7 +174,7 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # الصورة الرئيسية (لم نغيرها بناءً على طلب الحفاظ على الشكل)
+        # الصورة الرئيسية
         st.image("Mainpic.jpg", use_container_width=True)
     except: pass
 
@@ -142,7 +192,7 @@ st.divider()
 st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
-   
+    
 Senior Software Architect & Big Data Specialist with over 10 years of experience engineering high-performance software solutions that transform complex data into operational assets.
 
 Throughout my tenure with industry leaders like RTA UAE, DU UAE, Orange Egypt, and RAYA CX, 
@@ -207,85 +257,105 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم التحديث للمشاريع الخمسة) ---
+# --- 10. قسم المشاريع (تم تحديث المظهر بالكامل ليكون أنيقاً) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
-# --- Project 1: Automated Payroll & Deductions Engine ---
-st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1, 1.2], gap="large")
+# --- Project 1 ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([1.2, 1], gap="large") # Text Left, Image Right
 with c1:
-    st.markdown('<p class="project-title">1. Automated Payroll & Deductions Engine</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">1. Automated Payroll & Deductions Engine</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Published Date:** 2019
-    \n**Tools Used:** Advanced Excel VBA, SQL Server, Power Query
-    \n**Organization:** RAYA CX
-    \n**Output:** Automated the end-to-end salary calculation (including attendance, overtime, and penalties) for thousands of employees. Reduced the monthly processing cycle from 3 days to 45 minutes and achieved 0% payroll discrepancies.
-    """)
+    <div class="project-meta-box">
+        📅 <span class="meta-label">Date:</span> 2019 <br>
+        🏢 <span class="meta-label">Org:</span> RAYA CX <br>
+        🛠 <span class="meta-label">Tools:</span> Advanced Excel VBA, SQL Server, Power Query
+    </div>
+    <div class="project-desc">
+    Automated the end-to-end salary calculation (including attendance, overtime, and penalties) for thousands of employees. Reduced the monthly processing cycle from 3 days to 45 minutes and achieved 0% payroll discrepancies.
+    </div>
+    """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 1 RayaSalaries.png", use_container_width=True)
     except: st.caption("Project 1 Image")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Project 2: Real-Time Adherence Monitor (RTA Dashboard) ---
-st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # عكس الترتيب (صورة يسار)
+# --- Project 2 ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([1, 1.2], gap="large") # Image Left, Text Right (Alternating)
 with c1:
     try: st.image("Project 2 ORANGEmONITORING.png", use_container_width=True)
     except: st.caption("Project 2 Image")
 with c2:
-    st.markdown('<p class="project-title">2. Real-Time Adherence Monitor</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">2. Real-Time Adherence Monitor</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Published Date:** 2020
-    \n**Tools Used:** Power BI, SQL, Python (ETL Scripts)
-    \n**Organization:** Orange Egypt
-    \n**Output:** Engineered a live monitoring system processing 500,000+ daily transaction rows. Improved agent schedule adherence by 15% and saved approx. $100k annually by optimizing workforce productivity.
-    """)
+    <div class="project-meta-box">
+        📅 <span class="meta-label">Date:</span> 2020 <br>
+        🏢 <span class="meta-label">Org:</span> Orange Egypt <br>
+        🛠 <span class="meta-label">Tools:</span> Power BI, SQL, Python (ETL Scripts)
+    </div>
+    <div class="project-desc">
+    Engineered a live monitoring system processing 500,000+ daily transaction rows. Improved agent schedule adherence by 15% and saved approx. $100k annually by optimizing workforce productivity.
+    </div>
+    """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Project 3: IVR Raw Data Parser & Journey Mapper ---
-st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1, 1.2], gap="large")
+# --- Project 3 ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([1.2, 1], gap="large") # Text Left
 with c1:
-    st.markdown('<p class="project-title">3. IVR Raw Data Parser & Journey Mapper</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">3. IVR Raw Data Parser & Journey Mapper</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Published Date:** 2022
-    \n**Tools Used:** Python (Pandas, Regex), SQL, Big Data Warehousing
-    \n**Organization:** DU UAE
-    \n**Output:** Developed a Python pipeline to parse unstructured/raw IVR server logs into structured SQL tables. This automated the daily "Call Journey" report, reducing data preparation time from 4 hours to 5 minutes.
-    """)
+    <div class="project-meta-box">
+        📅 <span class="meta-label">Date:</span> 2022 <br>
+        🏢 <span class="meta-label">Org:</span> DU UAE <br>
+        🛠 <span class="meta-label">Tools:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
+    </div>
+    <div class="project-desc">
+    Developed a Python pipeline to parse unstructured/raw IVR server logs into structured SQL tables. This automated the daily "Call Journey" report, reducing data preparation time from 4 hours to 5 minutes.
+    </div>
+    """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 3 DUIVRPorject.png", use_container_width=True)
     except: st.caption("Project 3 Image")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Project 4: "Shift Master" – Desktop WFM Assistant ---
-st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # عكس الترتيب (صورة يسار)
+# --- Project 4 ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([1, 1.2], gap="large") # Image Left
 with c1:
     try: st.image("Project 4 RTAMaster.png", use_container_width=True)
     except: st.caption("Project 4 Image")
 with c2:
-    st.markdown('<p class="project-title">4. "Shift Master" – Desktop WFM Assistant</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">4. "Shift Master" – Desktop WFM Assistant</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Published Date:** 2023
-    \n**Tools Used:** C# (.NET Framework), SQLite, WinForms
-    \n**Organization:** RTA UAE
-    \n**Output:** Developed a custom desktop application deployed to 200+ supervisors to manage shifts and leaves locally. Reduced manual scheduling adjustments effort by 80% via automated rule-based conflict detection.
-    """)
+    <div class="project-meta-box">
+        📅 <span class="meta-label">Date:</span> 2023 <br>
+        🏢 <span class="meta-label">Org:</span> RTA UAE <br>
+        🛠 <span class="meta-label">Tools:</span> C# (.NET Framework), SQLite, WinForms
+    </div>
+    <div class="project-desc">
+    Developed a custom desktop application deployed to 200+ supervisors to manage shifts and leaves locally. Reduced manual scheduling adjustments effort by 80% via automated rule-based conflict detection.
+    </div>
+    """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Project 5: Enterprise Operational Intelligence Portal ---
-st.markdown('<div class="project-spacer">', unsafe_allow_html=True)
-c1, c2 = st.columns([1, 1.2], gap="large")
+# --- Project 5 ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+c1, c2 = st.columns([1.2, 1], gap="large") # Text Left
 with c1:
-    st.markdown('<p class="project-title">5. Enterprise Operational Intelligence Portal</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">5. Enterprise Operational Intelligence Portal</p>', unsafe_allow_html=True)
     st.markdown("""
-    **Project Published Date:** 2024
-    \n**Tools Used:** Next.js, Python (Backend API), SQL
-    \n**Organization:** RTA UAE
-    \n**Output:** Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a "Single Source of Truth".
-    """)
+    <div class="project-meta-box">
+        📅 <span class="meta-label">Date:</span> 2024 <br>
+        🏢 <span class="meta-label">Org:</span> RTA UAE <br>
+        🛠 <span class="meta-label">Tools:</span> Next.js, Python (Backend API), SQL
+    </div>
+    <div class="project-desc">
+    Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a "Single Source of Truth".
+    </div>
+    """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 5 RTAINteligence.jpg", use_container_width=True)
     except: st.caption("Project 5 Image")
@@ -294,12 +364,3 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
