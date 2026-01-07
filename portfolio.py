@@ -150,9 +150,9 @@ I have designed and deployed enterprise-grade applications specifically tailored
 
 My custom-built software solutions have automated critical workflows, processed massive datasets, and directly driven significant cost reductions and efficiency gains in high-volume contact centers.
 
-Tech Stack: SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA).
-
 I specialize in building scalable reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy, delivering tangible financial impact and streamlined performance.
+
+Tech Stack: SQL, Power BI, Python, C#, Next.js, and Advanced Excel (VBA).
        
 </div>
 """, unsafe_allow_html=True)
@@ -304,5 +304,6 @@ with col_r:
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
 
 
