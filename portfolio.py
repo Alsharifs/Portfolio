@@ -293,6 +293,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
-st.markdown("<p style='text-align: center; color: grey;'> Developed by|Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
 
