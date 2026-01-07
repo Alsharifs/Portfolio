@@ -269,7 +269,7 @@ with c1:
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2019 <br>
         🏢 <span class="meta-label">Org:</span> RAYA CX <br>
-        🛠 <span class="meta-label">Tools:</span> Advanced Excel VBA, SQL Server, Power Query
+        🛠 <span class="meta-label">Technologies:</span> Advanced Excel VBA, SQL Server, Power Query
     </div>
     <div class="project-desc">
     Revolutionized the payroll process by replacing manual calculations with a fully automated engine. 
@@ -294,7 +294,7 @@ with c2:
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2020 <br>
         🏢 <span class="meta-label">Org:</span> Orange Egypt <br>
-        🛠 <span class="meta-label">Tools:</span> Power BI, SQL, Python (ETL Scripts)
+        🛠 <span class="meta-label">Technologies:</span> Power BI, SQL, Python (ETL Scripts)
     </div>
     <div class="project-desc">
     Designed a mission-critical real-time dashboard processing <b>500,000+ daily transactions</b>. 
@@ -313,7 +313,7 @@ with c1:
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2022 <br>
         🏢 <span class="meta-label">Org:</span> DU UAE <br>
-        🛠 <span class="meta-label">Tools:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
+        🛠 <span class="meta-label">Technologies:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
     </div>
     <div class="project-desc">
     Built a high-performance Python pipeline to parse complex unstructured IVR logs into structured data. 
@@ -338,7 +338,7 @@ with c2:
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2023 <br>
         🏢 <span class="meta-label">Org:</span> RTA UAE <br>
-        🛠 <span class="meta-label">Tools:</span> C# (.NET Framework), SQLite, WinForms
+        🛠 <span class="meta-label">Technologies:</span> C# (.NET Framework), SQLite, WinForms
     </div>
     <div class="project-desc">
     Created a bespoke desktop solution empowering <b>200+ supervisors</b> to manage shifts locally. 
@@ -357,7 +357,7 @@ with c1:
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2024 <br>
         🏢 <span class="meta-label">Org:</span> RTA UAE <br>
-        🛠 <span class="meta-label">Tools:</span> Next.js, Python (Backend API), SQL
+        🛠 <span class="meta-label">Technologies:</span> Next.js, Python (Backend API), SQL
     </div>
     <div class="project-desc">
     Spearheaded the development of a unified "Single Source of Truth" platform, retiring <b>50+ fragmented legacy reports</b>. 
@@ -373,5 +373,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
 
