@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 
-# --- Page Configuration ---
+# --- 1. إعدادات الصفحة (Page Configuration) ---
 st.set_page_config(
     page_title="Sayed Moustafa | Portfolio",
     page_icon="📊",
@@ -9,22 +9,24 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- Custom CSS for styling ---
+# --- 2. تنسيق CSS الأصلي (Custom CSS) ---
 st.markdown("""
 <style>
-    /* Main Hero Styling */
+    /* تنسيق الاسم الرئيسي في الواجهة */
     .hero-name {
         font-size: 3rem;
         font-weight: 700;
         color: #1E3D59;
         margin-bottom: 0px;
     }
+    /* تنسيق المسمى الوظيفي */
     .hero-title {
         font-size: 1.5rem;
         font-weight: 400;
         color: #FF6B6B;
         margin-bottom: 20px;
     }
+    /* تنسيق عناوين الأقسام */
     .section-header {
         font-size: 2rem;
         font-weight: 600;
@@ -34,31 +36,31 @@ st.markdown("""
         margin-top: 30px;
         margin-bottom: 20px;
     }
-    .project-card {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-    /* Hide Streamlit Menu */
+    /* إخفاء قوائم ستريم ليت الافتراضية */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-# --- Sidebar Section ---
+# --- 3. الشريط الجانبي (Sidebar Section) ---
 with st.sidebar:
-    # Placeholder for Profile Image (Optional)
-    st.markdown("### 👨‍💻 Sayed Moustafa")
+    st.title("Sayed Moustafa")
+    
     st.markdown("---")
     
+    # معلومات الاتصال والموقع
     st.write("📍 **Location:** Dubai, UAE")
-    st.write("📧 **Email:** (Contact Placeholder)")
+    st.write("📧 **Email:** (Placeholder)")
     st.write("🔗 **LinkedIn:** [View Profile](#)")
     
     st.markdown("---")
-    st.markdown("### 🛠️ Technical Skills")
+    
+    # المهارات التقنية
+    st.subheader("🛠️ Technical Skills")
+    
+    st.markdown("**Languages:**")
+    st.write("- Arabic (Native)")
+    st.write("- English (Proficient)")
     
     st.markdown("**Core Stack:**")
     st.code("Python, SQL, C#, Next.js", language="text")
@@ -67,17 +69,19 @@ with st.sidebar:
     st.code("Power BI, Pandas, Big Data", language="text")
     
     st.markdown("**Automation:**")
-    st.code("VBA, Selenium, ETL Pipelines", language="text")
+    st.code("VBA, ETL Pipelines", language="text")
     
     st.markdown("---")
+    
+    # زر تحميل السيرة الذاتية (Placeholder)
     st.download_button(
         label="📄 Download Resume",
-        data="Placeholder for PDF Content",
+        data="Placeholder Content",
         file_name="Sayed_Moustafa_Resume.pdf",
         mime="application/pdf",
     )
 
-# --- Main Content: Hero Section ---
+# --- 4. القسم الرئيسي والتعريف (Hero Section) ---
 col1, col2 = st.columns([2, 1])
 
 with col1:
@@ -89,10 +93,10 @@ with col1:
     that drive operational efficiency.
     """)
 
-# --- Projects Section ---
+# --- 5. قسم المشاريع (Projects Section) ---
 st.markdown('<p class="section-header">📂 Featured Projects</p>', unsafe_allow_html=True)
 
-# Project Data List
+# قائمة البيانات للمشاريع الخمسة
 projects = [
     {
         "title": "Enterprise Operational Intelligence Portal",
@@ -101,7 +105,7 @@ projects = [
         "date": "2024",
         "tools": ["Next.js", "Python (Backend API)", "SQL"],
         "desc": "Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a 'Single Source of Truth' for the department.",
-        "image": "Project 5 RTAINteligence.jpg"
+        "image": "Project 5 RTAINteligence.png"
     },
     {
         "title": "'Shift Master' – Desktop WFM Assistant",
@@ -141,38 +145,39 @@ projects = [
     }
 ]
 
-# Loop through projects to display them
+# حلقة تكرارية لعرض المشاريع
 for project in projects:
-    st.write("##") # Spacer
+    st.write("##") # مسافة رأسية
     
-    # Layout: Image on the Left (1.3), Text on the Right (2)
-    c1, c2 = st.columns([1.3, 2])
+    # تقسيم الأعمدة: عمود للصورة (يسار) وعمود للنص (يمين)
+    c1, c2 = st.columns([1.5, 2])
     
     with c1:
-        # Check if image exists to avoid errors
+        # التحقق من وجود الصورة وعرضها
         if os.path.exists(project["image"]):
             st.image(project["image"], use_container_width=True)
-            st.caption(f"📸 Snapshot: {project['title']}")
         else:
-            # Fallback if image file is missing
-            st.warning(f"Image not found: {project['image']}")
-            st.info("Please place the image file in the same directory as app.py")
+            # في حال عدم وجود الصورة يعرض رسالة تنبيه
+            st.warning(f"Image missing: {project['image']}")
+            st.info("Place image in the app directory.")
 
     with c2:
         st.subheader(f"{project['title']}")
-        st.markdown(f"**🏢 Organization:** {project['org']} | **🗓️ Year:** {project['date']}")
-        st.markdown(f"**👨‍💻 Role:** {project['role']}")
         
+        # تفاصيل المنظمة والتاريخ
+        st.markdown(f"**🏢 Organization:** {project['org']} | **🗓️ Year:** {project['date']}")
+        
+        # الوصف
         st.write(project["desc"])
         
-        st.markdown("**🛠️ Technologies:**")
-        # Display tools as badges
-        tools_html = " ".join([f"<span style='background-color:#E1E1E1; padding:4px 8px; border-radius:5px; font-size:0.9em; margin-right:5px;'>{tool}</span>" for tool in project["tools"]])
-        st.markdown(tools_html, unsafe_allow_html=True)
+        # الأدوات المستخدمة
+        st.markdown("**🛠️ Technologies Used:**")
+        tools_list = ", ".join([f"`{t}`" for t in project["tools"]])
+        st.markdown(tools_list)
 
-    st.markdown("---")
+    st.markdown("---") # خط فاصل
 
-# --- Footer ---
+# --- 6. تذييل الصفحة (Footer) ---
 st.markdown(
     """
     <div style='text-align: center; margin-top: 50px; color: #666;'>
@@ -181,4 +186,3 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
