@@ -183,7 +183,7 @@ m1, m2, m3, m4 = st.columns(4)
 with m1: st.markdown('<div class="metric-container"><div class="metric-value">10+ Years Experience</div><div>Software Development & Operational Analytics</div></div>', unsafe_allow_html=True)
 with m2: st.markdown('<div class="metric-container"><div class="metric-value">Custom Data Engineering</div><div>Custom Data Engineering Drove High-Magnitude Speed Improvements</div></div>', unsafe_allow_html=True)
 with m3: st.markdown('<div class="metric-container"><div class="metric-value">3 programming Languages</div><div>Mastering Python, C#, and JavaScript(Next.JS)</div></div>', unsafe_allow_html=True)
-with m4: st.markdown('<div class="metric-container"><div class="metric-value">Big Data</div><div>SQL, Power BI & DWH Expert</div></div>', unsafe_allow_html=True)
+with m4: st.markdown('<div class="metric-container"><div class="metric-value">Big Data Expert</div><div>SQL, Power BI & DWH Expert</div></div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -373,4 +373,5 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
