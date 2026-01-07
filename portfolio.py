@@ -145,7 +145,7 @@ st.markdown("""
   
 Senior Software Architect & Big Data Specialist with over 10 years of experience engineering high-performance software solutions that transform complex data into operational assets.
 
-Throughout my tenure with industry leaders like RTA UAE, Orange Egypt, and RAYA CX, 
+Throughout my tenure with industry leaders like RTA UAE, DU UAE, Orange Egypt, and RAYA CX, 
 I have designed and deployed enterprise-grade applications specifically tailored for Workforce Management (WFM) and Customer Service operations. 
 
 My custom-built software solutions have automated critical workflows, processed massive datasets, and directly driven significant cost reductions and efficiency gains in high-volume contact centers.
