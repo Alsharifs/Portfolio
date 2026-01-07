@@ -26,7 +26,7 @@ st.markdown("""
        2. التطبيق العام (Scroll Animation)
        ============================================================ */
 
-    /* نطبق حركة السكرول على العناصر بما فيها كروت المشاريع الجديدة */
+    /* نطبق حركة السكرول على العناصر */
     .metric-container, .project-card-simple, .grey-box, .project-card, 
     .hero-name, .hero-title, .summary-card, h2,
     div[data-testid="stImage"] img {
@@ -79,7 +79,7 @@ st.markdown("""
     .grey-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; border-left: 5px solid #6c757d; line-height: 1.6; }
     
     /* ============================================================
-       5. تصميم المشاريع الجديد (Elegant Project Cards)
+       5. تصميم المشاريع (Project Cards)
        ============================================================ */
     .project-card { 
         background-color: #ffffff; 
@@ -174,7 +174,6 @@ st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', uns
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
-        # الصورة الرئيسية
         st.image("Mainpic.jpg", use_container_width=True)
     except: pass
 
@@ -257,13 +256,13 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم تحديث المظهر بالكامل ليكون أنيقاً) ---
+# --- 10. قسم المشاريع (تم تحسين الوصف ليكون أكثر احترافية) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects</h2>", unsafe_allow_html=True)
 st.write("")
 
 # --- Project 1 ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # Text Left, Image Right
+c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
     st.markdown('<p class="project-header">1. Automated Payroll & Deductions Engine</p>', unsafe_allow_html=True)
     st.markdown("""
@@ -273,7 +272,9 @@ with c1:
         🛠 <span class="meta-label">Tools:</span> Advanced Excel VBA, SQL Server, Power Query
     </div>
     <div class="project-desc">
-    Automated the end-to-end salary calculation (including attendance, overtime, and penalties) for thousands of employees. Reduced the monthly processing cycle from 3 days to 45 minutes and achieved 0% payroll discrepancies.
+    Revolutionized the payroll process by replacing manual calculations with a fully automated engine. 
+    <b>Slashed processing time from 3 days to just 45 minutes</b> while ensuring <b>100% accuracy</b> 
+    for thousands of employees, eliminating human error in attendance, overtime, and penalty calculations.
     </div>
     """, unsafe_allow_html=True)
 with c2:
@@ -283,7 +284,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 2 ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([1, 1.2], gap="large") # Image Left, Text Right (Alternating)
+c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
     try: st.image("Project 2 ORANGEmONITORING.png", use_container_width=True)
     except: st.caption("Project 2 Image")
@@ -296,14 +297,16 @@ with c2:
         🛠 <span class="meta-label">Tools:</span> Power BI, SQL, Python (ETL Scripts)
     </div>
     <div class="project-desc">
-    Engineered a live monitoring system processing 500,000+ daily transaction rows. Improved agent schedule adherence by 15% and saved approx. $100k annually by optimizing workforce productivity.
+    Designed a mission-critical real-time dashboard processing <b>500,000+ daily transactions</b>. 
+    This system boosted workforce adherence by <b>15%</b> and achieved approx. <b>$100k in annual savings</b> 
+    through optimized resource allocation and live productivity tracking.
     </div>
     """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 3 ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # Text Left
+c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
     st.markdown('<p class="project-header">3. IVR Raw Data Parser & Journey Mapper</p>', unsafe_allow_html=True)
     st.markdown("""
@@ -313,7 +316,9 @@ with c1:
         🛠 <span class="meta-label">Tools:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
     </div>
     <div class="project-desc">
-    Developed a Python pipeline to parse unstructured/raw IVR server logs into structured SQL tables. This automated the daily "Call Journey" report, reducing data preparation time from 4 hours to 5 minutes.
+    Built a high-performance Python pipeline to parse complex unstructured IVR logs into structured data. 
+    Transformed a <b>4-hour manual reporting nightmare into a 5-minute automated workflow</b>, 
+    unlocking deep, granular insights into customer journey behaviors.
     </div>
     """, unsafe_allow_html=True)
 with c2:
@@ -323,7 +328,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 4 ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([1, 1.2], gap="large") # Image Left
+c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
     try: st.image("Project 4 RTAMaster.png", use_container_width=True)
     except: st.caption("Project 4 Image")
@@ -336,14 +341,16 @@ with c2:
         🛠 <span class="meta-label">Tools:</span> C# (.NET Framework), SQLite, WinForms
     </div>
     <div class="project-desc">
-    Developed a custom desktop application deployed to 200+ supervisors to manage shifts and leaves locally. Reduced manual scheduling adjustments effort by 80% via automated rule-based conflict detection.
+    Created a bespoke desktop solution empowering <b>200+ supervisors</b> to manage shifts locally. 
+    Cut administrative scheduling overhead by <b>80%</b> via intelligent, rule-based conflict detection algorithms, 
+    eliminating the need for centralized manual intervention.
     </div>
     """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 5 ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
-c1, c2 = st.columns([1.2, 1], gap="large") # Text Left
+c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
     st.markdown('<p class="project-header">5. Enterprise Operational Intelligence Portal</p>', unsafe_allow_html=True)
     st.markdown("""
@@ -353,7 +360,9 @@ with c1:
         🛠 <span class="meta-label">Tools:</span> Next.js, Python (Backend API), SQL
     </div>
     <div class="project-desc">
-    Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a "Single Source of Truth".
+    Spearheaded the development of a unified "Single Source of Truth" platform, retiring <b>50+ fragmented legacy reports</b>. 
+    Delivered <b>zero-latency visibility</b> into historical trends and live KPIs, enabling agile, 
+    data-driven decision-making for executive leadership.
     </div>
     """, unsafe_allow_html=True)
 with c2:
