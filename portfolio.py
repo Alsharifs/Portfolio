@@ -287,10 +287,11 @@ with c1:
     \n**Output:** Architected a centralized web-based platform replacing 50+ scattered Excel reports. Gave stakeholders instant access to historical trends and live KPIs with zero latency, effectively creating a "Single Source of Truth".
     """)
 with c2:
-    try: st.image("Project 5 RTAINteligence.png", use_container_width=True)
+    try: st.image("Project 5 RTAINteligence.jpg", use_container_width=True)
     except: st.caption("Project 5 Image")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'>© 2026 Sayed Moustafa | Senior Data Analyst</p>", unsafe_allow_html=True)
+
