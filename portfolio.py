@@ -125,7 +125,7 @@ col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
 with col_img_2:
     try:
         # الصورة الرئيسية (لم نغيرها بناءً على طلب الحفاظ على الشكل)
-        st.image("Gemini_Generated_Image_tbczcetbczcetbczedit.png", use_container_width=True)
+        st.image("Mainpic.jpg", use_container_width=True)
     except: pass
 
 # --- 5. كروت الإنجازات ---
@@ -294,6 +294,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
 
 
