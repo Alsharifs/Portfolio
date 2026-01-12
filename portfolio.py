@@ -192,7 +192,7 @@ st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
     
-Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assets.
+Senior Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assets.
 
 Throughout my tenure with industry leaders like e& UAE and RAYA CX, I have served as a focal point for Management Information Systems (MIS), designing solutions specifically tailored for Workforce Management (WFM) and Customer Service operations.
 
@@ -221,7 +221,7 @@ with ex1:
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
     st.write("03/2016 - 06/2021 | Automating massive-scale daily reports.")
 with ex2:   
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce Coordinator</p>', unsafe_allow_html=True)
     st.write("04/2015 - 02/2016 | Automation, KPI dashboarding.")
     
 
@@ -366,6 +366,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
 
 
