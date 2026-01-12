@@ -262,19 +262,20 @@ st.divider()
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects Samples</h2>", unsafe_allow_html=True)
 st.write("")
 
-# --- Project 1 ---
+
+# --- Project 1 (UPDATED) ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
-    st.markdown('<p class="project-header">1. Automated Data Quality & Integrity Validator</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">1. Automated Executive Bi-Hourly Operational Report</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        🛠 <span class="meta-label">Tech:</span> Python (PyTest/Great Expectations concept), SQL, Email Alerts<br>
-        🎯 <span class="meta-label">Impact:</span> 100% Report Credibility
+        🛠 <span class="meta-label">Tech:</span> Python (Pandas/Jinja2 for HTML/SMTP), SQL, Windows Task Scheduler<br>
+        🎯 <span class="meta-label">Impact:</span> Saved 300+ annual analyst hours & Single Source of Truth
     </div>
     <div class="project-desc">
-    <b>The Problem:</b> "Garbage In, Garbage Out." Raw data sources often fail, or agents enter fake IDs, ruining daily reports.<br><br>
-    <b>The MIS Solution:</b> A "Pre-Reporting" validation script. Before any dashboard refreshes, this script runs 50+ logic checks (e.g., "Is Call Duration > 0?", "Is Employee ID valid?"). If data fails, it halts the pipeline and alerts the admin, preventing incorrect reports from reaching top management.
+    <b>The Problem:</b> Senior Leadership lacks visibility into intraday operational performance (Service Level, Abandon Rate, ASA) without manual, error-prone reports that often arrive too late to influence the day's outcome. Relying on executives to log into complex dashboards often results in low adoption.<br><br>
+    <b>The Solution:</b> A "Zero-Touch" Python reporting bot that runs automatically every 2 hours. It queries the Data Warehouse, calculates the cumulative KPIs across all departments, generates a stylized HTML email with conditional formatting (e.g., highlighting missed SLAs in Red), and distributes a polished summary directly to the C-Suite inbox.
     </div>
     """, unsafe_allow_html=True)
 with c2:
@@ -358,11 +359,12 @@ with c1:
     </div>
     """, unsafe_allow_html=True)
 with c2:
-    try: st.image("5.jpg, use_container_width=True)
+    try: st.image("5.jpg", use_container_width=True)
     except: st.caption("Project 5 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
