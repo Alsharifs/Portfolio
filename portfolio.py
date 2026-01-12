@@ -278,7 +278,7 @@ with c1:
     </div>
     """, unsafe_allow_html=True)
 with c2:
-    try: st.image("Project 1 RayaSalaries.png", use_container_width=True)
+    try: st.image("1.jpg", use_container_width=True)
     except: st.caption("Project 1 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -286,7 +286,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
-    try: st.image("Project 2 ORANGEmONITORING.png", use_container_width=True)
+    try: st.image("2.jpg", use_container_width=True)
     except: st.caption("Project 2 Image Placeholder")
 with c2:
     st.markdown('<p class="project-header">2. Real-Time Intraday Performance Dashboard</p>', unsafe_allow_html=True)
@@ -318,7 +318,7 @@ with c1:
     </div>
     """, unsafe_allow_html=True)
 with c2:
-    try: st.image("Project 3 DUIVRPorject.png", use_container_width=True)
+    try: st.image("3.jpg", use_container_width=True)
     except: st.caption("Project 3 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
@@ -326,7 +326,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
-    try: st.image("Project 4 RTAMaster.png", use_container_width=True)
+    try: st.image("4.jpg", use_container_width=True)
     except: st.caption("Project 4 Image Placeholder")
 with c2:
     st.markdown('<p class="project-header">4. Automated 15-Minute IVR "Pulse" & Call Driver Detector</p>', unsafe_allow_html=True)
@@ -358,10 +358,11 @@ with c1:
     </div>
     """, unsafe_allow_html=True)
 with c2:
-    try: st.image("Project 5 RTAINteligence.jpg", use_container_width=True)
+    try: st.image("5.jpg, use_container_width=True)
     except: st.caption("Project 5 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
