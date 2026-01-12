@@ -219,10 +219,10 @@ with ex1:
     st.write("06/2021 - Present | Developing comprehensive reporting ecosystems.")
     
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("02/2019 - 06/2021 | Automating massive-scale daily reports.")
+    st.write("02/2016 - 06/2021 | Automating massive-scale daily reports.")
 with ex2:   
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CXt</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("07/2015 - 02/2019 | Automation, KPI dashboarding.")
+    st.write("04/2015 - 02/2019 | Automation, KPI dashboarding.")
     
 
 
