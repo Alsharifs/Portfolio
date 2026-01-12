@@ -269,8 +269,8 @@ with c1:
     st.markdown('<p class="project-header">1. Automated Payroll & Deductions Engine</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2019 <br>
-        🏢 <span class="meta-label">Org:</span> RAYA CX <br>
+        📅 <span class="meta-label">Date:</span> 2025 <br>
+        🏢 <span class="meta-label">Org:</span> e& UAE <br>
         🛠 <span class="meta-label">Technologies:</span> Advanced Excel VBA, SQL Server, Power Query
     </div>
     <div class="project-desc">
@@ -294,8 +294,8 @@ with c2:
     st.markdown('<p class="project-header">2. Real-Time Adherence Monitor</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2020 <br>
-        🏢 <span class="meta-label">Org:</span> Orange Egypt <br>
+        📅 <span class="meta-label">Date:</span> 2024 <br>
+        🏢 <span class="meta-label">Org:</span> e& UAE <br>
         🛠 <span class="meta-label">Technologies:</span> Power BI, SQL, Python (ETL Scripts)
     </div>
     <div class="project-desc">
@@ -314,7 +314,7 @@ with c1:
     st.markdown("""
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2022 <br>
-        🏢 <span class="meta-label">Org:</span> DU UAE <br>
+        🏢 <span class="meta-label">Org:</span> e& UAE <br>
         🛠 <span class="meta-label">Technologies:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
     </div>
     <div class="project-desc">
@@ -339,7 +339,7 @@ with c2:
     st.markdown("""
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2023 <br>
-        🏢 <span class="meta-label">Org:</span> RTA UAE <br>
+        🏢 <span class="meta-label">Org:</span> e& UAE <br>
         🛠 <span class="meta-label">Technologies:</span> C# (.NET Framework), SQLite, WinForms
     </div>
     <div class="project-desc">
@@ -358,7 +358,7 @@ with c1:
     st.markdown("""
     <div class="project-meta-box">
         📅 <span class="meta-label">Date:</span> 2024 <br>
-        🏢 <span class="meta-label">Org:</span> RTA UAE <br>
+        🏢 <span class="meta-label">Org:</span> RAYA RX <br>
         🛠 <span class="meta-label">Technologies:</span> Next.js, Python (Backend API), SQL
     </div>
     <div class="project-desc">
@@ -375,6 +375,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
+
 
 
 
