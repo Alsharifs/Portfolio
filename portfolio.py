@@ -192,37 +192,39 @@ st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
     
-Senior Software Architect & Big Data Specialist with over 10 years of experience engineering high-performance software solutions that transform complex data into operational assets.
+Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assetsز
 
-Throughout my tenure with industry leaders like RTA UAE, DU UAE, Orange Egypt, and RAYA CX, 
-I have designed and deployed enterprise-grade applications specifically tailored for Workforce Management (WFM) and Customer Service operations. 
+Throughout my tenure with industry leaders like e& UAE and RAYA CX, I have served as a focal point for Management Information Systems (MIS), designing solutions specifically tailored for Workforce Management (WFM) and Customer Service operations.
 
-My custom-built software solutions have automated critical workflows, processed massive datasets, and directly driven significant cost reductions and efficiency gains in high-volume contact centers.
+My custom-built solutions have revolutionized reporting ecosystems by automating massive-scale daily reports, processing distinct datasets, and directly driving significant cost reductions. I specialize in building end-to-end automated reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy.
 
-I specialize in building scalable reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy, delivering tangible financial impact and streamlined performance.
-
-Tech Stack:  Python, C#, Next.js, SQL, Power BI, and Advanced Excel (VBA).
+Tech Stack: Python, C#, Next.js, SQL, Power BI, and Advanced Excel (VBA).
         
 </div>
 """, unsafe_allow_html=True)
 
 st.divider()
 
+
+
+
+
 # --- 7. الخبرة العملية ---
 st.header("💼 Professional Experience")
 ex1, ex2 = st.columns(2)
+
 with ex1:
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">RTA UAE</span> - Senior Workforce Data Analyst</p>', unsafe_allow_html=True)
-    st.write("06/2021 - Present | Automation, KPI dashboarding, and predictive modeling.")
+
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Senior Workforce MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("06/2021 - Present | Developing comprehensive reporting ecosystems.")
     
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">RTA UAE</span> - MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("02/2019 - 06/2021 | Data accuracy and database query optimization.")
-with ex2:
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Orange Egypt</span> - Data Analyst</p>', unsafe_allow_html=True)
-    st.write("07/2015 - 02/2019 | Customer trend analysis and strategic growth insights.")
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("02/2019 - 06/2021 | Automating massive-scale daily reports.")
+with ex2:   
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CXt</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("07/2015 - 02/2019 | Automation, KPI dashboarding.")
     
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce Management Analyst</p>', unsafe_allow_html=True)
-    st.write("03/2012 - 07/2015 | Forecasting and resource optimization.")
+
 
 st.divider()
 
@@ -373,6 +375,5 @@ st.markdown('</div>', unsafe_allow_html=True)
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
-
 
 
