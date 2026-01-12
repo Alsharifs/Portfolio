@@ -192,7 +192,7 @@ st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
     
-Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assetsز
+Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assets.
 
 Throughout my tenure with industry leaders like e& UAE and RAYA CX, I have served as a focal point for Management Information Systems (MIS), designing solutions specifically tailored for Workforce Management (WFM) and Customer Service operations.
 
@@ -221,8 +221,8 @@ with ex1:
     st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
     st.write("03/2016 - 06/2021 | Automating massive-scale daily reports.")
 with ex2:   
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CXt</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("04/2015 -02/2016 | Automation, KPI dashboarding.")
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("04/2015 - 02/2016 | Automation, KPI dashboarding.")
     
 
 
@@ -258,7 +258,7 @@ st.markdown("""
 
 st.divider()
 
-# --- 10. قسم المشاريع (تم تحسين الوصف ليكون أكثر احترافية) ---
+# --- 10. قسم المشاريع (Technical Projects Samples) ---
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects Samples</h2>", unsafe_allow_html=True)
 st.write("")
 
@@ -266,22 +266,20 @@ st.write("")
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
-    st.markdown('<p class="project-header">1. Automated Payroll & Deductions Engine</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">1. Automated Data Quality & Integrity Validator</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2025 <br>
-        🏢 <span class="meta-label">Org:</span> e& UAE <br>
-        🛠 <span class="meta-label">Technologies:</span> Advanced Excel VBA, SQL Server, Power Query
+        🛠 <span class="meta-label">Tech:</span> Python (PyTest/Great Expectations concept), SQL, Email Alerts<br>
+        🎯 <span class="meta-label">Impact:</span> 100% Report Credibility
     </div>
     <div class="project-desc">
-    Revolutionized the payroll process by replacing manual calculations with a fully automated engine. 
-    <b>Slashed processing time from 3 days to just 45 minutes</b> while ensuring <b>100% accuracy</b> 
-    for thousands of employees, eliminating human error in attendance, overtime, and penalty calculations.
+    <b>The Problem:</b> "Garbage In, Garbage Out." Raw data sources often fail, or agents enter fake IDs, ruining daily reports.<br><br>
+    <b>The MIS Solution:</b> A "Pre-Reporting" validation script. Before any dashboard refreshes, this script runs 50+ logic checks (e.g., "Is Call Duration > 0?", "Is Employee ID valid?"). If data fails, it halts the pipeline and alerts the admin, preventing incorrect reports from reaching top management.
     </div>
     """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 1 RayaSalaries.png", use_container_width=True)
-    except: st.caption("Project 1 Image")
+    except: st.caption("Project 1 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 2 ---
@@ -289,19 +287,17 @@ st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
     try: st.image("Project 2 ORANGEmONITORING.png", use_container_width=True)
-    except: st.caption("Project 2 Image")
+    except: st.caption("Project 2 Image Placeholder")
 with c2:
-    st.markdown('<p class="project-header">2. Real-Time Adherence Monitor</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">2. Real-Time Intraday Performance Dashboard</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2024 <br>
-        🏢 <span class="meta-label">Org:</span> e& UAE <br>
-        🛠 <span class="meta-label">Technologies:</span> Power BI, SQL, Python (ETL Scripts)
+        🛠 <span class="meta-label">Tech:</span> Power BI (DirectQuery), SQL Views, DAX (Time-intelligence)<br>
+        🎯 <span class="meta-label">Value:</span> Immediate Tactical Decisions
     </div>
     <div class="project-desc">
-    Designed a mission-critical real-time dashboard processing <b>500,000+ daily transactions</b>. 
-    This system boosted workforce adherence by <b>15%</b> and achieved approx. <b>$100k in annual savings</b> 
-    through optimized resource allocation and live productivity tracking.
+    <b>The Problem:</b> Waiting for "Yesterday's Report" is too late. Operations managers need to know right now if the Service Level is dropping.<br><br>
+    <b>The MIS Solution:</b> A live Power BI dashboard connected to the production database via DirectQuery. It visualizes Service Level, Abandon Rate, and Agent Availability in 15-minute intervals, enabling immediate tactical decisions (e.g., cancelling breaks) to rescue Service Levels before the day ends.
     </div>
     """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
@@ -310,22 +306,20 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
-    st.markdown('<p class="project-header">3. IVR Raw Data Parser & Journey Mapper</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">3. First Call Resolution (FCR) Logic Tracker</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2022 <br>
-        🏢 <span class="meta-label">Org:</span> e& UAE <br>
-        🛠 <span class="meta-label">Technologies:</span> Python (Pandas, Regex), SQL, Big Data Warehousing
+        🛠 <span class="meta-label">Tech:</span> SQL (Window Functions/Lag), Python (Data Processing)<br>
+        🎯 <span class="meta-label">Value:</span> Critical CX Metrics without CRM costs
     </div>
     <div class="project-desc">
-    Built a high-performance Python pipeline to parse complex unstructured IVR logs into structured data. 
-    Transformed a <b>4-hour manual reporting nightmare into a 5-minute automated workflow</b>, 
-    unlocking deep, granular insights into customer journey behaviors.
+    <b>The Problem:</b> Knowing if a customer called back regarding the same issue is difficult without a complex CRM.<br><br>
+    <b>The MIS Solution:</b> A backend SQL logic script that analyzes call logs. It flags a "Repeat Call" if the same phone number calls twice within 72 hours. It then calculates the True FCR rate by team and agent, providing the most critical Customer Experience metric without needing expensive external software.
     </div>
     """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 3 DUIVRPorject.png", use_container_width=True)
-    except: st.caption("Project 3 Image")
+    except: st.caption("Project 3 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 4 ---
@@ -333,19 +327,17 @@ st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1, 1.2], gap="large") 
 with c1:
     try: st.image("Project 4 RTAMaster.png", use_container_width=True)
-    except: st.caption("Project 4 Image")
+    except: st.caption("Project 4 Image Placeholder")
 with c2:
-    st.markdown('<p class="project-header">4. "Shift Master" – Desktop WFM Assistant</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">4. Automated 15-Minute IVR "Pulse" & Call Driver Detector</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2023 <br>
-        🏢 <span class="meta-label">Org:</span> e& UAE <br>
-        🛠 <span class="meta-label">Technologies:</span> C# (.NET Framework), SQLite, WinForms
+        🛠 <span class="meta-label">Tech:</span> Python (Pandas/SMTP Automation), SQL, Windows Task Scheduler<br>
+        🎯 <span class="meta-label">Impact:</span> Proactive Incident Response
     </div>
     <div class="project-desc">
-    Created a bespoke desktop solution empowering <b>200+ supervisors</b> to manage shifts locally. 
-    Cut administrative scheduling overhead by <b>80%</b> via intelligent, rule-based conflict detection algorithms, 
-    eliminating the need for centralized manual intervention.
+    <b>The Problem:</b> RTM teams often see high queues but lack immediate visibility into the "Why," causing delays in response during outages.<br><br>
+    <b>The MIS Solution:</b> A high-frequency reporting engine developed in Python that runs every 15 minutes. It aggregates real-time IVR menu selections, detects abnormal spikes (e.g., 500% increase in "Billing Issues"), and automatically emails a "Flash Alert," enabling RTM to deploy emergency IVR announcements within minutes.
     </div>
     """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
@@ -354,28 +346,22 @@ st.markdown('</div>', unsafe_allow_html=True)
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
 c1, c2 = st.columns([1.2, 1], gap="large") 
 with c1:
-    st.markdown('<p class="project-header">5. Enterprise Operational Intelligence Portal</p>', unsafe_allow_html=True)
+    st.markdown('<p class="project-header">5. Automated Quality Sampling & Work Allocation Engine</p>', unsafe_allow_html=True)
     st.markdown("""
     <div class="project-meta-box">
-        📅 <span class="meta-label">Date:</span> 2024 <br>
-        🏢 <span class="meta-label">Org:</span> RAYA RX <br>
-        🛠 <span class="meta-label">Technologies:</span> Next.js, Python (Backend API), SQL
+        🛠 <span class="meta-label">Tech:</span> SQL (Randomized Logic), Python (ETL), SharePoint Integration<br>
+        🎯 <span class="meta-label">Impact:</span> +20% QA Productivity & Eliminated Bias
     </div>
     <div class="project-desc">
-    Spearheaded the development of a unified "Single Source of Truth" platform, retiring <b>50+ fragmented legacy reports</b>. 
-    Delivered <b>zero-latency visibility</b> into historical trends and live KPIs, enabling agile, 
-    data-driven decision-making for executive leadership.
+    <b>The Problem:</b> QA officers often "cherry-pick" easy calls, introducing bias. Manual tracking of audit quotas is time-consuming.<br><br>
+    <b>The MIS Solution:</b> A database-driven engine that runs nightly. It automatically selects a statistically representative sample of calls based on specific logic (e.g., "Select 1 call > 10 mins, 1 Transfer"). The system pushes these specific Call IDs directly to the QA team's work queue, ensuring 100% quota completion and zero bias.
     </div>
     """, unsafe_allow_html=True)
 with c2:
     try: st.image("Project 5 RTAINteligence.jpg", use_container_width=True)
-    except: st.caption("Project 5 Image")
+    except: st.caption("Project 5 Image Placeholder")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Footer ---
 st.divider()
 st.markdown("<p style='text-align: center; color: grey;'> Developed by | Sayed Moustafa© 2026</p>", unsafe_allow_html=True)
-
-
-
-
