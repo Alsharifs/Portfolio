@@ -158,17 +158,17 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("### 🌐 LANGUAGES")
-    st.markdown("- **English:** Proficient\n- **Arabic:** Native")
+    st.markdown("- **Arabic:** Native\n- **English:** Fluent (Professional)")
 
     st.markdown("---")
     try:
-        with open("Sayed Moustafa_Senior WORKFORCE ANALYST.pdf", "rb") as f:
-            st.download_button(label="⬇️ Download Resume", data=f, file_name="Sayed Moustafa_Senior WORKFORCE ANALYST.pdf", use_container_width=True, type="primary")
+        with open("Sayed Moustafa_Workforce Analyst.pdf", "rb") as f:
+            st.download_button(label="⬇️ Download Resume", data=f, file_name="Sayed Moustafa_Workforce Analyst.pdf", use_container_width=True, type="primary")
     except: pass
 
 # --- 4. الجزء العلوي (Hero Section) ---
 st.markdown('<p class="hero-name">SAYED MOUSTAFA</p>', unsafe_allow_html=True)
-st.markdown('<p class="hero-title">SENIOR DATA ANALYST & DATA ENGINEER</p>', unsafe_allow_html=True)
+st.markdown('<p class="hero-title">WORKFORCE MANAGEMENT ANALYST | DATA ANALYST</p>', unsafe_allow_html=True)
 
 # الصورة الرئيسية
 col_img_1, col_img_2, col_img_3 = st.columns([1, 2.5, 1])
@@ -180,10 +180,10 @@ with col_img_2:
 # --- 5. كروت الإنجازات ---
 st.write("")
 m1, m2, m3, m4 = st.columns(4)
-with m1: st.markdown('<div class="metric-container"><div class="metric-value">10+ Years Experience</div><div>WFM Data Engineering, Reporting Automation and Operational Analytics</div></div>', unsafe_allow_html=True)
-with m2: st.markdown('<div class="metric-container"><div class="metric-value">Custom Data Engineering</div><div>Custom Data Engineering Drove High-Magnitude Speed Improvements</div></div>', unsafe_allow_html=True)
-with m3: st.markdown('<div class="metric-container"><div class="metric-value">3 programming Languages</div><div>Mastering Python, C#, and JavaScript(Next.JS)</div></div>', unsafe_allow_html=True)
-with m4: st.markdown('<div class="metric-container"><div class="metric-value">Big Data Expert</div><div>SQL, Power BI & DWH Expert</div></div>', unsafe_allow_html=True)
+with m1: st.markdown('<div class="metric-container"><div class="metric-value">14+ Years Experience</div><div>Workforce Management, Real-Time Monitoring and Reporting Automation at e&, Vodafone and Raya CX</div></div>', unsafe_allow_html=True)
+with m2: st.markdown('<div class="metric-container"><div class="metric-value">10 min → 8 sec</div><div>LOB analysis automation officially adopted by e&</div></div>', unsafe_allow_html=True)
+with m3: st.markdown('<div class="metric-container"><div class="metric-value">AI-Assisted Development</div><div>Claude Code, ChatGPT and prompt engineering to build and ship tools faster</div></div>', unsafe_allow_html=True)
+with m4: st.markdown('<div class="metric-container"><div class="metric-value">SQL · Power BI · Python</div><div>Advanced Excel/VBA, JavaScript and Node.js</div></div>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -192,13 +192,13 @@ st.markdown("### 📋 PROFESSIONAL SUMMARY")
 st.markdown("""
 <div class="summary-card">
     
-Senior Data Analyst & MIS Specialist with over 10 years of experience in developing comprehensive reporting ecosystems that automate the transformation of complex data into operational assets.
+Workforce Management (WFM) and Data Analyst with 14+ years of contact-centre experience at e& (Etisalat) UAE, Vodafone Egypt and Raya CX. Specialized in real-time monitoring (RTM), forecasting, capacity planning, scheduling and KPI reporting.
 
-Throughout my tenure with industry leaders like e& UAE and RAYA CX, I have served as a focal point for Management Information Systems (MIS), designing solutions specifically tailored for Workforce Management (WFM) and Customer Service operations.
+Creator of UMA, a real-time workforce monitoring application built for the e& contact centre using AI-assisted development and prompt engineering. Built automation tools officially adopted by e& that cut reporting time from minutes to seconds.
 
-My custom-built solutions have revolutionized reporting ecosystems by automating massive-scale daily reports, processing distinct datasets, and directly driving significant cost reductions. I specialize in building end-to-end automated reporting engines and interactive dashboards that bridge the gap between technical complexity and business strategy.
+My reports go to senior managers and SVPs and drive staffing and service-level decisions.
 
-Tech Stack: Python, C#, Next.js, SQL, Power BI, and Advanced Excel (VBA).
+Tech Stack: SQL, Power BI (DAX, Power Query), Python, Advanced Excel (VBA), JavaScript, Node.js, Genesys and QPC.
         
 </div>
 """, unsafe_allow_html=True)
@@ -215,14 +215,17 @@ ex1, ex2 = st.columns(2)
 
 with ex1:
 
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Senior Workforce MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("06/2021 - Present | Developing comprehensive reporting ecosystems.")
-    
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce MIS Analyst</p>', unsafe_allow_html=True)
-    st.write("03/2016 - 06/2021 | Automating massive-scale daily reports.")
-with ex2:   
-    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce Coordinator</p>', unsafe_allow_html=True)
-    st.write("04/2015 - 02/2016 | Automation, KPI dashboarding.")
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - Workforce Data Analyst</p>', unsafe_allow_html=True)
+    st.write("06/2021 - Present | Built UMA real-time monitoring, LOB analysis automation (10 min → 8 sec), real-time reporting (4 min → 6 sec), automated alerts to 15+ LOBs and Power BI KPI dashboards.")
+
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">e& UAE</span> - MIS Analyst</p>', unsafe_allow_html=True)
+    st.write("02/2019 - 06/2021 | Reports, dashboards, custom reporting tools and data warehouse optimization.")
+with ex2:
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Vodafone Egypt</span> - Data Analyst</p>', unsafe_allow_html=True)
+    st.write("07/2015 - 02/2019 | Customer analytics, Excel/VBA KPI dashboards and statistical validation.")
+
+    st.markdown('<p style="color:#007bff; font-weight:bold; font-size:18px;"><span style="color:#8b0000;">Raya CX</span> - Workforce Management Analyst</p>', unsafe_allow_html=True)
+    st.write("03/2012 - 07/2015 | Forecasting, scheduling optimization, ETL integration and schedule automation.")
     
 
 
@@ -233,17 +236,14 @@ st.header("🛠 Technical Expertise")
 sk_col1, sk_col2 = st.columns(2)
 
 with sk_col1:
-    st.markdown("**• Programming Languages:** Python, C#, Next for big data analysis, scripting, and data web scraping from dynamic websites")
-    st.markdown("**• Business Intelligence Tools:** Power BI expertise, Dashboard development, Real-time data visualization")
-    st.markdown("**• Big Data & Data Warehousing:** Data Warehouse Design, Big Data Analytics, ETL Processes, Data Integration, Handling Large-scale Datasets")
-    st.markdown("**• Data Analysis:** Advanced statistical analysis, Trend identification, Statistical modeling, KPI development, Data validation and integrity checks")
-    st.markdown("**• Database & Query Skills:** SQL (data extraction, manipulation, and analysis), ETL processes, Data integration")
+    st.markdown("**• Workforce Management:** Real-Time Monitoring (RTM), Intraday Management, Forecasting (short- and long-term), Capacity Planning, FTE and Shrinkage Analysis, Scheduling, Service Level, AHT and Occupancy Analysis")
+    st.markdown("**• Data Analysis and BI:** SQL (SQL Server), Power BI (DAX, Power Query), Dashboard Development, KPI Development, Statistical Analysis, Data Validation, ETL, Data Modeling")
+    st.markdown("**• Programming:** Python (data analysis, scripting, web scraping), Advanced Excel and VBA, JavaScript, Node.js, HTML/CSS, Playwright (automated testing)")
 
 with sk_col2:
-    st.markdown("**• Software Proficiency:** Advanced Excel with VBA for automation, Data visualization tools")
-    st.markdown("**• Analytics Methodologies:** Data-driven forecasting, Business planning and strategic analysis, Process optimization")
-    st.markdown("**• Reporting Skills:** Design and automate reporting workflows, Performance visualization, Real-time monitoring solutions")
-    st.markdown("**• Communication Skills:** Excellent verbal and written communication, Data storytelling, Cross functional collaboration")
+    st.markdown("**• AI and Automation:** AI-Assisted Software Development (Claude Code, ChatGPT), Prompt Engineering, Generative AI, LLM Agents and RAG concepts, Process Automation")
+    st.markdown("**• Platforms:** Genesys, QPC, Microsoft Excel, Power BI, Microsoft Outlook, SQL Server")
+    st.markdown("**• Professional:** Data Storytelling, Executive Reporting, Stakeholder Management, Cross-Functional Collaboration, Process Optimization")
 
 st.divider()
 
@@ -262,6 +262,29 @@ st.divider()
 st.markdown("<h2 style='text-align: left; color: #007bff; margin-top: 60px;'>📈 Technical Projects Samples</h2>", unsafe_allow_html=True)
 st.write("")
 
+
+# --- Featured Project: UMA ---
+st.markdown('<div class="project-card">', unsafe_allow_html=True)
+st.markdown('<p class="project-header">⭐ UMA: Real-Time Workforce Monitoring Application (e& UAE, 2026)</p>', unsafe_allow_html=True)
+st.markdown("""
+<div class="project-meta-box">
+    🛠 <span class="meta-label">Tech:</span> JavaScript, Node.js, HTML/CSS, Excel/CSV data pipelines, Playwright, AI-assisted development (Claude Code)<br>
+    🎯 <span class="meta-label">Impact:</span> One live view of queues, service levels and staff status for the e& contact centre
+</div>
+<div class="project-desc">
+<b>The Problem:</b> Real-time monitoring depended on manual exports from Genesys and QPC, so the team saw queue and staffing problems late.<br><br>
+<b>The Solution:</b> A desktop real-time monitoring (RTM) dashboard built end to end with AI-assisted development:
+<ul>
+<li>Live KPI cards, site, section and LOB views, calls waiting, real-time staff status and STF variance.</li>
+<li>Ingests Genesys, QPC and weekly IDP data (Excel/CSV) through a configurable data adapter with layout health checks and reference queue mapping.</li>
+<li>One-click Outlook email reports per section with configurable alert and colour rules.</li>
+<li>Admin Control Panel with encrypted settings, user access control, version enforcement and a configurable calculation engine with live preview.</li>
+<li>29 versions shipped, protected by automated Playwright regression tests.</li>
+</ul>
+<b>Roadmap:</b> AI assistant using RAG over historical WFM data, forecast, capacity plan and schedule designers, and an automated Genesys/QPC data grabber.
+</div>
+""", unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # --- Project 1 (UPDATED) ---
 st.markdown('<div class="project-card">', unsafe_allow_html=True)
